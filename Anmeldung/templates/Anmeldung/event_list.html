@@ -1,1 +1,25 @@
-<h1> Das ist die Anmeldungslist!</h1>
+{% load static %}
+<html>
+    <head>
+        <title>Ekayana-Institut - Veranstaltungen</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'Anmeldung/anmeldung.css' %}" />
+    </head>
+    
+    <body>
+        <div>
+            <div>
+                <h1>Kurs-Liste:</h1>
+            </div>
+            <div>
+                {% for h in events %}
+                <p>
+                    <h3>{{ h.bezeichnung }}</h3>
+                    Beginn: {{ h.beginn }} Ende: {{ h.ende|linebreaksbr }}
+                </p>
+                {% endfor  %}
+            </div>
+        </div>   
+    </body>
+</html>
