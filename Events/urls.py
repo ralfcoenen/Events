@@ -16,6 +16,6 @@ from django.conf.urls import include, url
 from django.contrib import admin
 
 urlpatterns = [
-    url(r'^Anmeldung/',include('Anmeldung.urls')),
+    url(r'',include('Anmeldung.urls')),
     url(r'^admin/', include(admin.site.urls)),
 ]

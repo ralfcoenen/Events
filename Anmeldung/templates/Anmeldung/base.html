@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+    <head>
+        <title>Ekayana-Institut - Veranstaltungen</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" type="text/css" href="{% static 'Anmeldung/anmeldung.css' %}" />
+    </head>
+
+    <body>
+        <div class="page-header">
+            <h1><a href="/">Ekayana-Institut -- Veranstaltungen</a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                {% block content %}
+                {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
