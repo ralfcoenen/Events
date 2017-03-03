@@ -1,15 +1,16 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from Anmeldung.models import Event, Teilnehmer
-
 from .forms import TeilnehmerForm
-
+from datetime import date
 
 def index(request):
     return HttpResponse("Willkommen zur Anmeldung.")
 
 def event_list(request):
-    events = Event.objects.all()
+    
+    events = Event.objects.filter(registrationdeadline__gte=date.today())
+    
     return render(request, 'Anmeldung/event_list.html', {'events': events})
 
 def event_teilnehmer(request, pk):

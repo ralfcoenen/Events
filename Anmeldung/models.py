@@ -4,6 +4,7 @@ from ckeditor.fields import RichTextField
 # Create your models here.
 class Event(models.Model):
 	bezeichnung = models.CharField(max_length=200)
+	registrationdeadline = models.DateField(null=True)
 	beginn = models.DateField(null=True)
 	ende = models.DateField(null=True)
 	beschreibung = RichTextField()

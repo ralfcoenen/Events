@@ -12,6 +12,7 @@ class EventAdmin(admin.ModelAdmin):
         (None,                  {'fields': ['bezeichnung']}),
         ('Von Bis',             {'fields': ['beginn','ende'], 'classes': ['collapse']}),
         ('Beschreibung',         {'fields': ['beschreibung'], 'classes': ['collapse']}),
+        ('Deadline für Anmeldungen', {'fields': ['registrationdeadline'], 'classes': ['collapse']}),
 
     ]
     inlines = [TeilnehmerInline]
