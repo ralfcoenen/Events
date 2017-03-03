@@ -1,11 +1,12 @@
 from django.db import models
+from ckeditor.fields import RichTextField
 
 # Create your models here.
 class Event(models.Model):
 	bezeichnung = models.CharField(max_length=200)
 	beginn = models.DateField(null=True)
 	ende = models.DateField(null=True)
-	beschreibung = models.TextField(null=True)
+	beschreibung = RichTextField()
 
 	def __str__(self):
 		return self.bezeichnung

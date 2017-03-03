@@ -3,8 +3,9 @@
 {% block content %}
     <h1>Anmeldung für {{  event.bezeichnung}}</h1>
     <h3> {{ event.beginn}} bis {{ event.ende }} </h3>
-      <p></p>
 
+      <p> {{ event.beschreibung|safe }}</p>
+    
     <form class="form-horizontal" method="POST">{% csrf_token %}
     </br>
       <table class="table table-condensed">
