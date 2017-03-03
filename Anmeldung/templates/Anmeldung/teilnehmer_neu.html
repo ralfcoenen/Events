@@ -1,9 +1,17 @@
 {% extends 'Anmeldung/base.html' %}
 
 {% block content %}
-    <h1>Anmeldung:</h1>
-    <form method="POST" class="post-form">{% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="save btn btn-default">Save</button>
+    <h1>Anmeldung für {{  event.bezeichnung}}</h1>
+    <h3> {{ event.beginn}} bis {{ event.ende }}
+      <p></p>
+
+    <form class="form-horizontal" method="POST" class="post-form">{% csrf_token %}
+    </br>
+      <table>
+        {{ form.as_table }}
+      </table>
+    </br>
+        <button type="submit" class="save btn btn-default">Verbindlich anmelden</button>
     </form>
+
 {% endblock %}
