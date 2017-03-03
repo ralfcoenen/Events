@@ -10,7 +10,7 @@ class Event(models.Model):
 		return self.bezeichnung
 
 class Teilnehmer(models.Model):
-	event = models.ForeignKey(Event,on_delete=models.PROTECT)
+	event = models.ForeignKey(Event,on_delete=models.CASCADE)
 	name = models.CharField(max_length=40)
 	vorname = models.CharField(max_length=40)
 	strasse = models.CharField(max_length=60)
