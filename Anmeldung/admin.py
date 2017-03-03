@@ -1,6 +1,7 @@
 from django.contrib import admin
 
 from .models import Event, Teilnehmer
+from djqscsv import write_csv, render_to_csv_response
 
 class TeilnehmerInline(admin.TabularInline):
    model = Teilnehmer
@@ -11,12 +12,21 @@ class EventAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,                  {'fields': ['bezeichnung']}),
         ('Von Bis',             {'fields': ['beginn','ende'], 'classes': ['collapse']}),
+        ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
+
         ('Beschreibung',         {'fields': ['beschreibung'], 'classes': ['collapse']}),
         ('Deadline für Anmeldungen', {'fields': ['registrationdeadline'], 'classes': ['collapse']}),
 
     ]
     inlines = [TeilnehmerInline]
-    list_display = ('bezeichnung','beginn','ende')
+    actions = ['exportliste']
+    list_display = ('bezeichnung','beginn','ende','registrationdeadline')
+
+    def exportliste(self, request, queryset):
+        rs = queryset.values('bezeichnung','teilnehmer__name','teilnehmer__vorname','teilnehmer__strasse','teilnehmer__plz','teilnehmer__ort','teilnehmer__email','teilnehmer__anreisedatum','teilnehmer__abreisedatum')
+        #with open('/var/www/virtual/ekayana/django.ekayana-institut.de/foo.csv','w') as csv_file:
+            #write_csv(rs, csv_file)
+        return render_to_csv_response(rs,delimiter=';')
 
 
 admin.site.register(Event,EventAdmin)

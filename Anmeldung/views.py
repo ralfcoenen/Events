@@ -8,14 +8,12 @@ def index(request):
     return HttpResponse("Willkommen zur Anmeldung.")
 
 def event_list(request):
-    
     events = Event.objects.filter(registrationdeadline__gte=date.today())
-    
     return render(request, 'Anmeldung/event_list.html', {'events': events})
 
-def event_teilnehmer(request, pk):
+def event_detail( request, pk):
     event = get_object_or_404(Event, pk=pk)
-    return render(request, 'Anmeldung/event_teilnehmer.html', {'event': event})
+    return render(request, 'Anmeldung/event_detail.html', {'event': event})
 
 def teilnehmer_neu(request,pk):
     event = get_object_or_404(Event,pk=pk)
@@ -25,7 +23,7 @@ def teilnehmer_neu(request,pk):
             teilnehmer = form.save(commit=False)
             teilnehmer.event=event
             teilnehmer.save()
-            return redirect('event_teilnehmer',pk=event.pk)
+            return redirect('event_detail',pk=event.pk)
     else:
         form = TeilnehmerForm()
     return render(request, 'Anmeldung/teilnehmer_neu.html',{'form': form, 'event': event})

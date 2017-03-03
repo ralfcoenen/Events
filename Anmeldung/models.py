@@ -7,6 +7,7 @@ class Event(models.Model):
 	registrationdeadline = models.DateField(null=True)
 	beginn = models.DateField(null=True)
 	ende = models.DateField(null=True)
+	kurzbeschreibung = RichTextField()
 	beschreibung = RichTextField()
 
 	def __str__(self):
