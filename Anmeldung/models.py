@@ -5,6 +5,7 @@ class Event(models.Model):
 	bezeichnung = models.CharField(max_length=200)
 	beginn = models.DateField(null=True)
 	ende = models.DateField(null=True)
+	beschreibung = models.TextField(null=True)
 
 	def __str__(self):
 		return self.bezeichnung
@@ -17,6 +18,8 @@ class Teilnehmer(models.Model):
 	plz = models.CharField(max_length=8)
 	ort = models.CharField(max_length=40)
 	email = models.EmailField(null=True)
+	anreisedatum = models.DateField()
+	abreisedatum = models.DateField()
 
 	def __str__(self):
 		return self.name

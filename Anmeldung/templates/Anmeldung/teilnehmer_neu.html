@@ -2,12 +2,12 @@
 
 {% block content %}
     <h1>Anmeldung für {{  event.bezeichnung}}</h1>
-    <h3> {{ event.beginn}} bis {{ event.ende }}
+    <h3> {{ event.beginn}} bis {{ event.ende }} </h3>
       <p></p>
 
-    <form class="form-horizontal" method="POST" class="post-form">{% csrf_token %}
+    <form class="form-horizontal" method="POST">{% csrf_token %}
     </br>
-      <table>
+      <table class="table table-condensed">
         {{ form.as_table }}
       </table>
     </br>
