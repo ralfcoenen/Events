@@ -1,0 +1,10 @@
+/* Put your custom styles here */
+
+.panel-title > a,.panel-title > a:hover {
+    background-color: #9DB668;
+}
+
+#header-3 .hero
+{
+    background: url('../images/Westen_November-14-1270x728.jpg') no-repeat center center;
+}    

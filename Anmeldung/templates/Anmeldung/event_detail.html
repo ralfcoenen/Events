@@ -1,8 +1,33 @@
-{% extends 'Anmeldung/base.html' %}
+{% extends 'Anmeldung/base2.html' %}
 
 {%  block content %}
 
-    <h1> {{ event.bezeichnung }}</h1>
-    <p>{{ event.kurzbeschreibung|safe }}</p>
-    <a href="{% url 'teilnehmer_neu' pk=event.pk %}" class="btn btn-default">Zur Anmeldung</a>
-{%  endblock %}
+<div class="panel-group">
+  {%  for h in events %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">
+              <a class="panel-toggle" data-toggle="collapse" data-parent=".panel-group" href="#content{{ forloop.counter}}">
+                <span>{{ h.bezeichnung }} &emsp;&emsp;({{h.beginn}} -  {{h.ende}})</span>
+              </a>
+            </h4>
+        </div>
+        <!-- /.panel-heading -->
+        <div id="content{{forloop.counter}}" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>{{ h.beginn}}  -  {{ h.ende}}</p>
+                <p>{{ h.kurzbeschreibung|safe }}</p>
+                {% if h.oeffentlich  %}
+                <p>
+                  <a href="{% url 'teilnehmer_neu' pk=h.pk %}" class="btn btn-default">Zur Anmeldung</a>
+                </p>
+                {%  endif %}
+            </div>
+            <!-- /.panel-body -->
+        </div>
+        <!-- /.content -->
+    </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

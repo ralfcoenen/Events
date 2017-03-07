@@ -3,16 +3,25 @@
 {% block content %}
     <h1>Anmeldung für {{  event.bezeichnung}}</h1>
     <h3> {{ event.beginn}} bis {{ event.ende }} </h3>
-
+    {% if messages %}
+        {% for message in messages %}
+          <h3 class="alert-{{ message.tags }}">{{ message }}</h3>
+        {% endfor %}
+      </ul>
+    {% endif %}
       <p> {{ event.beschreibung|safe }}</p>
-    
+
     <form class="form-horizontal" method="POST">{% csrf_token %}
     </br>
-      <table class="table table-condensed">
+    <div class="g-recaptcha" data-sitekey="6Lc4pxcUAAAAADY5cp3r7co6zok1X9rkjWI7DFzH"></div>
+  </br>
+      <table class="table">
         {{ form.as_table }}
       </table>
     </br>
         <button type="submit" class="save btn btn-default">Verbindlich anmelden</button>
+        <p></p>
+
     </form>
 
 {% endblock %}

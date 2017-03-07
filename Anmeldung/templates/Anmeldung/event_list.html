@@ -1,11 +1,12 @@
-{%  extends 'Anmeldung/base.html' %}
+{%  extends 'Anmeldung/base2.html' %}
 
 {%  block content %}
 {% for h in events %}
     <div class="events">
         <h1><a href="{%  url 'event_detail' pk=h.pk %}">{{ h.bezeichnung }}</a></h1>
-        <p>Beginn: {{ h.beginn|linebreaksbr }}</p>
-        <p>Ende: {{ h.ende|linebreaksbr }}</p>
+        <h3> {{ h.beginn }} - {{ h.ende }}</h3>
+		<p> {{ h.kurzbeschreibung|safe }} </p>
+		<hr>
     </div>
 {% endfor %}
 {%  endblock %}
