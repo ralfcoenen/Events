@@ -13,8 +13,8 @@ from django.contrib import messages
 
 def testbase2(request):
     events = Event.objects.filter(registrationdeadline__gte=date.today()).order_by('beginn')
-    links = texte.objects.filter(bereich__exact='links')
-    rechts = texte.objects.filter(bereich__exact='rechts')
+    links = texte.objects.filter(bereich__exact='LEFT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today())
+    rechts = texte.objects.filter(bereich__exact='RIGHT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today())
     return render(request, 'Anmeldung/event_detail.html', {'events': events, 'links': links, 'rechts': rechts  })
 """
 def event_list(request):

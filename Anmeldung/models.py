@@ -43,9 +43,17 @@ class Teilnehmer(models.Model):
 	ordering = ['+name']
 
 class texte(models.Model):
-	bereich = models.CharField(max_length=50)
+	LEFTCONTENT = 'LEFT'
+	RIGHTCONTENT = 'RIGHT'
+	BEREICHCHOICES = (
+			(LEFTCONTENT, 'linke Spalte'),
+			(RIGHTCONTENT, 'rechte Spalte'),
+	)
+	bereich = models.CharField(max_length=5,choices=BEREICHCHOICES,default=LEFTCONTENT)
 	headertext = models.CharField(max_length=50)
 	langtext = RichTextField()
+	datepublishedstart = models.DateField('Veröffentlichung von',default=date.today)
+	datepublishedend = models.DateField('Veröffentlichung bis',default=date.today)
 
 	def __str__(self):
 		return self.headertext
