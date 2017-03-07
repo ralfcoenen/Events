@@ -42,10 +42,10 @@
                         <a href="#"></a>
                     </div>
                     <div class="col-md-8 col-md-offset-2 text-center">
-                        <div class="editContent">
+                        <div class="editContent headertext1">
                             <h1>Ekayana-Institut</h1>
                         </div>
-                        <div class="editContent">
+                        <div class="editContent headertext2">
                             <p class="lead">Programmübersicht und Anmeldung</p>
                         </div>
                     </div>
@@ -62,27 +62,15 @@
         <section id="content-3-4" class="content-block content-3-4">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-7">
-                        <!--
-                          <img class="img-responsive" src="{% static 'Anmeldung/images/Westen_November-14-1270x728.jpg' %}">
-                        -->
-                        <h2>Überschrift</h2>
-                        <p>Hier der dazu gehörige Text. Hier der dazu gehörige Text. Hier der dazu gehörige Text. Hier der dazu gehörige Text. Hier der dazu gehörige Text. Hier der dazu gehörige Text. Hier der dazu gehörige Text. Hier der dazu gehörige Text. </p>
-                        <!-- /.accordion -->
-                        {% block content %}
-                        {% endblock %}
-                    </div>
-                    <div class="col-md-5 col-md-offset-1">
-                    {% block sidebar %}
-                    {% endblock %}
-                    </div>
-                    <!-- /.column -->
+                  {% block content %}
+                  {% endblock %}
+                  
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container -->
         </section>
-
+<!--
         <section class="content-block-nopad bg-deepocean footer-wrap-1-1">
             <div class="container footer-1-1">
 
@@ -134,13 +122,14 @@
                                 <a href="#" class="btn btn-block btn-primary">Buy Now</a>
                             </div>
                         </div>
-                
+
                     </div>
                 </div>
 
-                <!-- /.row -->
+                <!- - /.row - ->
             </div>
-            <!-- /.container -->
+            <!- - /.container - ->
+-->
         </section>
         <script type="text/javascript" src="{% static 'Anmeldung/js/jquery-1.11.1.min.js' %}"></script>
         <script type="text/javascript" src="{% static 'Anmeldung/js/bootstrap.min.js' %}"></script>

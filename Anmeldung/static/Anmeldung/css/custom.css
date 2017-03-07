@@ -7,4 +7,32 @@
 #header-3 .hero
 {
     background: url('../images/Westen_November-14-1270x728.jpg') no-repeat center center;
-}    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 426px;
+}
+
+.headertext1, .headertext2{
+background-color: rgba(0,0,0, 0.4);
+}
+
+
+#header-3 .hero .headertext1  h1 {
+  font-size: 60px;
+  line-height: 80px;
+  color: #fff;
+  font-family: "Antic Slab",Arial,Helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+#header-3 .hero .headertext2 .lead p {
+  font-size: 45px;
+  line-height: 54px;
+  color: #fff;
+  font-family: "Antic Slab",Arial,Helvetica, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0;
+}

@@ -1,12 +1,12 @@
 from django.contrib import admin
 
-from .models import Event, Teilnehmer
+from .models import Event, Teilnehmer, texte
 from djqscsv import write_csv, render_to_csv_response
 
 class TeilnehmerInline(admin.StackedInline):
    model = Teilnehmer
    extra = 3
-   
+
 
 class EventAdmin(admin.ModelAdmin):
     fieldsets = [
@@ -27,6 +27,7 @@ class EventAdmin(admin.ModelAdmin):
         return render_to_csv_response(rs,delimiter=';')
 
 
+
 admin.site.register(Event,EventAdmin)
-#admin.site.register(Teilnehmer)
+admin.site.register(texte)
 admin.site.site_header = 'Ekayana-Institut'

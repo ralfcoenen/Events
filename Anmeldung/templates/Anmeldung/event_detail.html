@@ -1,33 +1,45 @@
 {% extends 'Anmeldung/base2.html' %}
 
-{%  block content %}
-
-<div class="panel-group">
-  {%  for h in events %}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h4 class="panel-title">
-              <a class="panel-toggle" data-toggle="collapse" data-parent=".panel-group" href="#content{{ forloop.counter}}">
-                <span>{{ h.bezeichnung }} &emsp;&emsp;({{h.beginn}} -  {{h.ende}})</span>
-              </a>
-            </h4>
-        </div>
-        <!-- /.panel-heading -->
-        <div id="content{{forloop.counter}}" class="panel-collapse collapse">
-            <div class="panel-body">
-                <p>{{ h.beginn}}  -  {{ h.ende}}</p>
-                <p>{{ h.kurzbeschreibung|safe }}</p>
-                {% if h.oeffentlich  %}
-                <p>
-                  <a href="{% url 'teilnehmer_neu' pk=h.pk %}" class="btn btn-default">Zur Anmeldung</a>
-                </p>
-                {%  endif %}
-            </div>
-            <!-- /.panel-body -->
-        </div>
-        <!-- /.content -->
-    </div>
+{% block content %}
+<div class="col-md-7">
+  <!-- /.accordion -->
+  <div class="panel-group">
+    {% for h in links %}
+      <h2>{{ h.headertext }}</h2>
+      <p>{{ h.langtext|safe }}</p>
+    {% endfor %}
+    {%  for h in events %}
+      <div class="panel panel-default">
+          <div class="panel-heading">
+              <h4 class="panel-title">
+                <a class="panel-toggle" data-toggle="collapse" data-parent=".panel-group" href="#content{{ forloop.counter}}">
+                  <span>{{ h.bezeichnung }} &emsp;&emsp;({{h.beginn}} -  {{h.ende}})</span>
+                </a>
+              </h4>
+          </div>
+          <!-- /.panel-heading -->
+          <div id="content{{forloop.counter}}" class="panel-collapse collapse">
+              <div class="panel-body">
+                  <p>{{ h.beginn}}  -  {{ h.ende}}</p>
+                  <p>{{ h.kurzbeschreibung|safe }}</p>
+                  {% if h.oeffentlich  %}
+                  <p>
+                    <a href="{% url 'teilnehmer_neu' pk=h.pk %}" class="btn btn-default">Zur Anmeldung</a>
+                  </p>
+                  {%  endif %}
+              </div>
+              <!-- /.panel-body -->
+          </div>
+          <!-- /.content -->
+      </div>
+    {% endfor %}
+  </div>
+</div>
+<div class="col-md-5">
+  {% for h in rechts %}
+    <h3>{{ h.headertext }}</h3>
+    <p> {{ h.langtext|safe }}</p>
   {% endfor %}
 </div>
-
+<!-- /.column -->
 {% endblock %}

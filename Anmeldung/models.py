@@ -41,3 +41,11 @@ class Teilnehmer(models.Model):
 		return self.name
 
 	ordering = ['+name']
+
+class texte(models.Model):
+	bereich = models.CharField(max_length=50)
+	headertext = models.CharField(max_length=50)
+	langtext = RichTextField()
+
+	def __str__(self):
+		return self.headertext

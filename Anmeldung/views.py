@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from Anmeldung.models import Event, Teilnehmer
+from Anmeldung.models import Event, Teilnehmer, texte
 from .forms import TeilnehmerForm
 from datetime import date
 
@@ -13,7 +13,9 @@ from django.contrib import messages
 
 def testbase2(request):
     events = Event.objects.filter(registrationdeadline__gte=date.today()).order_by('beginn')
-    return render(request, 'Anmeldung/event_detail.html', {'events': events })
+    links = texte.objects.filter(bereich__exact='links')
+    rechts = texte.objects.filter(bereich__exact='rechts')
+    return render(request, 'Anmeldung/event_detail.html', {'events': events, 'links': links, 'rechts': rechts  })
 """
 def event_list(request):
     events = Event.objects.filter(registrationdeadline__gte=date.today())
