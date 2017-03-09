@@ -32,6 +32,14 @@ class EventAdmin(admin.ModelAdmin):
     bild_display.allow_tags = True
 
 class texteAdmin(admin.ModelAdmin):
+    filedsets = [
+        (None,                  {'fields': ['bereich','headertext','datepublishedstart','datepublishedend',]}),
+        ('Bild',                {'fields': ['bild_breite','bild','bild_display'], 'classes': ['collapse']}),
+    ]
+    def bild_display(self, obj):
+        return format_html(u'<a href="{}"><img src="{}"></a>', obj.bild_thumb.url, obj.bild_thumb.url)
+    bild_display.allow_tags = True
+    readonly_fields = ['bild_display']
     list_display = ('headertext','bereich','datepublishedstart','datepublishedend')
 
 

@@ -10,7 +10,7 @@ from imagekit.utils import get_field_info
 
 # Create your models here.
 
-# Generiert Bild_thumb nach User-Angabe der Bild_breite 
+# Generiert Bild_thumb nach User-Angabe der Bild_breite
 class BildThumbnail(ImageSpec):
     format = 'JPEG'
     options = {'quality': 60}
@@ -31,8 +31,7 @@ class Event(models.Model):
     kurzbeschreibung = RichTextField()
     beschreibung = RichTextField(blank=True, default='')
     oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
-    bild_breite = models.IntegerField('Bild Breite (px)',default=350,null=True,blank=True)
-    bild_hoehe = models.IntegerField('Bild Höhe (px)',default=150,null=True,blank=True)
+    bild_breite = models.IntegerField('Bild Breite (px)',default=450,null=True,blank=True)
     bild = models.ImageField(null=True,blank=True)
     bild_thumb = ImageSpecField(source='bild',id='anmeldung:event:bild_thumbnail')
 
@@ -83,6 +82,12 @@ class texte(models.Model):
     langtext = RichTextField()
     datepublishedstart = models.DateField('Veröffentlichung von',default=date.today)
     datepublishedend = models.DateField('Veröffentlichung bis',default=date.today)
+    bild_breite = models.IntegerField('Bild Breite (px)',default=450,null=True,blank=True)
+    bild = models.ImageField(null=True,blank=True)
+    bild_thumb = ImageSpecField(source='bild',id='anmeldung:event:bild_thumbnail')
+
+    class Meta:
+        ordering = ['+datepublishedstart']
 
     def __str__(self):
         return self.headertext
