@@ -1,4 +1,4 @@
-{% extends 'Anmeldung/base.html' %}
+{% extends 'Anmeldung/base2.html' %}
 
 {% block content %}
     <h1>Anmeldung für {{  event.bezeichnung}}</h1>
@@ -9,19 +9,34 @@
         {% endfor %}
       </ul>
     {% endif %}
-      <p> {{ event.beschreibung|safe }}</p>
 
-    <form class="form-horizontal" method="POST">{% csrf_token %}
-    </br>
-    <div class="g-recaptcha" data-sitekey="6Lc4pxcUAAAAADY5cp3r7co6zok1X9rkjWI7DFzH"></div>
-  </br>
-      <table class="table">
-        {{ form.as_table }}
-      </table>
-    </br>
-        <button type="submit" class="save btn btn-default">Verbindlich anmelden</button>
-        <p></p>
+    <div class="container">
+        <div class="row">
+            <div data-pg-collapsed class="col-md-7">
+                <p> {{ event.beschreibung|safe }}</p>
+                <form class="form-horizontal" method="POST">{% csrf_token %}
+                </br>
+                <div class="g-recaptcha" data-sitekey="6Lc4pxcUAAAAADY5cp3r7co6zok1X9rkjWI7DFzH"></div>
+                </br>
+                <table class="table">
+                    {{ form.as_table }}
+                </table>
+                </br>
+                    <button type="submit" class="save btn btn-default">Verbindlich anmelden</button>
+                    <p></p>
 
-    </form>
+                </form>
+            </div>
+            <div data-pg-collapsed class="col-md-5">
+              <a href="http://anmeldung.ekayana-institut.de" target="_blank" class="btn btn-info btn-block">Zurück zur Programmübersicht</a>
+            </div>
+            <div data-pg-collapsed class="col-md-5">
+              {% if event.bild_thumb.url > ''%}
+              <img src="{{ event.bild_thumb.url }}" />
+              {% endif %}
+            </div>
+        </div>
+</div>
+
 
 {% endblock %}

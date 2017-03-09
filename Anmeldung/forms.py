@@ -6,6 +6,4 @@ class TeilnehmerForm(forms.ModelForm):
 
     class Meta:
         model = Teilnehmer
-        fields = ('anrede','titel','name','vorname','strasse','plz','ort','land','email','bemerkung')
-
-    
+        fields = ('anrede','titel','name','vorname','strasse','plz','ort','land','telefon','email','bemerkung')
