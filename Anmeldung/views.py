@@ -10,11 +10,13 @@ import json
 from django.conf import settings
 from django.contrib import messages
 
+from django.core.mail import send_mail
+import string
 
 def testbase2(request):
     events = Event.objects.filter(registrationdeadline__gte=date.today()).order_by('beginn')
-    links = texte.objects.filter(bereich__exact='LEFT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today())
-    rechts = texte.objects.filter(bereich__exact='RIGHT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today())
+    links = texte.objects.filter(bereich__exact='LEFT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today()).order_by('-datepublishedstart')
+    rechts = texte.objects.filter(bereich__exact='RIGHT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today()).order_by('-datepublishedstart')
     return render(request, 'Anmeldung/event_detail.html', {'events': events, 'links': links, 'rechts': rechts  })
 """
 def event_list(request):
@@ -50,6 +52,28 @@ def teilnehmer_neu(request,pk):
                 teilnehmer.event=event
                 teilnehmer.save()
                 messages.success(request, 'Neue Anmeldung erfolgreich durchgeführt!')
+                #
+                #  Anmweldung war erfolgreich, sende nun die Emails
+                #
+                """
+                betreff = 'Neue Anmeldung für ' + event.bezeichnung
+                nachricht = ' '.join(['Vielen Dank!\n',
+                                    'Sie haben sich erfolgreich für die Veranstaltung', '"',event.bezeichnung ,'"', 'angemeldet!\n\n',
+                                    'Ihre Daten sind wie folgt erfasst worden:\n\n',
+                                    form.cleaned_data['vorname'], form.cleaned_data['name'], '\n',
+                                    form.cleaned_data['strasse'], '\n',
+                                    form.cleaned_data['plz'], form.cleaned_data['ort'], '\n',
+                                ])
+                von = 'ralf@ekayana-institut.de'
+                an = form.cleaned_data['email']
+                send_mail(
+                        betreff,
+                        nachricht,
+                        von,
+                        [an],
+                        fail_silently=False,
+                )
+                """
                 return redirect('teilnehmer_neu',pk=pk)
                 #events = Event.objects.filter(registrationdeadline__gte=date.today()).order_by('beginn')
                 #return render(request, 'Anmeldung/event_detail.html', {'events': events })

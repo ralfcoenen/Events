@@ -8,7 +8,7 @@
       <h2>{{ h.headertext }}</h2>
 
       <p>{{ h.langtext|safe }}</p>
-      {% if h.bild_thumb.url > '' %}
+      {% if h.bild != '' %}
           <p><img src="{{ h.bild_thumb.url }}" /></p>
       {% endif %}
 
@@ -45,7 +45,8 @@
   {% for h in rechts %}
     <h3>{{ h.headertext }}</h3>
     <p> {{ h.langtext|safe }}</p>
-    {% if h.bild_thumb.url > '' %}
+    {% if h.bild != ''  %}
+        <!-- Nur ein Test -->
         <img src="{{ h.bild_thumb.url }}" /> </br>
     {% endif %}
   {% endfor %}
