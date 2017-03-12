@@ -7,6 +7,7 @@ from imagekit import ImageSpec, register
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill, ResizeToFit
 from imagekit.utils import get_field_info
+from Anmeldung.singleton import SingletonModel
 
 # Create your models here.
 
@@ -95,3 +96,14 @@ class texte(models.Model):
     class Meta:
         verbose_name ='Texte'
         verbose_name_plural = 'Texte'
+
+class UserSettings(SingletonModel):
+    emails_to = models.CharField(max_length=60,blank=True,null=True)
+    email_antworttext = models.TextField('Text für Antwort auf Anmeldung',blank=True, default='')
+
+    def __str__(self):
+        return 'Einstellung'
+
+    class Meta:
+        verbose_name = 'System-Einstellung'
+        verbose_name_plural = 'System-Einstellungen'

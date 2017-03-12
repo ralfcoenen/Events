@@ -1,13 +1,17 @@
 from django.contrib import admin
 from django.utils.html import format_html
 
-from .models import Event, Teilnehmer, texte
+from .models import Event, Teilnehmer, texte, UserSettings
 from djqscsv import write_csv, render_to_csv_response
 
 class TeilnehmerInline(admin.StackedInline):
    model = Teilnehmer
    extra = 3
-
+   fieldsets = [
+                (None,             {'fields': ['name','vorname',]}),
+                ('Adress-Daten',   {'fields': ['strasse','plz','ort','email','telefon','bemerkung'], 'classes': ['collapse']})
+              ]
+   ordering = [('name')]
 
 
 class EventAdmin(admin.ModelAdmin):
@@ -42,7 +46,14 @@ class texteAdmin(admin.ModelAdmin):
     readonly_fields = ['bild_display']
     list_display = ('headertext','bereich','datepublishedstart','datepublishedend')
 
+class usersettingsAdmin(admin.ModelAdmin):
+
+    def has_add_permission(self, request):
+        # Add Button muss weg, weil sonst versehntlich überschrieben wird
+        return False
+
 
 admin.site.register(Event,EventAdmin)
 admin.site.register(texte,texteAdmin)
+admin.site.register(UserSettings,usersettingsAdmin)
 admin.site.site_header = 'Ekayana-Institut'
