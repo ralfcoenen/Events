@@ -1,11 +1,11 @@
 from django.db import models
 from ckeditor.fields import RichTextField
 from datetime import date
-from django.utils import timezone
+
 
 from imagekit import ImageSpec, register
 from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFill, ResizeToFit
+from imagekit.processors import ResizeToFit
 from imagekit.utils import get_field_info
 from Anmeldung.singleton import SingletonModel
 
@@ -44,7 +44,7 @@ class Event(models.Model):
     def __str__(self):
         return self.bezeichnung
 
-        ordering = ['+beginn']
+    ordering = ['+beginn']
 
 class Teilnehmer(models.Model):
     event = models.ForeignKey(Event,on_delete=models.CASCADE)

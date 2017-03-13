@@ -1,6 +1,5 @@
-from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
-from Anmeldung.models import Event, Teilnehmer, texte, UserSettings
+from Anmeldung.models import Event, texte, UserSettings
 from .forms import TeilnehmerForm
 from datetime import date
 

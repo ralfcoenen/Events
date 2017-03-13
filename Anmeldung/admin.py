@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.utils.html import format_html
 
 from .models import Event, Teilnehmer, texte, UserSettings
-from djqscsv import write_csv, render_to_csv_response
+from djqscsv import render_to_csv_response
 
 class TeilnehmerInline(admin.StackedInline):
    model = Teilnehmer
@@ -55,9 +55,9 @@ class usersettingsAdmin(admin.ModelAdmin):
 
     ]
 
-    def has_add_permission(self, request):
-        # Add Button muss weg, weil sonst versehntlich überschrieben wird
-        return False
+ #   def has_add_permission(self, request):
+ #       # Add Button muss weg, weil sonst versehntlich überschrieben wird
+ #       return False
 
 
 admin.site.register(Event,EventAdmin)
