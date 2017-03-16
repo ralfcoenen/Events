@@ -124,6 +124,20 @@ ADMINS = [('Ralf', 'ralf@subuthi.de')]
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
+
+DEFAULT = {
+    'selector': 'textarea',
+    'theme': 'modern',
+    'plugins': 'link image preview codesample contextmenu table code',
+    'toolbar1': 'bold italic underline | alignleft aligncenter alignright alignjustify '
+               '| bullist numlist | outdent indent | table | link image | codesample | preview code',
+    'contextmenu': 'formats | link image',
+    'menubar': False,
+    'inline': False,
+    'statusbar': True,
+    'height': 360,
+}
+
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_CONFIGS = {
     'default': {
@@ -201,13 +215,22 @@ EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
 EMAIL_HOST_PASSWORD = 'Paaf.3010'
 
 #
-#   Filer
+#   django-filebrowser
 #
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 MEDIA_URL = '/media/'
 
 DIRECTORY = ''
 FILEBROWSER_DIRECTORY = ''
+
+FILEBROWSER_SELECT_FORMATS = {
+    # image is used when you click on "Insert/edit image" icon
+    'image': ['Image'],
+    # file is used when you click on "Insert/edit link" icon
+    'file': ['Folder','Image','Video','Document','Audio','Code'],
+    # media is probably used when you click on "Insert/edit media" icon
+    'media': ['Video','Audio'],
+}
 
 
 

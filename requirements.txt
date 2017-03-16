@@ -1,9 +1,9 @@
-django == 1.10
+django >= 1.10 < 2
 django-ckeditor
 pillow
 django-queryset-csv
 django-imagekit
 django-appconf
 django-tinymce4-lite
-django-filebrowser
 django-grappelli
+django-filebrowser
