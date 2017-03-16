@@ -9,6 +9,8 @@ from imagekit.processors import ResizeToFit
 from imagekit.utils import get_field_info
 from Anmeldung.singleton import SingletonModel
 
+from tinymce import HTMLField
+
 # Create your models here.
 
 # Generiert Bild_thumb nach User-Angabe der Bild_breite
@@ -29,8 +31,8 @@ class Event(models.Model):
     registrationdeadline = models.DateField('Sichtbar bis einschl.',null=True)
     beginn = models.DateField(null=True)
     ende = models.DateField(null=True)
-    kurzbeschreibung = RichTextField()
-    beschreibung = RichTextField(blank=True, default='')
+    kurzbeschreibung = HTMLField('Kurze Beschreibung')
+    beschreibung = HTMLField('Beschreibung')
     oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
     bild_breite = models.IntegerField('Bild Breite (px)',default=450,null=True,blank=True)
     bild = models.ImageField(null=True,blank=True)
@@ -80,7 +82,7 @@ class texte(models.Model):
     )
     bereich = models.CharField(max_length=5,choices=BEREICHCHOICES,default=LEFTCONTENT)
     headertext = models.CharField('Überschrift',max_length=50)
-    langtext = RichTextField()
+    langtext = HTMLField('Text')
     datepublishedstart = models.DateField('Veröffentlichung von',default=date.today)
     datepublishedend = models.DateField('Veröffentlichung bis',default=date.today)
     bild_breite = models.IntegerField('Bild Breite (px)',default=450,null=True,blank=True)

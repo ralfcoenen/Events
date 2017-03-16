@@ -4,3 +4,6 @@ pillow
 django-queryset-csv
 django-imagekit
 django-appconf
+django-tinymce4-lite
+django-filebrowser
+django-grappelli

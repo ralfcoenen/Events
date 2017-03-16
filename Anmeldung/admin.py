@@ -4,6 +4,12 @@ from django.utils.html import format_html
 from .models import Event, Teilnehmer, texte, UserSettings
 from djqscsv import render_to_csv_response
 
+
+from filebrowser.sites import site
+
+site.directory = "uploads/"
+
+
 class TeilnehmerInline(admin.StackedInline):
    model = Teilnehmer
    extra = 3
