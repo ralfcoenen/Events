@@ -203,8 +203,11 @@ EMAIL_HOST_PASSWORD = 'Paaf.3010'
 #
 #   Filer
 #
-MEDIA_ROOT = '/var/www/virtual/ekayana/anmeldung.ekayana-institut.de/media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+DIRECTORY = ''
+FILEBROWSER_DIRECTORY = ''
 
 
 
