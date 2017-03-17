@@ -25,7 +25,7 @@ SECRET_KEY = '*j=lr(u&o@alycr!gts!8n10vpo$0)6ebggg(3lpg-_vu1$7py'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1','anmeldung.ekayana-institut.de']
+ALLOWED_HOSTS = ['django.subuthi.de']
 USE_X_FORWARDED_HOST = True
 
 
@@ -121,16 +121,13 @@ USE_TZ = True
 ADMINS = [('Ralf', 'ralf@subuthi.de')]
 
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 
-DEFAULT = {
+TINYMCE_DEFAULT_CONFIG = {
     'selector': 'textarea',
     'theme': 'modern',
-    'plugins': 'link image preview codesample contextmenu table code',
-    'toolbar1': 'bold italic underline | alignleft aligncenter alignright alignjustify '
-               '| bullist numlist | outdent indent | table | link image | codesample | preview code',
+    'plugins': 'link image preview codesample contextmenu table code lists advlist',
+    'toolbar1': 'styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table | link image | codesample | preview code',
     'contextmenu': 'formats | link image',
     'menubar': False,
     'inline': False,
@@ -138,6 +135,7 @@ DEFAULT = {
     'height': 360,
 }
 
+"""
 CKEDITOR_JQUERY_URL = 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'
 CKEDITOR_CONFIGS = {
     'default': {
@@ -201,6 +199,8 @@ CKEDITOR_CONFIGS = {
             ]),
     }
 }
+"""
+
 #
 #
 #
@@ -214,14 +214,20 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
 EMAIL_HOST_PASSWORD = 'Paaf.3010'
 
+STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/static/'
+
+
+
 #
 #   django-filebrowser
 #
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/media/'
 MEDIA_URL = '/media/'
 
-DIRECTORY = ''
+
 FILEBROWSER_DIRECTORY = ''
+DIRECTORY = ''
 
 FILEBROWSER_SELECT_FORMATS = {
     # image is used when you click on "Insert/edit image" icon
@@ -231,6 +237,3 @@ FILEBROWSER_SELECT_FORMATS = {
     # media is probably used when you click on "Insert/edit media" icon
     'media': ['Video','Audio'],
 }
-
-
-
