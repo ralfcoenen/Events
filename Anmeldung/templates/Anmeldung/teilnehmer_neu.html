@@ -31,7 +31,7 @@
               <a href="{% url 'testbase' %}" class="btn btn-info btn-block">Zurück zur Programmübersicht</a>
             </div>
             <div data-pg-collapsed class="col-md-5">
-              {% if event.bild_thumb.url > ''%}
+              {% if event.bild_thumb.url > none%}
               <img src="{{ event.bild_thumb.url }}" />
               {% endif %}
             </div>
