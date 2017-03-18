@@ -32,7 +32,6 @@ USE_X_FORWARDED_HOST = True
 # Application definition
 
 INSTALLED_APPS = (
-    # 'grappelli',
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -42,8 +41,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'Anmeldung.apps.AnmeldungConfig',
     'tinymce'
-    # 'ckeditor',
-    #'tinymce',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -86,20 +83,17 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-#        'ENGINE': 'django.db.backends.mysql',
-#        'NAME': 'ekayana_django',
-#        'USER': 'ekayana',
-#        'PASSWORD': 'ooCohj9Weing4too',
-#        'HOST': '127.0.0.1',
-#        'PORT': '',
-#        'OPTIONS': {
-#             'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
-#        },
-
+        # 'ENGINE': 'django.db.backends.mysql',
+        #  NAME': 'ekayana_django',
+        #  'USER': 'ekayana',
+        #  'PASSWORD': 'ooCohj9Weing4too',
+        #  'HOST': '127.0.0.1',
+        #  'PORT': '',
+        #  'OPTIONS': {
+        #       'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
+        #  },
     }
 }
-
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -119,9 +113,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 ADMINS = [('Ralf', 'ralf@subuthi.de')]
-
-
-
 
 TINYMCE_DEFAULT_CONFIG = {
     'selector': 'textarea',
@@ -215,25 +206,25 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
 EMAIL_HOST_PASSWORD = 'Paaf.3010'
 
-
-#Production
+#
+# Production
+# ###################
 # STATIC_URL = '/static/'
 # STATIC_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/static/'
 # MEDIA_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/media/'
 # MEDIA_URL = '/media/'
 
-
+#
+#  Development
+# #########################
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
-
-
 #
 #   django-filebrowser
 #
-
 
 FILEBROWSER_DIRECTORY = ''
 DIRECTORY = ''
@@ -242,7 +233,7 @@ FILEBROWSER_SELECT_FORMATS = {
     # image is used when you click on "Insert/edit image" icon
     'image': ['Image'],
     # file is used when you click on "Insert/edit link" icon
-    'file': ['Folder','Image','Video','Document','Audio','Code'],
+    'file': ['Folder', 'Image', 'Video', 'Document', 'Audio', 'Code'],
     # media is probably used when you click on "Insert/edit media" icon
-    'media': ['Video','Audio'],
+    'media': ['Video', 'Audio'],
 }

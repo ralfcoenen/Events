@@ -21,6 +21,7 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='texte',
             name='bereich',
-            field=models.CharField(choices=[('LEFT', 'linke Spalte'), ('RIGHT', 'rechte Spalte')], default='LEFT', max_length=5),
+            field=models.CharField(choices=[('LEFT', 'linke Spalte'), ('RIGHT',
+                                                'rechte Spalte')], default='LEFT', max_length=5),
         ),
     ]

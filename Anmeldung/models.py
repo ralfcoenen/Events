@@ -13,19 +13,6 @@ from tinymce import HTMLField
 
 # Create your models here.
 
-# Generiert Bild_thumb nach User-Angabe der Bild_breite
-class BildThumbnail(ImageSpec):
-    format = 'JPEG'
-    options = {'quality': 60}
-
-    @property
-    def processors(self):
-        model, field_name = get_field_info(self.source)
-        return [ResizeToFit(model.bild_breite)]
-
-register.generator('anmeldung:event:bild_thumbnail', BildThumbnail)
-
-
 class Event(models.Model):
     bezeichnung = models.CharField(max_length=200)
     registrationdeadline = models.DateField('Sichtbar bis einschl.',null=True)
@@ -34,9 +21,6 @@ class Event(models.Model):
     kurzbeschreibung = HTMLField('Kurze Beschreibung')
     beschreibung = HTMLField('Beschreibung')
     oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
-    bild_breite = models.IntegerField('Bild Breite (px)',default=450,null=True,blank=True)
-    bild = models.ImageField(null=True,blank=True)
-    bild_thumb = ImageSpecField(source='bild',id='anmeldung:event:bild_thumbnail')
 
     class Meta:
         verbose_name = 'Veranstaltung'
@@ -92,19 +76,19 @@ class texte(models.Model):
     langtext = HTMLField('Text')
     datepublishedstart = models.DateField('Veröffentlichung von',default=date.today)
     datepublishedend = models.DateField('Veröffentlichung bis',default=date.today)
-    bild_breite = models.IntegerField('Bild Breite (px)',default=450,null=True,blank=True)
-    bild = models.ImageField(null=True,blank=True)
-    bild_thumb = ImageSpecField(source='bild',id='anmeldung:event:bild_thumbnail')
 
     class Meta:
-        ordering = ['+datepublishedstart']
+        ordering = ['datepublishedstart']
+
+        verbose_name = 'Texte'
+        verbose_name_plural = 'Texte'
+
 
     def __str__(self):
         return self.headertext
 
-    class Meta:
-        verbose_name ='Texte'
-        verbose_name_plural = 'Texte'
+
+
 
 class UserSettings(SingletonModel):
     senden = models.BooleanField('E-Mails senden',default=True)
