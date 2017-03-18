@@ -88,8 +88,6 @@ class texte(models.Model):
         return self.headertext
 
 
-
-
 class UserSettings(SingletonModel):
     senden = models.BooleanField('E-Mails senden',default=True)
     emails_to = models.CharField(max_length=60,blank=True,null=True)

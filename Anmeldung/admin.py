@@ -24,10 +24,8 @@ class TeilnehmerInline(admin.StackedInline):
 class EventAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline']}),
-        # ('Von Bis',             {'fields': ['beginn','ende'], 'classes': ['collapse']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
         ('Beschreibung',        {'fields': ['beschreibung'], 'classes': ['collapse']}),
-        # ('Bild',                {'fields': ['bild_breite', 'bild', 'bild_display'], 'classes': ['collapse']}),
     ]
     inlines = [TeilnehmerInline]
     actions = ['exportliste']
@@ -41,16 +39,11 @@ class EventAdmin(admin.ModelAdmin):
                              'teilnehmer__abreisedatum', 'teilnehmer__bemerkung')
         return render_to_csv_response(rs, delimiter=';')
 
-    # def bild_display(self, obj):
-        # return format_html(u'<a href="{}"><img src="{}"></a>', obj.bild_thumb.url, obj.bild_thumb.url)
-    # bild_display.allow_tags = True
-
 
 class texteAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,                  {'fields': ['bereich', 'hoehe', 'headertext', 'datepublishedstart',
                                             'datepublishedend']}),
-        # ('Bild',                {'fields': ['bild_breite', 'bild', 'bild_display'], 'classes': ['collapse']}),
         ('Text',                {'fields': ['langtext'], 'classes': ['collapse']}),
     ]
 
@@ -61,7 +54,6 @@ class usersettingsAdmin(admin.ModelAdmin):
     fieldsets = [
             (None,              {'fields': ['senden', 'emails_to', 'email_antworttext_teilnehmer',
                                             'email_antworttext_organisation']})
-
     ]
 
     #   def has_add_permission(self, request):
