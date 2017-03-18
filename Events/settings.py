@@ -133,6 +133,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'inline': False,
     'statusbar': True,
     'height': 360,
+    'content_css': '/var/www/virtual/subuthi/django.subuthi.de/static/Anmeldung/bootstrap/css/bootstrap.css',
 }
 
 """

@@ -34,8 +34,6 @@ class EventAdmin(admin.ModelAdmin):
     list_display = ('bezeichnung','beginn','ende','registrationdeadline')
 
 
-    class Media:
-        js = ['/static/grappelli/tinymce/jscripts/tiny_mce/tiny_mce.js', '/static/grappelli/tinymce_setup/tinymce_setup.js']
 
     def exportliste(self, request, queryset):
         rs = queryset.values('bezeichnung','teilnehmer__anrede','teilnehmer__titel','teilnehmer__name','teilnehmer__vorname','teilnehmer__strasse','teilnehmer__plz','teilnehmer__ort','teilnehmer__email','teilnehmer__telefon','teilnehmer__anreisedatum','teilnehmer__abreisedatum','teilnehmer__bemerkung')
