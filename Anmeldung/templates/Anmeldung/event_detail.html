@@ -3,16 +3,17 @@
 {% block content %}
 <div class="col-md-7">
   <!-- /.accordion -->
+    {% for j in oben %}
+            <h2>{{ j.headertext }}</h2>
+
+            <p>{{ j.langtext|safe }}</p>
+            {% if j.bild != '' %}
+                <p><img src="{{ j.bild_thumb.url }}" /></p>
+            {% endif %}
+        {% endfor %}
   <div class="panel-group">
-    {% for h in links %}
-      <h2>{{ h.headertext }}</h2>
 
-      <p>{{ h.langtext|safe }}</p>
-      {% if h.bild != '' %}
-          <p><img src="{{ h.bild_thumb.url }}" /></p>
-      {% endif %}
 
-    {% endfor %}
     {%  for h in events %}
       <div class="panel panel-default">
           <div class="panel-heading">
@@ -39,16 +40,26 @@
           <!-- /.content -->
       </div>
     {% endfor %}
+
+        {% for j in unten %}
+            <h3>{{ j.headertext }}</h3>
+            <p> {{ j.langtext|safe }}</p>
+            {% if j.bild != ''  %}
+            <!-- Nur ein Test -->
+                <img src="{{ j.bild_thumb.url }}" /> </br>
+            {% endif %}
+        {% endfor %}
+
+
   </div>
 </div>
 <div class="col-md-5">
   {% for h in rechts %}
-    <h3>{{ h.headertext }}</h3>
-    <p> {{ h.langtext|safe }}</p>
-    {% if h.bild != ''  %}
-        <!-- Nur ein Test -->
-        <img src="{{ h.bild_thumb.url }}" /> </br>
-    {% endif %}
+            <h3>{{ h.headertext }}</h3>
+            <p> {{ h.langtext|safe }}</p>
+            {% if h.bild != ''  %}
+                <img src="{{ h.bild_thumb.url }}" /> </br>
+            {% endif %}
   {% endfor %}
 </div>
 <!-- /.column -->

@@ -19,7 +19,9 @@ def testbase2(request):
     events = Event.objects.filter(registrationdeadline__gte=date.today()).order_by('beginn')
     links = texte.objects.filter(bereich__exact='LEFT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today()).order_by('-datepublishedstart')
     rechts = texte.objects.filter(bereich__exact='RIGHT',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today()).order_by('-datepublishedstart')
-    return render(request, 'Anmeldung/event_detail.html', {'events': events, 'links': links, 'rechts': rechts})
+    oben =  texte.objects.filter(bereich__exact='LEFT',hoehe__exact='TOP',datepublishedstart__lte=date.today(),datepublishedend__gte=date.today()).order_by('-datepublishedstart')
+    unten = texte.objects.filter(bereich__exact='LEFT', hoehe__exact='BOTTOM', datepublishedstart__lte=date.today(),datepublishedend__gte=date.today()).order_by('-datepublishedstart')
+    return render(request, 'Anmeldung/event_detail.html', {'events': events, 'links': links, 'rechts': rechts, 'oben': oben, 'unten': unten})
 
 def event_detail( request, pk):
     event = get_object_or_404(Event, pk=pk)

@@ -32,7 +32,7 @@ USE_X_FORWARDED_HOST = True
 # Application definition
 
 INSTALLED_APPS = (
-    'grappelli',
+    # 'grappelli',
     'filebrowser',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -214,16 +214,24 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
 EMAIL_HOST_PASSWORD = 'Paaf.3010'
 
+
+#Production
+# STATIC_URL = '/static/'
+# STATIC_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/static/'
+# MEDIA_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/media/'
+# MEDIA_URL = '/media/'
+
+
 STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 
 #
 #   django-filebrowser
 #
-MEDIA_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/media/'
-MEDIA_URL = '/media/'
 
 
 FILEBROWSER_DIRECTORY = ''

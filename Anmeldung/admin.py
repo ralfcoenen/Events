@@ -47,7 +47,7 @@ class EventAdmin(admin.ModelAdmin):
 
 class texteAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,                  {'fields': ['bereich','headertext','datepublishedstart','datepublishedend',]}),
+        (None,                  {'fields': ['bereich','hoehe', 'headertext','datepublishedstart','datepublishedend',]}),
         ('Bild',                {'fields': ['bild_breite','bild','bild_display'], 'classes': ['collapse']}),
         ('Text',                {'fields': ['langtext'], 'classes': ['collapse']}),
     ]
@@ -57,7 +57,7 @@ class texteAdmin(admin.ModelAdmin):
 
     bild_display.allow_tags = True
     readonly_fields = ['bild_display']
-    list_display = ('headertext','bereich','datepublishedstart','datepublishedend')
+    list_display = ('headertext','bereich','hoehe', 'datepublishedstart','datepublishedend')
 
 class usersettingsAdmin(admin.ModelAdmin):
     fieldsets = [

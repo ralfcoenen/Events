@@ -76,11 +76,18 @@ class Teilnehmer(models.Model):
 class texte(models.Model):
     LEFTCONTENT = 'LEFT'
     RIGHTCONTENT = 'RIGHT'
-    BEREICHCHOICES = (
+    COLCHOICES = (
     (LEFTCONTENT, 'linke Spalte'),
     (RIGHTCONTENT, 'rechte Spalte'),
     )
-    bereich = models.CharField(max_length=5,choices=BEREICHCHOICES,default=LEFTCONTENT)
+    TOPCONTENT = "TOP"
+    BOTTOMCONTENT ="BOTTOM"
+    ROWCHOICES = (
+        (TOPCONTENT, 'Über den Terminen'),
+        (BOTTOMCONTENT,'Unter den Terminen'),
+    )
+    bereich = models.CharField(max_length=5,choices=COLCHOICES,default=LEFTCONTENT)
+    hoehe = models.CharField(max_length=6, choices=ROWCHOICES, default=BOTTOMCONTENT)
     headertext = models.CharField('Überschrift',max_length=50)
     langtext = HTMLField('Text')
     datepublishedstart = models.DateField('Veröffentlichung von',default=date.today)
