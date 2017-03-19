@@ -25,7 +25,7 @@ SECRET_KEY = '*j=lr(u&o@alycr!gts!8n10vpo$0)6ebggg(3lpg-_vu1$7py'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django.subuthi.de']
+ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
 USE_X_FORWARDED_HOST = True
 
 
@@ -81,17 +81,17 @@ WSGI_APPLICATION = 'Events.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE': 'django.db.backends.mysql',
-        #  NAME': 'ekayana_django',
-        #  'USER': 'ekayana',
-        #  'PASSWORD': 'ooCohj9Weing4too',
-        #  'HOST': '127.0.0.1',
-        #  'PORT': '',
-        #  'OPTIONS': {
-        #       'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
-        #  },
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'ekayana_django',
+        'USER': 'ekayana',
+        'PASSWORD': 'ooCohj9Weing4too',
+        'HOST': '127.0.0.1',
+        'PORT': '',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
+        },
     }
 }
 
@@ -130,18 +130,18 @@ EMAIL_HOST_PASSWORD = 'Paaf.3010'
 #
 # Production
 # ###################
-# STATIC_URL = '/static/'
-# STATIC_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/static/'
-# MEDIA_ROOT = '/var/www/virtual/subuthi/django.subuthi.de/media/'
-# MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+STATIC_ROOT = '/var/www/virtual/ekayana/anmeldung.ekayana-institut.de/static/'
+MEDIA_ROOT = '/var/www/virtual/ekayana/anmeldung.ekayana-institut.de/media/'
+MEDIA_URL = '/media/'
 
 #
 #  Development
 # #########################
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-MEDIA_URL = '/media/'
+# STATIC_URL = '/static/'
+# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_URL = '/media/'
 
 #
 #   django-filebrowser
@@ -162,13 +162,13 @@ FILEBROWSER_SELECT_FORMATS = {
 TINYMCE_DEFAULT_CONFIG = {
     'selector': 'textarea',
     'theme': 'modern',
-    'plugins': 'link image preview codesample contextmenu table code lists advlist',
-    'toolbar1': 'styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table | link image | codesample | preview code',
+    'plugins': 'link image preview codesample contextmenu table code lists advlist hr',
+    'toolbar1': 'styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table hr | link image | codesample | preview code',
     'contextmenu': 'formats | link image',
     'menubar': False,
     'inline': False,
     'statusbar': True,
     'height': 360,
-    # 'content_css': '/var/www/virtual/subuthi/django.subuthi.de/static/Anmeldung/bootstrap/css/bootstrap.css',
+    # 'content_css': '/var/www/virtual/subuthi/anmeldung.ekayana-institut.de/static/Anmeldung/bootstrap/css/bootstrap.css',
     'content_css': os.path.join(STATIC_ROOT,'bootstrap/css/bootstrap.css')
 }
