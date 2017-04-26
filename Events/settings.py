@@ -90,7 +90,7 @@ DATABASES = {
         'HOST': '127.0.0.1',
         'PORT': '',
         'OPTIONS': {
-            'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
+          'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
         },
     }
 }
@@ -160,15 +160,14 @@ FILEBROWSER_SELECT_FORMATS = {
 }
 
 TINYMCE_DEFAULT_CONFIG = {
-    'selector': 'textarea',
     'theme': 'modern',
     'plugins': 'link image preview codesample contextmenu table code lists advlist hr',
-    'toolbar1': 'styleselect | bold italic underline | alignleft aligncenter alignright alignjustify | bullist numlist | outdent indent | table hr | link image | codesample | preview code',
+    'toolbar1': 'styleselect formatselect fontselect fontsizeselect | bold italic underline strikethrough | alignleft aligncenter alignright alignjustify | bullist numlist hr | outdent indent | table | link image | codesample | preview code',
     'contextmenu': 'formats | link image',
-    'menubar': False,
+    'menubar': True,
     'inline': False,
     'statusbar': True,
-    'height': 360,
-    # 'content_css': '/var/www/virtual/subuthi/anmeldung.ekayana-institut.de/static/Anmeldung/bootstrap/css/bootstrap.css',
-    'content_css': os.path.join(STATIC_ROOT,'bootstrap/css/bootstrap.css')
+    'height': 460,
+    # 'content_css': '/var/www/virtual/subuthi/django.subuthi.de/static/Anmeldung/bootstrap/css/bootstrap.css',
+    'content_css': os.path.join(STATIC_ROOT,'bootstrap/css/bootstrap.css'),
 }
