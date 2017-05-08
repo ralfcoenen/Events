@@ -42,7 +42,7 @@ class Teilnehmer(models.Model):
     plz = models.CharField(max_length=8)
     ort = models.CharField(max_length=40)
     land = models.CharField(max_length=40,blank=True, default='')
-    email = models.EmailField(blank=True,default='')
+    email = models.EmailField()
     telefon = models.CharField(max_length=20,blank=True)
     bemerkung = models.TextField(blank=True,default='')
     anreisedatum = models.DateField(null=True,blank=True)
