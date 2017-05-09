@@ -15,15 +15,16 @@ class TeilnehmerInline(admin.StackedInline):
     extra = 3
     fieldsets = [
                 (None,             {'fields': ['name', 'vorname']}),
-                ('Adress-Daten',   {'fields': ['strasse', 'plz', 'ort', 'email',
-                                               'telefon', 'bemerkung'], 'classes': ['collapse']})
+                ('Adress-Daten',   {'fields': ['businessaddress','strasse', 'plz', 'ort', 'email',
+                                               'telefon', 'anreisedatum','abreisedatum',
+                                               'verpflegung','unterbringung','bemerkung'], 'classes': ['collapse']})
               ]
     ordering = ['name']
 
 
 class EventAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline']}),
+        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline','essensplaetze','schlafplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
         ('Beschreibung',        {'fields': ['beschreibung'], 'classes': ['collapse']}),
     ]
@@ -33,10 +34,10 @@ class EventAdmin(admin.ModelAdmin):
 
     def exportliste(self, request, queryset):
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
-                             'teilnehmer__name', 'teilnehmer__vorname', 'teilnehmer__strasse',
+                             'teilnehmer__name', 'teilnehmer__vorname', 'teilnehmer__businessaddress','teilnehmer__strasse',
                              'teilnehmer__plz', 'teilnehmer__ort',
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
-                             'teilnehmer__abreisedatum', 'teilnehmer__bemerkung')
+                             'teilnehmer__abreisedatum', 'teilnehmer__verpflegung','teilnehmer__unterbringung','teilnehmer__bemerkung')
         return render_to_csv_response(rs, delimiter=';')
 
 

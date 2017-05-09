@@ -53,6 +53,7 @@ def teilnehmer_neu(request, pk):
     if request.method == "POST":
         form = TeilnehmerForm(request.POST)
         if form.is_valid():
+            '''
             recaptcha_response = request.POST.get('g-recaptcha-response')
             url = 'https://www.google.com/recaptcha/api/siteverify'
             values = {
@@ -63,8 +64,10 @@ def teilnehmer_neu(request, pk):
             req = urllib.request.Request(url, data=data)
             response = urllib.request.urlopen(req)
             result = json.loads(response.read().decode())
-            ''' End reCAPTCHA validation '''
-            if result['success']:
+            #End reCAPTCHA validation
+            '''
+            #if result['success']:
+            if True:
                 teilnehmer = form.save(commit=False)
                 teilnehmer.event = event
                 teilnehmer.save()
@@ -83,6 +86,7 @@ def teilnehmer_neu(request, pk):
                     settsDict['titel'] = form.cleaned_data['titel']
                     settsDict['vorname'] = form.cleaned_data['vorname']
                     settsDict['name'] = form.cleaned_data['name']
+                    settsDict['businessaddress'] = form.cleaned_data['businessaddress']
                     settsDict['strasse'] = form.cleaned_data['strasse']
                     settsDict['land'] = form.cleaned_data['land']
                     settsDict['plz'] = form.cleaned_data['plz']
@@ -90,6 +94,8 @@ def teilnehmer_neu(request, pk):
                     settsDict['telefon'] = form.cleaned_data['telefon']
                     settsDict['email'] = form.cleaned_data['email']
                     settsDict['bemerkung'] = form.cleaned_data['bemerkung']
+                    settsDict['verpflegung'] = form.cleaned_data['verpflegung']
+                    settsDict['unterbringung'] = form.cleaned_data['unterbringung']
                     # Aus Dict wird Context
                     ctx = Context(settsDict)
                     # Bau die Engine und generiere template
@@ -122,5 +128,5 @@ def teilnehmer_neu(request, pk):
                 messages.error(request, 'Falsches reCAPTCHA! Bitte nochmal versuchen!')
                 return redirect('teilnehmer_neu', pk=pk)
     else:
-        form = TeilnehmerForm()
+        form = TeilnehmerForm(pk)
     return render(request, 'Anmeldung/teilnehmer_neu.html', {'form': form, 'event': event, 'setts': setts})

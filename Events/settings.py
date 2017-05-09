@@ -25,7 +25,7 @@ SECRET_KEY = '*j=lr(u&o@alycr!gts!8n10vpo$0)6ebggg(3lpg-_vu1$7py'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
+ALLOWED_HOSTS = ['127.0.0.1']
 USE_X_FORWARDED_HOST = True
 
 
@@ -81,17 +81,17 @@ WSGI_APPLICATION = 'Events.wsgi.application'
 
 DATABASES = {
     'default': {
-        # 'ENGINE': 'django.db.backends.sqlite3',
-        # 'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ekayana_django',
-        'USER': 'ekayana',
-        'PASSWORD': 'ooCohj9Weing4too',
-        'HOST': '127.0.0.1',
-        'PORT': '',
-        'OPTIONS': {
-          'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
-        },
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.mysql',
+        #'NAME': 'ekayana_django',
+        #'USER': 'ekayana',
+        #'PASSWORD': 'ooCohj9Weing4too',
+        #'HOST': '127.0.0.1',
+        #'PORT': '',
+        #'OPTIONS': {
+        #  'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
+        #},
     }
 }
 
@@ -130,18 +130,18 @@ EMAIL_HOST_PASSWORD = 'Paaf.3010'
 #
 # Production
 # ###################
-STATIC_URL = '/static/'
-STATIC_ROOT = '/var/www/virtual/ekayana/anmeldung.ekayana-institut.de/static/'
-MEDIA_ROOT = '/var/www/virtual/ekayana/anmeldung.ekayana-institut.de/media/'
-MEDIA_URL = '/media/'
+# STATIC_URL = '/static/'
+# STATIC_ROOT = '/var/www/virtual/ekayana/anmeldung.ekayana-institut.de/static/'
+# MEDIA_ROOT = '/var/www/virtual/ekayana/anmeldung.ekayana-institut.de/media/'
+# MEDIA_URL = '/media/'
 
 #
 #  Development
 # #########################
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_URL = '/media/'
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 #
 #   django-filebrowser

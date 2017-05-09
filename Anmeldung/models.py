@@ -1,12 +1,7 @@
 from django.db import models
-from ckeditor.fields import RichTextField
-from datetime import date
+import datetime
 
 
-from imagekit import ImageSpec, register
-from imagekit.models import ImageSpecField
-from imagekit.processors import ResizeToFit
-from imagekit.utils import get_field_info
 from Anmeldung.singleton import SingletonModel
 
 from tinymce import HTMLField
@@ -15,17 +10,18 @@ from tinymce import HTMLField
 
 class Event(models.Model):
     bezeichnung = models.CharField(max_length=200)
-    registrationdeadline = models.DateField('Sichtbar bis einschl.',null=True)
-    beginn = models.DateField(null=True)
-    ende = models.DateField(null=True)
+    registrationdeadline = models.DateField('Sichtbar bis einschl.',default=datetime.date.today)
+    beginn = models.DateField(default=datetime.date.today)
+    ende = models.DateField(default=datetime.date.today)
     kurzbeschreibung = HTMLField('Kurze Beschreibung')
     beschreibung = HTMLField('Beschreibung')
     oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
+    schlafplaetze = models.PositiveSmallIntegerField(default=0)
+    essensplaetze = models.PositiveSmallIntegerField(default=0)
 
     class Meta:
         verbose_name = 'Veranstaltung'
         verbose_name_plural = 'Veranstaltungen'
-
 
     def __str__(self):
         return self.bezeichnung
@@ -33,8 +29,37 @@ class Event(models.Model):
     ordering = ['+beginn']
 
 class Teilnehmer(models.Model):
+    #
+    #  Choices einrichten
+    #
+    ESSENEXTERN = 'EXTERN'
+    ESSENINTERN = 'INTERN'
+    ESSENWARTELISTE = 'WARTELISTE'
+    ESSENCHOICE = (
+        (ESSENEXTERN, 'Ich verpflege mich selbst'),
+        (ESSENINTERN, 'Ich nehme an der Verpflegung teil'),
+        (ESSENWARTELISTE, 'Alles belegt. Ich möchte auf die Warteliste'),
+    )
+    #
+    ANREDEFRAU = 'Frau'
+    ANREDEHERR = 'Herr'
+    ANREDECHOICES = (
+        (ANREDEFRAU, 'Frau'),
+        (ANREDEHERR, 'Herr'),
+    )
+    SLEEPEXTERN = 'EXTERN'
+    SLEEPZELT = 'ZELT'
+    SLEEPWOHNWAGEN = 'WOHNWAGEN'
+    SLEEPINTERN = 'IMHAUS'
+    SLEEPCHOICES = (
+        (SLEEPEXTERN, 'Ich wohne im Hotel o.ä.'),
+        (SLEEPZELT, 'Ich schlafe im Zelt'),
+        (SLEEPWOHNWAGEN, 'Ich komme mit dem Wohnwagen o.ä.'),
+        (SLEEPINTERN, 'Ich brauche einen Schlafplatz im Haus'),
+    )
+    #
     event = models.ForeignKey(Event,on_delete=models.CASCADE)
-    anrede = models.CharField(max_length=15, default='')
+    anrede = models.CharField(max_length=15, default='',choices=ANREDECHOICES)
     titel = models.CharField(max_length=15, blank=True, default='')
     name = models.CharField(max_length=40)
     vorname = models.CharField(max_length=40)
@@ -45,8 +70,11 @@ class Teilnehmer(models.Model):
     email = models.EmailField()
     telefon = models.CharField(max_length=20,blank=True)
     bemerkung = models.TextField(blank=True,default='')
-    anreisedatum = models.DateField(null=True,blank=True)
-    abreisedatum = models.DateField(null=True, blank=True)
+    anreisedatum = models.DateField(default=datetime.date.today)
+    abreisedatum = models.DateField(default=datetime.date.today)
+    businessaddress = models.BooleanField('Geschäftsadresse',default=False)
+    verpflegung = models.CharField('Verpflegung', max_length=10, choices=ESSENCHOICE, default=ESSENEXTERN)
+    unterbringung = models.CharField('Unterbringung', max_length=32, choices=SLEEPCHOICES, default=SLEEPEXTERN)
 
     def __str__(self):
         return self.name
@@ -74,8 +102,8 @@ class texte(models.Model):
     hoehe = models.CharField(max_length=6, choices=ROWCHOICES, default=BOTTOMCONTENT)
     headertext = models.CharField('Überschrift',max_length=50)
     langtext = HTMLField('Text')
-    datepublishedstart = models.DateField('Veröffentlichung von',default=date.today)
-    datepublishedend = models.DateField('Veröffentlichung bis',default=date.today)
+    datepublishedstart = models.DateField('Veröffentlichung von',default=datetime.date.today)
+    datepublishedend = models.DateField('Veröffentlichung bis',default=datetime.date.today)
 
     class Meta:
         ordering = ['datepublishedstart']
