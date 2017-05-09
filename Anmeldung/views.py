@@ -53,7 +53,6 @@ def teilnehmer_neu(request, pk):
     if request.method == "POST":
         form = TeilnehmerForm(request.POST)
         if form.is_valid():
-            '''
             recaptcha_response = request.POST.get('g-recaptcha-response')
             url = 'https://www.google.com/recaptcha/api/siteverify'
             values = {
@@ -65,9 +64,8 @@ def teilnehmer_neu(request, pk):
             response = urllib.request.urlopen(req)
             result = json.loads(response.read().decode())
             #End reCAPTCHA validation
-            '''
-            #if result['success']:
-            if True:
+
+            if result['success']:
                 teilnehmer = form.save(commit=False)
                 teilnehmer.event = event
                 teilnehmer.save()
@@ -128,5 +126,6 @@ def teilnehmer_neu(request, pk):
                 messages.error(request, 'Falsches reCAPTCHA! Bitte nochmal versuchen!')
                 return redirect('teilnehmer_neu', pk=pk)
     else:
-        form = TeilnehmerForm(pk)
+        form = TeilnehmerForm(initial = {'pk': pk})
+
     return render(request, 'Anmeldung/teilnehmer_neu.html', {'form': form, 'event': event, 'setts': setts})

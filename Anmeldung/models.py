@@ -32,14 +32,15 @@ class Teilnehmer(models.Model):
     #
     #  Choices einrichten
     #
-    ESSENEXTERN = 'EXTERN'
-    ESSENINTERN = 'INTERN'
-    ESSENWARTELISTE = 'WARTELISTE'
+    ESSENEXTERN = 'Ich verpflege mich selbst'
+    ESSENINTERN = 'Ich nehme an der Verpflegung teil'
+    ESSENWARTELISTE = 'Alles belegt. Ich möchte auf die Warteliste'
     ESSENCHOICE = (
         (ESSENEXTERN, 'Ich verpflege mich selbst'),
         (ESSENINTERN, 'Ich nehme an der Verpflegung teil'),
         (ESSENWARTELISTE, 'Alles belegt. Ich möchte auf die Warteliste'),
     )
+    #
     #
     ANREDEFRAU = 'Frau'
     ANREDEHERR = 'Herr'
@@ -47,15 +48,19 @@ class Teilnehmer(models.Model):
         (ANREDEFRAU, 'Frau'),
         (ANREDEHERR, 'Herr'),
     )
+    #
+    #
     SLEEPEXTERN = 'EXTERN'
     SLEEPZELT = 'ZELT'
     SLEEPWOHNWAGEN = 'WOHNWAGEN'
     SLEEPINTERN = 'IMHAUS'
+    SLEEPWARTELISTE = 'WARTELISTE'
     SLEEPCHOICES = (
-        (SLEEPEXTERN, 'Ich wohne im Hotel o.ä.'),
+        (SLEEPEXTERN, 'Ich wohne ausserhalb (Hotel o.ä.)'),
         (SLEEPZELT, 'Ich schlafe im Zelt'),
         (SLEEPWOHNWAGEN, 'Ich komme mit dem Wohnwagen o.ä.'),
         (SLEEPINTERN, 'Ich brauche einen Schlafplatz im Haus'),
+        (SLEEPWARTELISTE, 'Alles belegt. Ich möchte auf die Warteliste')
     )
     #
     event = models.ForeignKey(Event,on_delete=models.CASCADE)
@@ -73,8 +78,8 @@ class Teilnehmer(models.Model):
     anreisedatum = models.DateField(default=datetime.date.today)
     abreisedatum = models.DateField(default=datetime.date.today)
     businessaddress = models.BooleanField('Geschäftsadresse',default=False)
-    verpflegung = models.CharField('Verpflegung', max_length=10, choices=ESSENCHOICE, default=ESSENEXTERN)
-    unterbringung = models.CharField('Unterbringung', max_length=32, choices=SLEEPCHOICES, default=SLEEPEXTERN)
+    verpflegung = models.CharField('Verpflegung', max_length=43, choices=ESSENCHOICE, default=ESSENEXTERN)
+    unterbringung = models.CharField('Unterbringung', max_length=43, choices=SLEEPCHOICES, default=SLEEPEXTERN)
 
     def __str__(self):
         return self.name
