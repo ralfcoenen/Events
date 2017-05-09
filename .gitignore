@@ -1,7 +1,10 @@
 *.pyc
 *~
 __pycache__
-myenv
-db.sqlite3
 /static
 .DS_Store
+.idea/ekayana2.iml
+.idea/misc.xml
+.idea/modules.xml
+.idea/workspace.xml
+Anmeldung/migrations/
