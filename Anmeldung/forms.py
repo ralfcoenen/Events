@@ -7,13 +7,16 @@ class TeilnehmerForm(forms.ModelForm):
     class Meta:
         model = Teilnehmer
 
+        #fields = '__all__'
+        #exclude = ['event']
         fields = ('anrede','titel','name','vorname','businessaddress','strasse',
-                  'plz','ort','land','telefon','email','verpflegung','unterbringung',
+                  'plz','ort','land','telefon','email','uebersetzung', 'uebersetzungen', 'verkehrsmittel','mitfahrplaetze', 'verpflegung','unterbringung',
                   'bemerkung')
 
         help_texts = {
             'businessaddress': ('Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein'),
-            'unterbringung': ('Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre Gründe dazu als Bemerkung ein.'),
+            'unterbringung'  : ('Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre Gründe dazu als Bemerkung ein.'),
+            'uebersetzungen' : ('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. Android und IOS bieten entsprechende Apps an.'),
         }
 
 
@@ -64,6 +67,7 @@ class TeilnehmerForm(forms.ModelForm):
                 new_choices.remove(('WARTELISTE', 'Alles belegt. Ich möchte auf die Warteliste'))
                 self.fields['unterbringung'].choices = new_choices
                 self.fields['unterbringung'].widget.choices = new_choices
+
 
 
 

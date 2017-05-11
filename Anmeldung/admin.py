@@ -16,15 +16,15 @@ class TeilnehmerInline(admin.StackedInline):
     fieldsets = [
                 (None,             {'fields': ['name', 'vorname']}),
                 ('Adress-Daten',   {'fields': ['businessaddress','strasse', 'plz', 'ort', 'email',
-                                               'telefon', 'anreisedatum','abreisedatum',
-                                               'verpflegung','unterbringung','bemerkung'], 'classes': ['collapse']})
+                                               'telefon', 'anreisedatum','abreisedatum','uebersetzung','uebersetzungen',
+                                               'verkehrsmittel','mitfahrplaetze','verpflegung','unterbringung','bemerkung'], 'classes': ['collapse']})
               ]
     ordering = ['name']
 
 
 class EventAdmin(admin.ModelAdmin):
     fieldsets = [
-        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline','essensplaetze','schlafplaetze']}),
+        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline','eventplaetze','essensplaetze','schlafplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
         ('Beschreibung',        {'fields': ['beschreibung'], 'classes': ['collapse']}),
     ]

@@ -16,8 +16,9 @@ class Event(models.Model):
     kurzbeschreibung = HTMLField('Kurze Beschreibung')
     beschreibung = HTMLField('Beschreibung')
     oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
-    schlafplaetze = models.PositiveSmallIntegerField(default=0)
-    essensplaetze = models.PositiveSmallIntegerField(default=0)
+    eventplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer", default=0)
+    schlafplaetze = models.PositiveSmallIntegerField("Plätze für Übernachtung",default=0)
+    essensplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer an der Verpflegung", default=0)
 
     class Meta:
         verbose_name = 'Veranstaltung'
@@ -63,6 +64,24 @@ class Teilnehmer(models.Model):
         (SLEEPWARTELISTE, 'Alles belegt. Ich möchte auf die Warteliste')
     )
     #
+    TRANSNONE = 'NONE'
+    TRANSENGLSIH = 'ENGLISH'
+    TRANSFRENCH = 'FRENCH'
+    TRANSCHOICES = (
+        (TRANSNONE, "-----"),
+        (TRANSENGLSIH, "I need an English translation"),
+        (TRANSFRENCH, "J'ai besoin d'une traduction en français"),
+    )
+    TRAVELBAHN = 'BAHN'
+    TRAVELBAHNPICKUP = 'BAHNPICKUP'
+    TRAVELAUTO = 'AUTO'
+    TRAVELCHOICES = (
+        (TRAVELBAHN, 'Ich fahre Bahn'),
+        (TRAVELBAHNPICKUP, 'Ich fahre Bahn und möchte am Bahnhof abgeholt werden.'),
+        (TRAVELAUTO, 'Ich komme mit dem Auto'),
+    )
+
+
     event = models.ForeignKey(Event,on_delete=models.CASCADE)
     anrede = models.CharField(max_length=15, default='',choices=ANREDECHOICES)
     titel = models.CharField(max_length=15, blank=True, default='')
@@ -77,9 +96,13 @@ class Teilnehmer(models.Model):
     bemerkung = models.TextField(blank=True,default='')
     anreisedatum = models.DateField(default=datetime.date.today)
     abreisedatum = models.DateField(default=datetime.date.today)
+    verkehrsmittel = models.CharField('Ich reise an mit',max_length=40,choices=TRAVELCHOICES,default=TRAVELBAHN)
+    mitfahrplaetze = models.PositiveSmallIntegerField('Ich biete Mitfahrgelegenheiten für', default=0)
     businessaddress = models.BooleanField('Geschäftsadresse',default=False)
     verpflegung = models.CharField('Verpflegung', max_length=43, choices=ESSENCHOICE, default=ESSENEXTERN)
     unterbringung = models.CharField('Unterbringung', max_length=43, choices=SLEEPCHOICES, default=SLEEPEXTERN)
+    uebersetzung = models.BooleanField('Ich brauche eine Übersetzung',default=False)
+    uebersetzungen = models.CharField('Art der Übersetzung', max_length=40, choices=TRANSCHOICES, default=TRANSNONE)
 
     def __str__(self):
         return self.name
