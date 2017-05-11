@@ -5,3 +5,5 @@ django-imagekit
 django-appconf
 django-tinymce4-lite
 django-filebrowser-no-grappelli
+django-formtools
+

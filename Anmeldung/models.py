@@ -1,12 +1,12 @@
 from django.db import models
 import datetime
+from django.utils.translation import ugettext as _
 
 
 from Anmeldung.singleton import SingletonModel
 
 from tinymce import HTMLField
 
-# Create your models here.
 
 class Event(models.Model):
     bezeichnung = models.CharField(max_length=200)
@@ -36,10 +36,11 @@ class Teilnehmer(models.Model):
     ESSENEXTERN = 'Ich verpflege mich selbst'
     ESSENINTERN = 'Ich nehme an der Verpflegung teil'
     ESSENWARTELISTE = 'Alles belegt. Ich möchte auf die Warteliste'
+    #Translators: Auswahl im Anmeldeformular
     ESSENCHOICE = (
-        (ESSENEXTERN, 'Ich verpflege mich selbst'),
-        (ESSENINTERN, 'Ich nehme an der Verpflegung teil'),
-        (ESSENWARTELISTE, 'Alles belegt. Ich möchte auf die Warteliste'),
+        (ESSENEXTERN, _('Ich verpflege mich selbst')),
+        (ESSENINTERN, _('Ich nehme an der Verpflegung teil')),
+        (ESSENWARTELISTE, _('Alles belegt. Ich möchte auf die Warteliste')),
     )
     #
     #
@@ -68,17 +69,19 @@ class Teilnehmer(models.Model):
     TRANSENGLSIH = 'ENGLISH'
     TRANSFRENCH = 'FRENCH'
     TRANSCHOICES = (
-        (TRANSNONE, "-----"),
+        (TRANSNONE, ""),
         (TRANSENGLSIH, "I need an English translation"),
         (TRANSFRENCH, "J'ai besoin d'une traduction en français"),
     )
     TRAVELBAHN = 'BAHN'
     TRAVELBAHNPICKUP = 'BAHNPICKUP'
     TRAVELAUTO = 'AUTO'
+    TRAVELBYPICKUP = 'MITFAHRER'
     TRAVELCHOICES = (
         (TRAVELBAHN, 'Ich fahre Bahn'),
         (TRAVELBAHNPICKUP, 'Ich fahre Bahn und möchte am Bahnhof abgeholt werden.'),
         (TRAVELAUTO, 'Ich komme mit dem Auto'),
+        (TRAVELBYPICKUP, 'Ich bin Mitfahrer')
     )
 
 

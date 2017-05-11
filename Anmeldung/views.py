@@ -18,7 +18,7 @@ from django.template import engines, Context, Template
 # ------------------------------------------------------------
 
 
-def testbase2(request):
+def uebersicht(request):
     events = Event.objects.filter(registrationdeadline__gte=date.today()).order_by('beginn')
     links = texte.objects.filter(bereich__exact='LEFT',
                                  datepublishedstart__lte=date.today(),
