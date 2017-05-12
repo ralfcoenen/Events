@@ -7,31 +7,31 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-12 07:49+0200\n"
-"PO-Revision-Date: 2017-05-12 12:25+0100\n"
+"POT-Creation-Date: 2017-05-12 16:03+0200\n"
+"PO-Revision-Date: 2017-05-12 16:04+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.1\n"
 
-#: .\Anmeldung\forms.py:17
+#: .\Anmeldung\forms.py:18
 msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
 msgstr "In this case please enter your business address"
 
-#: .\Anmeldung\forms.py:18
+#: .\Anmeldung\forms.py:19
 msgid ""
 "Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus "
 "übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre "
 "Gründe dazu als Bemerkung ein."
 msgstr ""
-"Our sleeping places in the house are still very scarce. If you still want "
-"to stay in the house, please select the checklist and enter your reasons "
-"for this."
+"Our sleeping places in the house are still very scarce. If you still want to "
+"stay in the house, please select the checklist and enter your reasons for "
+"this."
 
-#: .\Anmeldung\forms.py:19
+#: .\Anmeldung\forms.py:20
 msgid ""
 "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
 "Android und IOS bieten entsprechende Apps an."
@@ -39,17 +39,18 @@ msgstr ""
 "Please bring an FM radio as the receiver for the translation. Android and "
 "IOS offer appropriate apps."
 
-#: .\Anmeldung\models.py:41
-msgid "Ich verpflege mich selbst"
-msgstr "I care for myself"
-
-#: .\Anmeldung\models.py:42
+#: .\Anmeldung\forms.py:45 .\Anmeldung\models.py:42
 msgid "Ich nehme an der Verpflegung teil"
 msgstr "I'll take part in the catering"
 
-#: .\Anmeldung\models.py:43 .\Anmeldung\models.py:65
+#: .\Anmeldung\forms.py:54 .\Anmeldung\forms.py:70 .\Anmeldung\models.py:43
+#: .\Anmeldung\models.py:65
 msgid "Alles belegt. Ich möchte auf die Warteliste"
 msgstr "No rooms left. Put me on the list"
+
+#: .\Anmeldung\models.py:41
+msgid "Ich verpflege mich selbst"
+msgstr "I care for myself"
 
 #: .\Anmeldung\models.py:50
 msgid "Frau"
@@ -175,14 +176,79 @@ msgstr "Published"
 msgid "Veröffentlichung bis"
 msgstr "Visible until"
 
-#: .\Events\settings.py:49
+#: .\Anmeldung\templates\Anmeldung\base.html:5
+#: .\Anmeldung\templates\Anmeldung\base.html:14
+msgid "Ekayana-Institut - Veranstaltungen"
+msgstr "Ekayana Institut - Events"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:7
+msgid "Ekayana-Programm"
+msgstr "Ekayana Program"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:48
+msgid "Ekayana-Institut"
+msgstr "Ekayana Institute"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:51
+msgid "Programmübersicht und Anmeldung"
+msgstr "Event List and Subscription"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:56
+msgid "Unser Retreatzentrum"
+msgstr "Our Retreat Center"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:84
+msgid "Institut für zeitgemäßen Buddhismus!"
+msgstr "Institute For Contemporary Buddhism"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:92
+msgid "Retreathaus"
+msgstr "Retreat House"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:95
+msgid "Stiftungsfond"
+msgstr "Donations Fond"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:98
+msgid "Norbu-Verlag"
+msgstr "Norbu Book Publishing"
+
+#: .\Anmeldung\templates\Anmeldung\event_detail.html:35
+msgid "Zur Anmeldung"
+msgstr "Subscribe"
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:5
+msgid "Anmeldung"
+msgstr "Subscription"
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:6
+msgid "bis"
+msgstr "until"
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:27
+msgid "Verbindlich anmelden"
+msgstr "subscribe bindingly"
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:33
+msgid "Zurück zur Programmübersicht"
+msgstr "Back to the Event List"
+
+#: .\Events\settings.py:118
 msgid "Deutsch"
 msgstr "German"
 
-#: .\Events\settings.py:50
+#: .\Events\settings.py:119
 msgid "Englisch"
 msgstr "English"
 
-#: .\Events\settings.py:51
+#: .\Events\settings.py:120
 msgid "Französisch"
 msgstr "French"
+
+#: .\Events\settings.py:121
+msgid "griechisch"
+msgstr "greek"
+
+#: .\Events\settings.py:122
+msgid "portugiesisch"
+msgstr "portuguese"

@@ -1,8 +1,9 @@
 {% extends 'Anmeldung/base2.html' %}
+{% load i18n %}
 
 {% block content %}
-    <h1>Anmeldung für {{  event.bezeichnung}}</h1>
-    <h3> {{ event.beginn}} bis {{ event.ende }} </h3>
+    <h1>{% trans 'Anmeldung' %}: {{  event.bezeichnung}}</h1>
+    <h3> {{ event.beginn}} {% trans 'bis' %} {{ event.ende }} </h3>
     {% if messages %}
         {% for message in messages %}
           <h3 class="alert-{{ message.tags }}">{{ message }}</h3>
@@ -23,13 +24,13 @@
                     {{ form.as_table }}
                 </table>
                 </br>
-                    <button type="submit" class="save btn btn-default">Verbindlich anmelden</button>
+                    <button type="submit" class="save btn btn-default">{% trans 'Verbindlich anmelden' %}</button>
                     <p></p>
 
                 </form>
             </div>
             <div data-pg-collapsed class="col-md-5">
-              <a href="{% url 'uebersicht' %}" class="btn btn-info btn-block">Zurück zur Programmübersicht</a>
+              <a href="{% url 'uebersicht' %}" class="btn btn-info btn-block">{% trans 'Zurück zur Programmübersicht' %}</a>
             </div>
             <div data-pg-collapsed class="col-md-5">
               {% if event.bild_thumb.url > none%}
