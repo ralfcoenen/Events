@@ -1,4 +1,6 @@
 from django.contrib import admin
+from modeltranslation.admin import TranslationAdmin
+from modeltranslation.admin import TranslationStackedInline
 from django.utils.html import format_html
 
 from .models import Event, Teilnehmer, texte, UserSettings
@@ -22,7 +24,17 @@ class TeilnehmerInline(admin.StackedInline):
     ordering = ['name']
 
 
-class EventAdmin(admin.ModelAdmin):
+class EventAdmin(TranslationAdmin):
+    class Media:
+        js = (
+            'modeltranslation/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
     fieldsets = [
         (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline','eventplaetze','essensplaetze','schlafplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
@@ -41,7 +53,18 @@ class EventAdmin(admin.ModelAdmin):
         return render_to_csv_response(rs, delimiter=';')
 
 
-class texteAdmin(admin.ModelAdmin):
+class texteAdmin(TranslationAdmin):
+
+    class Media:
+        js = (
+            'modeltranslation/js/force_jquery.js',
+            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            'modeltranslation/js/tabbed_translation_fields.js',
+        )
+        css = {
+            'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
+        }
+
     fieldsets = [
         (None,                  {'fields': ['bereich', 'hoehe', 'headertext', 'datepublishedstart',
                                             'datepublishedend']}),

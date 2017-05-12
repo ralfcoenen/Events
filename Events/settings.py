@@ -35,6 +35,7 @@ USE_X_FORWARDED_HOST = True
 
 INSTALLED_APPS = (
     'filebrowser',
+    'modeltranslation',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,7 +43,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'Anmeldung.apps.AnmeldungConfig',
-    'tinymce'
+    'tinymce',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -112,7 +113,7 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+gettext = lambda s: s
 LANGUAGES = [
     ('de', _('Deutsch')),
     ('en', _('Englisch')),
@@ -122,7 +123,9 @@ LANGUAGES = [
 LOCALE_PATHS = [
     os.path.join(BASE_DIR, 'locale'),
 ]
-
+#
+#  Modeltranslation
+#
 
 
 # Static files (CSS, JavaScript, Images)
