@@ -45,17 +45,6 @@ INSTALLED_APPS = (
     'tinymce'
 )
 
-LANGUAGES = [
-    ('de', _('Deutsch')),
-    ('en', _('Englisch')),
-    ('fr', _('Französich')),
-]
-
-LOCALE_PATHS = [
-    os.path.join(BASE_DIR, 'locale'),
-
-]
-
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
@@ -80,6 +69,7 @@ TEMPLATES = [
                 'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
+                'django.template.context_processors.i18n',
                 'django.contrib.messages.context_processors.messages',
                 'django.template.context_processors.media',
             ],
@@ -121,6 +111,18 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+
+LANGUAGES = [
+    ('de', _('Deutsch')),
+    ('en', _('Englisch')),
+    ('fr', _('Französisch')),
+]
+
+LOCALE_PATHS = [
+    os.path.join(BASE_DIR, 'locale'),
+]
+
 
 
 # Static files (CSS, JavaScript, Images)

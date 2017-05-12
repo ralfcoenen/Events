@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-from django.utils.translation import ugettext as _
+from django.utils.translation import ugettext_lazy as _
 
 
 from Anmeldung.singleton import SingletonModel
@@ -47,8 +47,8 @@ class Teilnehmer(models.Model):
     ANREDEFRAU = 'Frau'
     ANREDEHERR = 'Herr'
     ANREDECHOICES = (
-        (ANREDEFRAU, 'Frau'),
-        (ANREDEHERR, 'Herr'),
+        (ANREDEFRAU, _('Frau')),
+        (ANREDEHERR, _('Herr')),
     )
     #
     #
@@ -58,54 +58,54 @@ class Teilnehmer(models.Model):
     SLEEPINTERN = 'IMHAUS'
     SLEEPWARTELISTE = 'WARTELISTE'
     SLEEPCHOICES = (
-        (SLEEPEXTERN, 'Ich wohne ausserhalb (Hotel o.ä.)'),
-        (SLEEPZELT, 'Ich schlafe im Zelt'),
-        (SLEEPWOHNWAGEN, 'Ich komme mit dem Wohnwagen o.ä.'),
-        (SLEEPINTERN, 'Ich brauche einen Schlafplatz im Haus'),
-        (SLEEPWARTELISTE, 'Alles belegt. Ich möchte auf die Warteliste')
+        (SLEEPEXTERN, _('Ich wohne ausserhalb (Hotel o.ä.)')),
+        (SLEEPZELT, _('Ich schlafe im Zelt')),
+        (SLEEPWOHNWAGEN, _('Ich komme mit dem Wohnwagen o.ä.')),
+        (SLEEPINTERN, _('Ich brauche einen Schlafplatz im Haus')),
+        (SLEEPWARTELISTE, _('Alles belegt. Ich möchte auf die Warteliste')),
     )
     #
     TRANSNONE = 'NONE'
-    TRANSENGLSIH = 'ENGLISH'
+    TRANSENGLISH = 'ENGLISH'
     TRANSFRENCH = 'FRENCH'
     TRANSCHOICES = (
-        (TRANSNONE, ""),
-        (TRANSENGLSIH, "I need an English translation"),
-        (TRANSFRENCH, "J'ai besoin d'une traduction en français"),
+        (TRANSNONE, " "),
+        (TRANSENGLISH, "I need an English translation"),
+        (TRANSFRENCH, "Jai besoin d'une traduction en français"),
     )
     TRAVELBAHN = 'BAHN'
     TRAVELBAHNPICKUP = 'BAHNPICKUP'
     TRAVELAUTO = 'AUTO'
     TRAVELBYPICKUP = 'MITFAHRER'
     TRAVELCHOICES = (
-        (TRAVELBAHN, 'Ich fahre Bahn'),
-        (TRAVELBAHNPICKUP, 'Ich fahre Bahn und möchte am Bahnhof abgeholt werden.'),
-        (TRAVELAUTO, 'Ich komme mit dem Auto'),
-        (TRAVELBYPICKUP, 'Ich bin Mitfahrer')
+        (TRAVELBAHN, _('Ich fahre Bahn')),
+        (TRAVELBAHNPICKUP, _('Ich fahre Bahn und möchte am Bahnhof abgeholt werden.')),
+        (TRAVELAUTO, _('Ich komme mit dem Auto')),
+        (TRAVELBYPICKUP, _('Ich bin Mitfahrer'))
     )
 
 
     event = models.ForeignKey(Event,on_delete=models.CASCADE)
-    anrede = models.CharField(max_length=15, default='',choices=ANREDECHOICES)
-    titel = models.CharField(max_length=15, blank=True, default='')
-    name = models.CharField(max_length=40)
-    vorname = models.CharField(max_length=40)
-    strasse = models.CharField('Straße und Hausnummer',max_length=60)
-    plz = models.CharField(max_length=8)
-    ort = models.CharField(max_length=40)
-    land = models.CharField(max_length=40,blank=True, default='')
+    anrede = models.CharField(_('Anrede'),max_length=15, default='',choices=ANREDECHOICES)
+    titel = models.CharField(_('Titel'),max_length=15, blank=True, default='')
+    name = models.CharField(_('Name'),max_length=40)
+    vorname = models.CharField(_('Vorname'),max_length=40)
+    strasse = models.CharField(_('Straße und Hausnummer'),max_length=60)
+    plz = models.CharField(_('Postleitzahl'),max_length=8)
+    ort = models.CharField(_('Ort'),max_length=40)
+    land = models.CharField(_('Land'),max_length=40,blank=True, default='')
     email = models.EmailField()
-    telefon = models.CharField(max_length=20,blank=True)
-    bemerkung = models.TextField(blank=True,default='')
-    anreisedatum = models.DateField(default=datetime.date.today)
-    abreisedatum = models.DateField(default=datetime.date.today)
-    verkehrsmittel = models.CharField('Ich reise an mit',max_length=40,choices=TRAVELCHOICES,default=TRAVELBAHN)
-    mitfahrplaetze = models.PositiveSmallIntegerField('Ich biete Mitfahrgelegenheiten für', default=0)
-    businessaddress = models.BooleanField('Geschäftsadresse',default=False)
-    verpflegung = models.CharField('Verpflegung', max_length=43, choices=ESSENCHOICE, default=ESSENEXTERN)
-    unterbringung = models.CharField('Unterbringung', max_length=43, choices=SLEEPCHOICES, default=SLEEPEXTERN)
-    uebersetzung = models.BooleanField('Ich brauche eine Übersetzung',default=False)
-    uebersetzungen = models.CharField('Art der Übersetzung', max_length=40, choices=TRANSCHOICES, default=TRANSNONE)
+    telefon = models.CharField(_('Telefon'),max_length=20,blank=True)
+    bemerkung = models.TextField(_('Bemerkung'),blank=True,default='')
+    anreisedatum = models.DateField(_('Anreisedatum'),default=datetime.date.today)
+    abreisedatum = models.DateField(_('Abreisedatum'),default=datetime.date.today)
+    verkehrsmittel = models.CharField(_('Ich reise an mit'),max_length=40,choices=TRAVELCHOICES,default=TRAVELBAHN)
+    mitfahrplaetze = models.PositiveSmallIntegerField(_('Ich biete Mitfahrgelegenheiten für'), default=0)
+    businessaddress = models.BooleanField(_('Geschäftsadresse'),default=False)
+    verpflegung = models.CharField(_('Verpflegung'), max_length=43, choices=ESSENCHOICE, default=ESSENEXTERN)
+    unterbringung = models.CharField(_('Unterbringung'), max_length=43, choices=SLEEPCHOICES, default=SLEEPEXTERN)
+    uebersetzung = models.BooleanField(_('Ich brauche eine Übersetzung'),default=False)
+    uebersetzungen = models.CharField(_('Art der Übersetzung'), max_length=40, choices=TRANSCHOICES, default=TRANSNONE)
 
     def __str__(self):
         return self.name
@@ -133,8 +133,8 @@ class texte(models.Model):
     hoehe = models.CharField(max_length=6, choices=ROWCHOICES, default=BOTTOMCONTENT)
     headertext = models.CharField('Überschrift',max_length=50)
     langtext = HTMLField('Text')
-    datepublishedstart = models.DateField('Veröffentlichung von',default=datetime.date.today)
-    datepublishedend = models.DateField('Veröffentlichung bis',default=datetime.date.today)
+    datepublishedstart = models.DateField(_('Veröffentlichung am'),default=datetime.date.today)
+    datepublishedend = models.DateField(_('Veröffentlichung bis'),default=datetime.date.today)
 
     class Meta:
         ordering = ['datepublishedstart']

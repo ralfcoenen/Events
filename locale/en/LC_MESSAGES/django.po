@@ -3,36 +3,186 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-11 15:17+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2017-05-12 07:49+0200\n"
+"PO-Revision-Date: 2017-05-12 12:25+0100\n"
+"Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.1\n"
+
+#: .\Anmeldung\forms.py:17
+msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
+msgstr "In this case please enter your business address"
+
+#: .\Anmeldung\forms.py:18
+msgid ""
+"Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus "
+"übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre "
+"Gründe dazu als Bemerkung ein."
+msgstr ""
+"Our sleeping places in the house are still very scarce. If you still want "
+"to stay in the house, please select the checklist and enter your reasons "
+"for this."
+
+#: .\Anmeldung\forms.py:19
+msgid ""
+"Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
+"Android und IOS bieten entsprechende Apps an."
+msgstr ""
+"Please bring an FM radio as the receiver for the translation. Android and "
+"IOS offer appropriate apps."
 
 #: .\Anmeldung\models.py:41
 msgid "Ich verpflege mich selbst"
-msgstr ""
+msgstr "I care for myself"
 
 #: .\Anmeldung\models.py:42
 msgid "Ich nehme an der Verpflegung teil"
-msgstr ""
+msgstr "I'll take part in the catering"
 
-#: .\Anmeldung\models.py:43
+#: .\Anmeldung\models.py:43 .\Anmeldung\models.py:65
 msgid "Alles belegt. Ich möchte auf die Warteliste"
-msgstr ""
+msgstr "No rooms left. Put me on the list"
+
+#: .\Anmeldung\models.py:50
+msgid "Frau"
+msgstr "Mrs"
+
+#: .\Anmeldung\models.py:51
+msgid "Herr"
+msgstr "Mr"
+
+#: .\Anmeldung\models.py:61
+msgid "Ich wohne ausserhalb (Hotel o.ä.)"
+msgstr "I live outside (Hotel, BNB)."
+
+#: .\Anmeldung\models.py:62
+msgid "Ich schlafe im Zelt"
+msgstr "I sleep in the tent"
+
+#: .\Anmeldung\models.py:63
+msgid "Ich komme mit dem Wohnwagen o.ä."
+msgstr "I'm coming with the mobilhome."
+
+#: .\Anmeldung\models.py:64
+msgid "Ich brauche einen Schlafplatz im Haus"
+msgstr "I need a sleeping place in the house"
+
+#: .\Anmeldung\models.py:81
+msgid "Ich fahre Bahn"
+msgstr "I'm on the train"
+
+#: .\Anmeldung\models.py:82
+msgid "Ich fahre Bahn und möchte am Bahnhof abgeholt werden."
+msgstr "I am on train and want to be picked up at the train station."
+
+#: .\Anmeldung\models.py:83
+msgid "Ich komme mit dem Auto"
+msgstr "I'm coming by car"
+
+#: .\Anmeldung\models.py:84
+msgid "Ich bin Mitfahrer"
+msgstr "I'm rider"
+
+#: .\Anmeldung\models.py:89
+msgid "Anrede"
+msgstr "Form of address"
+
+#: .\Anmeldung\models.py:90
+msgid "Titel"
+msgstr "Title"
+
+#: .\Anmeldung\models.py:91
+msgid "Name"
+msgstr "Name"
+
+#: .\Anmeldung\models.py:92
+msgid "Vorname"
+msgstr "Given name"
+
+#: .\Anmeldung\models.py:93
+msgid "Straße und Hausnummer"
+msgstr "Street address"
+
+#: .\Anmeldung\models.py:94
+msgid "Postleitzahl"
+msgstr "ZIP"
+
+#: .\Anmeldung\models.py:95
+msgid "Ort"
+msgstr "Town"
+
+#: .\Anmeldung\models.py:96
+msgid "Land"
+msgstr "Country"
+
+#: .\Anmeldung\models.py:98
+msgid "Telefon"
+msgstr "Phone"
+
+#: .\Anmeldung\models.py:99
+msgid "Bemerkung"
+msgstr "Notes"
+
+#: .\Anmeldung\models.py:100
+msgid "Anreisedatum"
+msgstr "Date of arrival"
+
+#: .\Anmeldung\models.py:101
+msgid "Abreisedatum"
+msgstr "Date of departure"
+
+#: .\Anmeldung\models.py:102
+msgid "Ich reise an mit"
+msgstr "I'm coming by.."
+
+#: .\Anmeldung\models.py:103
+msgid "Ich biete Mitfahrgelegenheiten für"
+msgstr "I offer car rides(seats)."
+
+#: .\Anmeldung\models.py:104
+msgid "Geschäftsadresse"
+msgstr "Business address"
+
+#: .\Anmeldung\models.py:105
+msgid "Verpflegung"
+msgstr "Catering"
+
+#: .\Anmeldung\models.py:106
+msgid "Unterbringung"
+msgstr "accommodation"
+
+#: .\Anmeldung\models.py:107
+msgid "Ich brauche eine Übersetzung"
+msgstr "I need a translation"
+
+#: .\Anmeldung\models.py:108
+msgid "Art der Übersetzung"
+msgstr "Type of translation"
+
+#: .\Anmeldung\models.py:136
+msgid "Veröffentlichung am"
+msgstr "Published"
+
+#: .\Anmeldung\models.py:137
+msgid "Veröffentlichung bis"
+msgstr "Visible until"
 
 #: .\Events\settings.py:49
-msgid "German"
-msgstr ""
+msgid "Deutsch"
+msgstr "German"
 
 #: .\Events\settings.py:50
-msgid "English"
-msgstr ""
+msgid "Englisch"
+msgstr "English"
+
+#: .\Events\settings.py:51
+msgid "Französisch"
+msgstr "French"

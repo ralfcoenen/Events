@@ -1,4 +1,5 @@
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 
 from .models import Teilnehmer, Event
 
@@ -14,9 +15,9 @@ class TeilnehmerForm(forms.ModelForm):
                   'bemerkung')
 
         help_texts = {
-            'businessaddress': ('Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein'),
-            'unterbringung'  : ('Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre Gründe dazu als Bemerkung ein.'),
-            'uebersetzungen' : ('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. Android und IOS bieten entsprechende Apps an.'),
+            'businessaddress': (_('Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein')),
+            'unterbringung'  : (_('Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre Gründe dazu als Bemerkung ein.')),
+            'uebersetzungen' : (_('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. Android und IOS bieten entsprechende Apps an.')),
         }
 
 
@@ -40,7 +41,8 @@ class TeilnehmerForm(forms.ModelForm):
 
             if Felder[0][0] <= v:
                 new_choices = list(self.fields['verpflegung'].choices)
-                new_choices.remove(('Ich nehme an der Verpflegung teil','Ich nehme an der Verpflegung teil'))
+                # Lösche Tuple
+                new_choices.remove(('Ich nehme an der Verpflegung teil',_('Ich nehme an der Verpflegung teil')))
                 self.fields['verpflegung'].choices = new_choices
                 self.fields['verpflegung'].widget.choices = new_choices
             else:
@@ -48,7 +50,8 @@ class TeilnehmerForm(forms.ModelForm):
                 # WARTELISTE Raus
 
                 new_choices = list(self.fields['verpflegung'].choices)
-                new_choices.remove(('Alles belegt. Ich möchte auf die Warteliste', 'Alles belegt. Ich möchte auf die Warteliste'))
+                # Lösche Tuple
+                new_choices.remove(('Alles belegt. Ich möchte auf die Warteliste',_('Alles belegt. Ich möchte auf die Warteliste')))
                 self.fields['verpflegung'].choices = new_choices
                 self.fields['verpflegung'].widget.choices = new_choices
 
@@ -64,7 +67,7 @@ class TeilnehmerForm(forms.ModelForm):
                 # WARTELISTE Raus
 
                 new_choices = list(self.fields['unterbringung'].choices)
-                new_choices.remove(('WARTELISTE', 'Alles belegt. Ich möchte auf die Warteliste'))
+                new_choices.remove(('WARTELISTE', _('Alles belegt. Ich möchte auf die Warteliste')))
                 self.fields['unterbringung'].choices = new_choices
                 self.fields['unterbringung'].widget.choices = new_choices
 
