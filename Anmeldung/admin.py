@@ -1,10 +1,13 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-from modeltranslation.admin import TranslationStackedInline
-from django.utils.html import format_html
+#from modeltranslation.admin import TranslationStackedInline
+from django.utils.translation import get_language
+#from django.utils.html import format_html
+import csv
+from django.http import HttpResponse
 
 from .models import Event, Teilnehmer, texte, UserSettings
-from djqscsv import render_to_csv_response
+#from djqscsv import render_to_csv_response
 
 
 from filebrowser.sites import site
@@ -45,12 +48,42 @@ class EventAdmin(TranslationAdmin):
     list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline')
 
     def exportliste(self, request, queryset):
+        sprache = get_language()
+
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
                              'teilnehmer__name', 'teilnehmer__vorname', 'teilnehmer__businessaddress','teilnehmer__strasse',
                              'teilnehmer__plz', 'teilnehmer__ort',
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
                              'teilnehmer__abreisedatum', 'teilnehmer__verpflegung','teilnehmer__unterbringung','teilnehmer__bemerkung')
-        return render_to_csv_response(rs, delimiter=';')
+
+        response = HttpResponse(content_type='text/csv')
+        response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
+
+        fieldnames = ['bezeichnung',
+                      'teilnehmer__anrede',
+                      'teilnehmer__titel',
+                      'teilnehmer__name',
+                      'teilnehmer__vorname',
+                      'teilnehmer__businessaddress',
+                      'teilnehmer__strasse',
+                      'teilnehmer__plz',
+                      'teilnehmer__ort',
+                      'teilnehmer__email',
+                      'teilnehmer__telefon',
+                      'teilnehmer__anreisedatum',
+                      'teilnehmer__abreisedatum',
+                      'teilnehmer__verpflegung',
+                      'teilnehmer__unterbringung',
+                      'teilnehmer__bemerkung']
+
+        writer = csv.DictWriter(response,fieldnames=fieldnames, delimiter=';', dialect='excel')
+        writer.writeheader()
+
+        for e in rs:
+            writer.writerow(e)
+
+        return response
+
 
 
 class texteAdmin(TranslationAdmin):
@@ -66,7 +99,7 @@ class texteAdmin(TranslationAdmin):
         }
 
     fieldsets = [
-        (None,                  {'fields': ['bereich', 'hoehe', 'headertext', 'datepublishedstart',
+        (None,                  {'fields': ['bereich', 'hoehe', 'headertext_de', 'datepublishedstart',
                                             'datepublishedend']}),
         ('Text',                {'fields': ['langtext'], 'classes': ['collapse']}),
     ]
