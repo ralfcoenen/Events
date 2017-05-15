@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-12 16:03+0200\n"
+"POT-Creation-Date: 2017-05-15 08:18+0200\n"
 "PO-Revision-Date: 2017-05-12 16:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,11 +17,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Poedit 1.8.1\n"
 
-#: .\Anmeldung\forms.py:18
+#: .\Anmeldung\forms.py:19 .\Anmeldung\forms.py:96
 msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
 msgstr "In this case please enter your business address"
 
-#: .\Anmeldung\forms.py:19
+#: .\Anmeldung\forms.py:20
 msgid ""
 "Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus "
 "übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre "
@@ -31,7 +31,7 @@ msgstr ""
 "stay in the house, please select the checklist and enter your reasons for "
 "this."
 
-#: .\Anmeldung\forms.py:20
+#: .\Anmeldung\forms.py:21 .\Anmeldung\forms.py:110
 msgid ""
 "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
 "Android und IOS bieten entsprechende Apps an."
@@ -39,14 +39,18 @@ msgstr ""
 "Please bring an FM radio as the receiver for the translation. Android and "
 "IOS offer appropriate apps."
 
-#: .\Anmeldung\forms.py:45 .\Anmeldung\models.py:42
+#: .\Anmeldung\forms.py:46 .\Anmeldung\models.py:42
 msgid "Ich nehme an der Verpflegung teil"
 msgstr "I'll take part in the catering"
 
-#: .\Anmeldung\forms.py:54 .\Anmeldung\forms.py:70 .\Anmeldung\models.py:43
+#: .\Anmeldung\forms.py:55 .\Anmeldung\forms.py:71 .\Anmeldung\models.py:43
 #: .\Anmeldung\models.py:65
 msgid "Alles belegt. Ich möchte auf die Warteliste"
 msgstr "No rooms left. Put me on the list"
+
+#: .\Anmeldung\forms.py:124
+msgid "Bitte geben Sie hier die Plätze für freie Mitfahrplätze an."
+msgstr ""
 
 #: .\Anmeldung\models.py:41
 msgid "Ich verpflege mich selbst"
@@ -101,7 +105,7 @@ msgid "Titel"
 msgstr "Title"
 
 #: .\Anmeldung\models.py:91
-msgid "Name"
+msgid "Familienname"
 msgstr "Name"
 
 #: .\Anmeldung\models.py:92
@@ -186,6 +190,7 @@ msgid "Ekayana-Programm"
 msgstr "Ekayana Program"
 
 #: .\Anmeldung\templates\Anmeldung\base2.html:48
+#: .\Anmeldung\templates\Anmeldung\base2.html:83
 msgid "Ekayana-Institut"
 msgstr "Ekayana Institute"
 
@@ -233,22 +238,25 @@ msgstr "subscribe bindingly"
 msgid "Zurück zur Programmübersicht"
 msgstr "Back to the Event List"
 
-#: .\Events\settings.py:118
+#: .\Events\settings.py:119
 msgid "Deutsch"
 msgstr "German"
 
-#: .\Events\settings.py:119
+#: .\Events\settings.py:120
 msgid "Englisch"
 msgstr "English"
 
-#: .\Events\settings.py:120
+#: .\Events\settings.py:121
 msgid "Französisch"
 msgstr "French"
 
-#: .\Events\settings.py:121
+#: .\Events\settings.py:122
 msgid "griechisch"
 msgstr "greek"
 
-#: .\Events\settings.py:122
+#: .\Events\settings.py:123
 msgid "portugiesisch"
 msgstr "portuguese"
+
+#~ msgid "Name"
+#~ msgstr "Name"

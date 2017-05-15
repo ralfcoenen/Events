@@ -88,7 +88,7 @@ class Teilnehmer(models.Model):
     event = models.ForeignKey(Event,on_delete=models.CASCADE)
     anrede = models.CharField(_('Anrede'),max_length=15, default='',choices=ANREDECHOICES)
     titel = models.CharField(_('Titel'),max_length=15, blank=True, default='')
-    name = models.CharField(_('Name'),max_length=40)
+    name = models.CharField(_('Familienname'),max_length=40)
     vorname = models.CharField(_('Vorname'),max_length=40)
     strasse = models.CharField(_('Straße und Hausnummer'),max_length=60)
     plz = models.CharField(_('Postleitzahl'),max_length=8)
