@@ -1,7 +1,6 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
 #from modeltranslation.admin import TranslationStackedInline
-from django.utils.translation import get_language
 #from django.utils.html import format_html
 import csv
 from django.http import HttpResponse
@@ -48,7 +47,6 @@ class EventAdmin(TranslationAdmin):
     list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline')
 
     def exportliste(self, request, queryset):
-        sprache = get_language()
 
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
                              'teilnehmer__name', 'teilnehmer__vorname', 'teilnehmer__businessaddress','teilnehmer__strasse',
@@ -99,7 +97,7 @@ class texteAdmin(TranslationAdmin):
         }
 
     fieldsets = [
-        (None,                  {'fields': ['bereich', 'hoehe', 'headertext_de', 'datepublishedstart',
+        (None,                  {'fields': ['bereich', 'hoehe', 'headertext', 'datepublishedstart',
                                             'datepublishedend']}),
         ('Text',                {'fields': ['langtext'], 'classes': ['collapse']}),
     ]

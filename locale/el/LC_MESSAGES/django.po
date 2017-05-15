@@ -1,0 +1,255 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-15 08:19+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\Anmeldung\forms.py:19 .\Anmeldung\forms.py:96
+msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
+msgstr ""
+
+#: .\Anmeldung\forms.py:20
+msgid ""
+"Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus "
+"übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre "
+"Gründe dazu als Bemerkung ein."
+msgstr ""
+
+#: .\Anmeldung\forms.py:21 .\Anmeldung\forms.py:110
+msgid ""
+"Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
+"Android und IOS bieten entsprechende Apps an."
+msgstr ""
+
+#: .\Anmeldung\forms.py:46 .\Anmeldung\models.py:42
+msgid "Ich nehme an der Verpflegung teil"
+msgstr ""
+
+#: .\Anmeldung\forms.py:55 .\Anmeldung\forms.py:71 .\Anmeldung\models.py:43
+#: .\Anmeldung\models.py:65
+msgid "Alles belegt. Ich möchte auf die Warteliste"
+msgstr ""
+
+#: .\Anmeldung\forms.py:124
+msgid "Bitte geben Sie hier die Plätze für freie Mitfahrplätze an."
+msgstr ""
+
+#: .\Anmeldung\models.py:41
+msgid "Ich verpflege mich selbst"
+msgstr ""
+
+#: .\Anmeldung\models.py:50
+msgid "Frau"
+msgstr ""
+
+#: .\Anmeldung\models.py:51
+msgid "Herr"
+msgstr ""
+
+#: .\Anmeldung\models.py:61
+msgid "Ich wohne ausserhalb (Hotel o.ä.)"
+msgstr ""
+
+#: .\Anmeldung\models.py:62
+msgid "Ich schlafe im Zelt"
+msgstr ""
+
+#: .\Anmeldung\models.py:63
+msgid "Ich komme mit dem Wohnwagen o.ä."
+msgstr ""
+
+#: .\Anmeldung\models.py:64
+msgid "Ich brauche einen Schlafplatz im Haus"
+msgstr ""
+
+#: .\Anmeldung\models.py:81
+msgid "Ich fahre Bahn"
+msgstr ""
+
+#: .\Anmeldung\models.py:82
+msgid "Ich fahre Bahn und möchte am Bahnhof abgeholt werden."
+msgstr ""
+
+#: .\Anmeldung\models.py:83
+msgid "Ich komme mit dem Auto"
+msgstr ""
+
+#: .\Anmeldung\models.py:84
+msgid "Ich bin Mitfahrer"
+msgstr ""
+
+#: .\Anmeldung\models.py:89
+msgid "Anrede"
+msgstr ""
+
+#: .\Anmeldung\models.py:90
+msgid "Titel"
+msgstr ""
+
+#: .\Anmeldung\models.py:91
+msgid "Familienname"
+msgstr ""
+
+#: .\Anmeldung\models.py:92
+msgid "Vorname"
+msgstr ""
+
+#: .\Anmeldung\models.py:93
+msgid "Straße und Hausnummer"
+msgstr ""
+
+#: .\Anmeldung\models.py:94
+msgid "Postleitzahl"
+msgstr ""
+
+#: .\Anmeldung\models.py:95
+msgid "Ort"
+msgstr ""
+
+#: .\Anmeldung\models.py:96
+msgid "Land"
+msgstr ""
+
+#: .\Anmeldung\models.py:98
+msgid "Telefon"
+msgstr ""
+
+#: .\Anmeldung\models.py:99
+msgid "Bemerkung"
+msgstr ""
+
+#: .\Anmeldung\models.py:100
+msgid "Anreisedatum"
+msgstr ""
+
+#: .\Anmeldung\models.py:101
+msgid "Abreisedatum"
+msgstr ""
+
+#: .\Anmeldung\models.py:102
+msgid "Ich reise an mit"
+msgstr ""
+
+#: .\Anmeldung\models.py:103
+msgid "Ich biete Mitfahrgelegenheiten für"
+msgstr ""
+
+#: .\Anmeldung\models.py:104
+msgid "Geschäftsadresse"
+msgstr ""
+
+#: .\Anmeldung\models.py:105
+msgid "Verpflegung"
+msgstr ""
+
+#: .\Anmeldung\models.py:106
+msgid "Unterbringung"
+msgstr ""
+
+#: .\Anmeldung\models.py:107
+msgid "Ich brauche eine Übersetzung"
+msgstr ""
+
+#: .\Anmeldung\models.py:108
+msgid "Art der Übersetzung"
+msgstr ""
+
+#: .\Anmeldung\models.py:136
+msgid "Veröffentlichung am"
+msgstr ""
+
+#: .\Anmeldung\models.py:137
+msgid "Veröffentlichung bis"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base.html:5
+#: .\Anmeldung\templates\Anmeldung\base.html:14
+msgid "Ekayana-Institut - Veranstaltungen"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:7
+msgid "Ekayana-Programm"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:48
+#: .\Anmeldung\templates\Anmeldung\base2.html:83
+msgid "Ekayana-Institut"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:51
+msgid "Programmübersicht und Anmeldung"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:56
+msgid "Unser Retreatzentrum"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:84
+msgid "Institut für zeitgemäßen Buddhismus!"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:92
+msgid "Retreathaus"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:95
+msgid "Stiftungsfond"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:98
+msgid "Norbu-Verlag"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\event_detail.html:35
+msgid "Zur Anmeldung"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:5
+msgid "Anmeldung"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:6
+msgid "bis"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:27
+msgid "Verbindlich anmelden"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:33
+msgid "Zurück zur Programmübersicht"
+msgstr ""
+
+#: .\Events\settings.py:119
+msgid "Deutsch"
+msgstr ""
+
+#: .\Events\settings.py:120
+msgid "Englisch"
+msgstr ""
+
+#: .\Events\settings.py:121
+msgid "Französisch"
+msgstr ""
+
+#: .\Events\settings.py:122
+msgid "griechisch"
+msgstr ""
+
+#: .\Events\settings.py:123
+msgid "portugiesisch"
+msgstr ""
