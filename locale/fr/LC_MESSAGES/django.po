@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-15 08:18+0200\n"
+"POT-Creation-Date: 2017-05-16 12:00+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,162 +18,146 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\Anmeldung\forms.py:19 .\Anmeldung\forms.py:96
+#: .\Anmeldung\forms.py:18
 msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
 msgstr ""
 
-#: .\Anmeldung\forms.py:20
-msgid ""
-"Unsere Schlafplätze im Haus sind noch sehr knapp. Falls Sie dennoch im Haus "
-"übernachten möchten, wählen Sie bitte die Warteliste und geben Sie Ihre "
-"Gründe dazu als Bemerkung ein."
-msgstr ""
-
-#: .\Anmeldung\forms.py:21 .\Anmeldung\forms.py:110
+#: .\Anmeldung\forms.py:19
 msgid ""
 "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
 "Android und IOS bieten entsprechende Apps an."
 msgstr ""
 
-#: .\Anmeldung\forms.py:46 .\Anmeldung\models.py:42
+#: .\Anmeldung\forms.py:43 .\Anmeldung\models.py:41
 msgid "Ich nehme an der Verpflegung teil"
 msgstr ""
 
-#: .\Anmeldung\forms.py:55 .\Anmeldung\forms.py:71 .\Anmeldung\models.py:43
-#: .\Anmeldung\models.py:65
+#: .\Anmeldung\forms.py:52 .\Anmeldung\models.py:42
 msgid "Alles belegt. Ich möchte auf die Warteliste"
 msgstr ""
 
-#: .\Anmeldung\forms.py:124
-msgid "Bitte geben Sie hier die Plätze für freie Mitfahrplätze an."
-msgstr ""
-
-#: .\Anmeldung\models.py:41
+#: .\Anmeldung\models.py:40
 msgid "Ich verpflege mich selbst"
 msgstr ""
 
-#: .\Anmeldung\models.py:50
+#: .\Anmeldung\models.py:49
 msgid "Frau"
 msgstr ""
 
-#: .\Anmeldung\models.py:51
+#: .\Anmeldung\models.py:50
 msgid "Herr"
 msgstr ""
 
+#: .\Anmeldung\models.py:59
+msgid "Keine"
+msgstr ""
+
+#: .\Anmeldung\models.py:60
+msgid "Ich brauche eine englische Übersetzung"
+msgstr ""
+
 #: .\Anmeldung\models.py:61
-msgid "Ich wohne ausserhalb (Hotel o.ä.)"
+msgid "Ich brauche eine französische Übersetzung"
 msgstr ""
 
-#: .\Anmeldung\models.py:62
-msgid "Ich schlafe im Zelt"
-msgstr ""
-
-#: .\Anmeldung\models.py:63
-msgid "Ich komme mit dem Wohnwagen o.ä."
-msgstr ""
-
-#: .\Anmeldung\models.py:64
-msgid "Ich brauche einen Schlafplatz im Haus"
-msgstr ""
-
-#: .\Anmeldung\models.py:81
+#: .\Anmeldung\models.py:68
 msgid "Ich fahre Bahn"
 msgstr ""
 
-#: .\Anmeldung\models.py:82
+#: .\Anmeldung\models.py:69
 msgid "Ich fahre Bahn und möchte am Bahnhof abgeholt werden."
 msgstr ""
 
-#: .\Anmeldung\models.py:83
+#: .\Anmeldung\models.py:70
 msgid "Ich komme mit dem Auto"
 msgstr ""
 
-#: .\Anmeldung\models.py:84
+#: .\Anmeldung\models.py:71
 msgid "Ich bin Mitfahrer"
 msgstr ""
 
-#: .\Anmeldung\models.py:89
+#: .\Anmeldung\models.py:76
 msgid "Anrede"
 msgstr ""
 
-#: .\Anmeldung\models.py:90
+#: .\Anmeldung\models.py:77
 msgid "Titel"
 msgstr ""
 
-#: .\Anmeldung\models.py:91
+#: .\Anmeldung\models.py:78
 msgid "Familienname"
 msgstr ""
 
-#: .\Anmeldung\models.py:92
+#: .\Anmeldung\models.py:79
 msgid "Vorname"
 msgstr ""
 
-#: .\Anmeldung\models.py:93
+#: .\Anmeldung\models.py:80
 msgid "Straße und Hausnummer"
 msgstr ""
 
-#: .\Anmeldung\models.py:94
+#: .\Anmeldung\models.py:81
 msgid "Postleitzahl"
 msgstr ""
 
-#: .\Anmeldung\models.py:95
+#: .\Anmeldung\models.py:82
 msgid "Ort"
 msgstr ""
 
-#: .\Anmeldung\models.py:96
+#: .\Anmeldung\models.py:83
 msgid "Land"
 msgstr ""
 
-#: .\Anmeldung\models.py:98
+#: .\Anmeldung\models.py:85
 msgid "Telefon"
 msgstr ""
 
-#: .\Anmeldung\models.py:99
+#: .\Anmeldung\models.py:86
 msgid "Bemerkung"
 msgstr ""
 
-#: .\Anmeldung\models.py:100
+#: .\Anmeldung\models.py:87
 msgid "Anreisedatum"
 msgstr ""
 
-#: .\Anmeldung\models.py:101
+#: .\Anmeldung\models.py:88
 msgid "Abreisedatum"
 msgstr ""
 
-#: .\Anmeldung\models.py:102
+#: .\Anmeldung\models.py:89
 msgid "Ich reise an mit"
 msgstr ""
 
-#: .\Anmeldung\models.py:103
-msgid "Ich biete Mitfahrgelegenheiten für"
-msgstr ""
-
-#: .\Anmeldung\models.py:104
+#: .\Anmeldung\models.py:90
 msgid "Geschäftsadresse"
 msgstr ""
 
-#: .\Anmeldung\models.py:105
+#: .\Anmeldung\models.py:91
 msgid "Verpflegung"
 msgstr ""
 
-#: .\Anmeldung\models.py:106
-msgid "Unterbringung"
-msgstr ""
-
-#: .\Anmeldung\models.py:107
-msgid "Ich brauche eine Übersetzung"
-msgstr ""
-
-#: .\Anmeldung\models.py:108
+#: .\Anmeldung\models.py:92
 msgid "Art der Übersetzung"
 msgstr ""
 
-#: .\Anmeldung\models.py:136
+#: .\Anmeldung\models.py:120
 msgid "Veröffentlichung am"
 msgstr ""
 
-#: .\Anmeldung\models.py:137
+#: .\Anmeldung\models.py:121
 msgid "Veröffentlichung bis"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:23
+msgid "first step"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:24
+msgid "prev step"
+msgstr ""
+
+#: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:26
+msgid "submit"
 msgstr ""
 
 #: .\Anmeldung\templates\Anmeldung\base.html:5
@@ -234,22 +218,22 @@ msgstr ""
 msgid "Zurück zur Programmübersicht"
 msgstr ""
 
-#: .\Events\settings.py:119
+#: .\Events\settings.py:118
 msgid "Deutsch"
 msgstr ""
 
-#: .\Events\settings.py:120
+#: .\Events\settings.py:119
 msgid "Englisch"
 msgstr ""
 
-#: .\Events\settings.py:121
+#: .\Events\settings.py:120
 msgid "Französisch"
 msgstr ""
 
-#: .\Events\settings.py:122
+#: .\Events\settings.py:121
 msgid "griechisch"
 msgstr ""
 
-#: .\Events\settings.py:123
+#: .\Events\settings.py:122
 msgid "portugiesisch"
 msgstr ""

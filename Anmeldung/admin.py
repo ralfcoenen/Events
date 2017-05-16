@@ -18,10 +18,10 @@ class TeilnehmerInline(admin.StackedInline):
     model = Teilnehmer
     extra = 3
     fieldsets = [
-                (None,             {'fields': ['name', 'vorname']}),
-                ('Adress-Daten',   {'fields': ['businessaddress','strasse', 'plz', 'ort', 'email',
-                                               'telefon', 'anreisedatum','abreisedatum','uebersetzung','uebersetzungen',
-                                               'verkehrsmittel','mitfahrplaetze','verpflegung','unterbringung','bemerkung'], 'classes': ['collapse']})
+                    (None,                      {'fields': ['name', 'vorname']}),
+                    ('Adress-Daten Privat',     {'fields': ['strasse', 'plz', 'ort'], 'classes': ['collapse']}),
+                    ('Adress-Daten Business',   {'fields': ['businessaddress','bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
+                    ('sonstiges',               {'fields': ['email','telefon', 'anreisedatum','abreisedatum','uebersetzungen','verkehrsmittel','verpflegung','bemerkung'], 'classes': ['collapse']})
               ]
     ordering = ['name']
 
@@ -38,7 +38,7 @@ class EventAdmin(TranslationAdmin):
         }
 
     fieldsets = [
-        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline','eventplaetze','essensplaetze','schlafplaetze']}),
+        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
         ('Beschreibung',        {'fields': ['beschreibung'], 'classes': ['collapse']}),
     ]
@@ -52,7 +52,7 @@ class EventAdmin(TranslationAdmin):
                              'teilnehmer__name', 'teilnehmer__vorname', 'teilnehmer__businessaddress','teilnehmer__strasse',
                              'teilnehmer__plz', 'teilnehmer__ort',
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
-                             'teilnehmer__abreisedatum', 'teilnehmer__verpflegung','teilnehmer__unterbringung','teilnehmer__bemerkung')
+                             'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung','teilnehmer__bemerkung')
 
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'

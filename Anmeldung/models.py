@@ -13,11 +13,10 @@ class Event(models.Model):
     registrationdeadline = models.DateField('Sichtbar bis einschl.',default=datetime.date.today)
     beginn = models.DateField(default=datetime.date.today)
     ende = models.DateField(default=datetime.date.today)
-    kurzbeschreibung = HTMLField('Kurze Beschreibung')
-    beschreibung = HTMLField('Beschreibung')
+    kurzbeschreibung = HTMLField('Kurze Beschreibung', blank=True)
+    beschreibung = HTMLField('Beschreibung', blank=True)
     oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
     eventplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer", default=0)
-    schlafplaetze = models.PositiveSmallIntegerField("Plätze für Übernachtung",default=0)
     essensplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer an der Verpflegung", default=0)
 
     class Meta:
@@ -52,26 +51,14 @@ class Teilnehmer(models.Model):
     )
     #
     #
-    SLEEPEXTERN = 'EXTERN'
-    SLEEPZELT = 'ZELT'
-    SLEEPWOHNWAGEN = 'WOHNWAGEN'
-    SLEEPINTERN = 'IMHAUS'
-    SLEEPWARTELISTE = 'WARTELISTE'
-    SLEEPCHOICES = (
-        (SLEEPEXTERN, _('Ich wohne ausserhalb (Hotel o.ä.)')),
-        (SLEEPZELT, _('Ich schlafe im Zelt')),
-        (SLEEPWOHNWAGEN, _('Ich komme mit dem Wohnwagen o.ä.')),
-        (SLEEPINTERN, _('Ich brauche einen Schlafplatz im Haus')),
-        (SLEEPWARTELISTE, _('Alles belegt. Ich möchte auf die Warteliste')),
-    )
-    #
+
     TRANSNONE = 'NONE'
     TRANSENGLISH = 'ENGLISH'
     TRANSFRENCH = 'FRENCH'
     TRANSCHOICES = (
-        (TRANSNONE, " "),
-        (TRANSENGLISH, "I need an English translation"),
-        (TRANSFRENCH, "Jai besoin d'une traduction en français"),
+        (TRANSNONE, _("Keine")),
+        (TRANSENGLISH, _("Ich brauche eine englische Übersetzung")),
+        (TRANSFRENCH, _("Ich brauche eine französische Übersetzung")),
     )
     TRAVELBAHN = 'BAHN'
     TRAVELBAHNPICKUP = 'BAHNPICKUP'
@@ -100,11 +87,12 @@ class Teilnehmer(models.Model):
     anreisedatum = models.DateField(_('Anreisedatum'),default=datetime.date.today)
     abreisedatum = models.DateField(_('Abreisedatum'),default=datetime.date.today)
     verkehrsmittel = models.CharField(_('Ich reise an mit'),max_length=40,choices=TRAVELCHOICES,default=TRAVELBAHN)
-    mitfahrplaetze = models.PositiveSmallIntegerField(_('Ich biete Mitfahrgelegenheiten für'), default=0)
     businessaddress = models.BooleanField(_('Geschäftsadresse'),default=False)
+    bustrasse = models.CharField(_('Straße und Hausnummer'), max_length=60)
+    buplz = models.CharField(_('Postleitzahl'), max_length=8)
+    buort = models.CharField(_('Ort'), max_length=40)
+    buland = models.CharField(_('Land'), max_length=40, blank=True, default='')
     verpflegung = models.CharField(_('Verpflegung'), max_length=43, choices=ESSENCHOICE, default=ESSENEXTERN)
-    unterbringung = models.CharField(_('Unterbringung'), max_length=43, choices=SLEEPCHOICES, default=SLEEPEXTERN)
-    uebersetzung = models.BooleanField(_('Ich brauche eine Übersetzung'),default=False)
     uebersetzungen = models.CharField(_('Art der Übersetzung'), max_length=40, choices=TRANSCHOICES, default=TRANSNONE)
 
     def __str__(self):
