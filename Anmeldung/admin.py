@@ -38,7 +38,7 @@ class EventAdmin(TranslationAdmin):
         }
 
     fieldsets = [
-        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
+        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
         ('Beschreibung',        {'fields': ['beschreibung'], 'classes': ['collapse']}),
     ]
