@@ -16,7 +16,7 @@ site.directory = "uploads/"
 
 class TeilnehmerInline(admin.StackedInline):
     model = Teilnehmer
-    extra = 3
+    extra = 0
     fieldsets = [
                     (None,                      {'fields': ['name', 'vorname']}),
                     ('Adress-Daten Privat',     {'fields': ['strasse', 'plz', 'ort'], 'classes': ['collapse']}),
@@ -45,6 +45,9 @@ class EventAdmin(TranslationAdmin):
     inlines = [TeilnehmerInline]
     actions = ['exportliste']
     list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline')
+    save_on_top = True
+    save_as = True
+
 
     def exportliste(self, request, queryset):
 
