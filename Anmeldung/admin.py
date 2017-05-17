@@ -47,6 +47,9 @@ class EventAdmin(TranslationAdmin):
     inlines = [TeilnehmerInline]
     actions = ['exportliste']
     list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline')
+    save_on_top = True
+    save_as = True
+
 
     def exportliste(self, request, queryset):
 

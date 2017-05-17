@@ -2,8 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-    <h1>{% trans 'Anmeldung' %}: {{  event.bezeichnung}}</h1>
-    <h3> {{ event.beginn}} {% trans 'bis' %} {{ event.ende }} </h3>
+
     {% if messages %}
         {% for message in messages %}
           <h3 class="alert-{{ message.tags }}">{{ message }}</h3>
@@ -13,8 +12,15 @@
 
     <div class="container">
         <div class="row">
-            <div data-pg-collapsed class="col-md-7">
+
+            <div data-pg-collapsed class="col-md-6">
+              <a href="{% url 'uebersicht' %}" class="btn btn-info btn-block">{% trans 'Zurück zur Programmübersicht' %}</a>
+              <h2>{% trans 'Anmeldung' %}: {{  event.bezeichnung}}</h2>
+                <h3> {{ event.beginn}} {% trans 'bis' %} {{ event.ende }} </h3>
                 <p> {{ event.beschreibung|safe }}</p>
+            </div>
+             <div data-pg-collapsed class="col-md-6">
+
                 <form class="form-horizontal" method="POST">
                 {% csrf_token %}
                 </br>
@@ -29,14 +35,7 @@
 
                 </form>
             </div>
-            <div data-pg-collapsed class="col-md-5">
-              <a href="{% url 'uebersicht' %}" class="btn btn-info btn-block">{% trans 'Zurück zur Programmübersicht' %}</a>
-            </div>
-            <div data-pg-collapsed class="col-md-5">
-              {% if event.bild_thumb.url > none%}
-              <img src="{{ event.bild_thumb.url }}" />
-              {% endif %}
-            </div>
+
         </div>
 </div>
 
