@@ -24,7 +24,8 @@ class TeilnehmerInline(admin.StackedInline):
                     ('sonstiges',               {'fields': ['email','telefon', 'anreisedatum','abreisedatum','uebersetzungen','verkehrsmittel','verpflegung','bemerkung'], 'classes': ['collapse']})
               ]
     ordering = ['name']
-
+    save_on_top = True
+    save_as = True
 
 class EventAdmin(TranslationAdmin):
     class Media:
