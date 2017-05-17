@@ -33,7 +33,7 @@ class TeilnehmerForm(forms.ModelForm):
         #
         if len(kwargs) > 0:
             pk=kwargs['initial']['pk']
-            v = Teilnehmer.objects.filter(event__id=pk, verpflegung = 'INTERN').count()
+            v = Teilnehmer.objects.filter(event__id=pk, verpflegung = 'Ich nehme an der Verpflegung teil').count()
 
             Felder=Event.objects.values_list('essensplaetze').filter(id=pk)
 
