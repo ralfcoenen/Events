@@ -20,14 +20,14 @@
           <div class="panel-heading">
               <h4 class="panel-title">
                 <a class="panel-toggle" data-toggle="collapse" data-parent=".panel-group" href="#content{{ forloop.counter}}">
-                  <span>{{ h.bezeichnung }} &emsp;&emsp;({{h.beginn}} -  {{h.ende}})</span>
+                  <span>{{ h.bezeichnung }} &emsp;&emsp;{{h.beginn}}{% if h.beginn != h.ende%}  -  {{ h.ende }}{% endif %}</span>
                 </a>
               </h4>
           </div>
           <!-- /.panel-heading -->
           <div id="content{{forloop.counter}}" class="panel-collapse collapse">
               <div class="panel-body">
-                  <p>{{ h.beginn}}  -  {{ h.ende}}</p>
+                  <!--<p>{{ h.beginn}}{% if h.beginn != h.ende%}  -  {{ h.ende }}{% endif %}</p> -->
                   <p>{{ h.kurzbeschreibung|safe }}</p>
 
                   {% if h.oeffentlich  %}
