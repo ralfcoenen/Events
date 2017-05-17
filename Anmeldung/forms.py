@@ -8,11 +8,11 @@ class TeilnehmerForm(forms.ModelForm):
     class Meta:
         model = Teilnehmer
 
-        #fields = '__all__'
-        #exclude = ['event']
-        fields = ('anrede','titel','vorname','name','businessaddress','strasse',
-                  'plz','ort','land','telefon','email', 'uebersetzungen', 'verkehrsmittel', 'verpflegung',
-                  'bemerkung')
+        # fields = '__all__'
+        # exclude = ['event']
+        fields = ('anrede','titel','vorname','name','strasse',
+              'plz','ort','land','businessaddress','bustrasse','buplz','buort','buland','telefon','email', 'uebersetzungen', 'verkehrsmittel', 'verpflegung',
+              'bemerkung')
 
         help_texts = {
             'businessaddress': (_('Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein')),
