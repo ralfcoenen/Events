@@ -54,30 +54,22 @@ class EventAdmin(TranslationAdmin):
     def exportliste(self, request, queryset):
 
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
-                             'teilnehmer__name', 'teilnehmer__vorname', 'teilnehmer__businessaddress','teilnehmer__strasse',
-                             'teilnehmer__plz', 'teilnehmer__ort',
+                             'teilnehmer__name', 'teilnehmer__vorname',
+                             'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
+                             'teilnehmer__businessaddress','teilnehmer__bustrasse', 'teilnehmer__buplz', 'teilnehmer__buort',
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
                              'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung','teilnehmer__bemerkung')
 
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
 
-        fieldnames = ['bezeichnung',
-                      'teilnehmer__anrede',
-                      'teilnehmer__titel',
-                      'teilnehmer__name',
-                      'teilnehmer__vorname',
-                      'teilnehmer__businessaddress',
-                      'teilnehmer__strasse',
-                      'teilnehmer__plz',
-                      'teilnehmer__ort',
-                      'teilnehmer__email',
-                      'teilnehmer__telefon',
-                      'teilnehmer__anreisedatum',
-                      'teilnehmer__abreisedatum',
-                      'teilnehmer__verpflegung',
-                      'teilnehmer__unterbringung',
-                      'teilnehmer__bemerkung']
+        fieldnames = [ 'bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
+                             'teilnehmer__name', 'teilnehmer__vorname',
+                             'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
+                             'teilnehmer__businessaddress','teilnehmer__bustrasse', 'teilnehmer__buplz', 'teilnehmer__buort',
+                             'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
+                             'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung','teilnehmer__bemerkung'
+                     ]
 
         writer = csv.DictWriter(response,fieldnames=fieldnames, delimiter=';', dialect='excel')
         writer.writeheader()
