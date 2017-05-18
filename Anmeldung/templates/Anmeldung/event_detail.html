@@ -4,17 +4,7 @@
 {% block content %}
 <div class="col-md-8">
   <!-- /.accordion -->
-    <div class="dropdown">
-  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-    Veranstaltungen
-    <span class="caret"></span>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-    {%  for h in events %}
-        <li><a href="{% url 'teilnehmer_neu' pk=h.pk %}">{{h.beginn|date:"d.m.Y"}}{% if h.beginn != h.ende%} - {{ h.ende|date:"d.m.Y" }}{% endif %} {% if h.beginn == h.ende%}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{%endif%}&emsp;&emsp;{{ h.bezeichnung }}</a></li>
-    {% endfor %}
-  </ul>
-</div>
+
 
     {% for j in oben %}
             <h2>{{ j.headertext }}</h2>
@@ -25,6 +15,17 @@
             {% endif %}
         {% endfor %}
   <div class="panel-group">
+
+    <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                Anmeldung und weitere Infos zu Veranstaltungen<span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                {%  for h in events %}
+                    <li><a href="{% url 'teilnehmer_neu' pk=h.pk %}">{{h.beginn|date:"d.m.Y"}}{% if h.beginn != h.ende%} - {{ h.ende|date:"d.m.Y" }}{% endif %} {% if h.beginn == h.ende%}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{%endif%}&emsp;&emsp;{{ h.bezeichnung }}</a></li>
+                {% endfor %}
+            </ul>
+    </div>
 
 
     {%  for h in events %}
