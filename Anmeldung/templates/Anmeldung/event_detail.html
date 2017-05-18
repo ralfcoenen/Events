@@ -20,7 +20,9 @@
           <div class="panel-heading">
               <h4 class="panel-title">
                 <a class="panel-toggle" data-toggle="collapse" data-parent=".panel-group" href="#content{{ forloop.counter}}">
-                  <span>{{ h.bezeichnung }} &emsp;&emsp;{{h.beginn}}{% if h.beginn != h.ende%}  -  {{ h.ende }}{% endif %}</span>
+                  <span> &emsp;&emsp;
+                      {{h.beginn|date:"d.m.Y"}}
+                                {% if h.beginn != h.ende%} - {{ h.ende|date:"d.m.Y" }}{% endif %} {% if h.beginn == h.ende%}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;{%endif%}&emsp;&emsp;{{ h.bezeichnung }}</span>
                 </a>
               </h4>
           </div>

@@ -15,8 +15,8 @@ class TeilnehmerForm(forms.ModelForm):
               'bemerkung')
 
         help_texts = {
-            'businessaddress': (_('Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein')),
-            'uebersetzungen' : (_('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. Android und IOS bieten entsprechende Apps an.')),
+            'businessaddress': (_('Bitte geben Sie ggfs. Ihre Geschäftsadresse ein')),
+            'uebersetzungen' : (_('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. Android und IOS bieten entsprechende Apps dazu an.')),
         }
 
 
