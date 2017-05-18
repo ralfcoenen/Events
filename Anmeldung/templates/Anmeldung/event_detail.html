@@ -2,7 +2,7 @@
 {% load i18n %}
 
 {% block content %}
-<div class="col-md-8">
+<div class="col-md-7">
   <!-- /.accordion -->
 
 
@@ -16,6 +16,7 @@
         {% endfor %}
   <div class="panel-group">
 
+  <!--
     <div class="dropdown">
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
                                 Anmeldung und weitere Infos zu Veranstaltungen<span class="caret"></span>
@@ -26,7 +27,7 @@
                 {% endfor %}
             </ul>
     </div>
-
+-->
 
     {%  for h in events %}
       <div class="panel panel-default">
@@ -39,10 +40,10 @@
                 </a>
               </div>
           </div>
-          <!-- /.panel-heading  -->
+
           <div id="content{{forloop.counter}}" class="panel-collapse collapse">
               <div class="panel-body">
-                  <!--<p>{{ h.beginn}}{% if h.beginn != h.ende%}  -  {{ h.ende }}{% endif %}</p> -->
+
                   <p>{{ h.kurzbeschreibung|safe }}</p>
 
                   {% if h.oeffentlich  %}
@@ -51,9 +52,9 @@
                   </p>
                   {%  endif %}
               </div>
-              <!-- /.panel-body -->
+
           </div>
-          <!-- /.content -->
+
       </div>
     {% endfor %}
 
@@ -69,7 +70,7 @@
 
   </div>
 </div>
-<div class="col-md-4">
+<div class="col-md-5">
   {% for h in rechts %}
             <h3>{{ h.headertext }}</h3>
             <p> {{ h.langtext|safe }}</p>

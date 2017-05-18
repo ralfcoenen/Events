@@ -43,6 +43,17 @@ class Teilnehmer(models.Model):
         (ESSENWARTELISTE, _('Alles belegt. Ich möchte auf die Warteliste')),
     )
     #
+    SLEEPNONE = ''
+    SLEEPEXTERN = 'EXTERN'
+    SLEEPZELT = 'ZELT'
+    SLEEPWOHNWAGEN = 'WOHNWAGEN u.ä.'
+
+    SLEEPCHOICES = (
+        (SLEEPNONE, ''),
+        (SLEEPEXTERN, 'Ich wohne im Hotel o.ä.'),
+        (SLEEPZELT, 'Ich schlafe im Zelt'),
+        (SLEEPWOHNWAGEN, 'Ich komme mit dem Wohnwagen o.ä.'),
+    )
     #
     ANREDEFRAU = 'Frau'
     ANREDEHERR = 'Herr'
@@ -88,12 +99,14 @@ class Teilnehmer(models.Model):
     anreisedatum = models.DateField(_('Anreisedatum'),default=datetime.date.today)
     abreisedatum = models.DateField(_('Abreisedatum'),default=datetime.date.today)
     verkehrsmittel = models.CharField(_('Ich reise an mit'),max_length=40,choices=TRAVELCHOICES,default=TRAVELBAHN)
-    businessaddress = models.BooleanField(_('Geschäftsadresse'),default=False)
-    bustrasse = models.CharField(_('geschäftl. Straße und Hausnummer'), max_length=60, blank=True, default='')
-    buplz = models.CharField(_('geschäftl. Postleitzahl'), max_length=8, blank=True, default='')
-    buort = models.CharField(_('geschäftl. Ort'), max_length=40, blank=True, default='')
-    buland = models.CharField(_('geschäftl. Land'), max_length=40, blank=True, default='')
+    businessaddress = models.BooleanField(_('Rechnungsadresse'),default=False)
+    bustrasse = models.CharField(_('Rechnung Straße und Hausnummer'), max_length=60, blank=True, default='')
+    buplz = models.CharField(_('Rechnung Postleitzahl'), max_length=8, blank=True, default='')
+    buort = models.CharField(_('Rechnung Ort'), max_length=40, blank=True, default='')
+    buland = models.CharField(_('Rechnung Land'), max_length=40, blank=True, default='')
     verpflegung = models.CharField(_('Verpflegung'), max_length=43, choices=ESSENCHOICE, default=ESSENEXTERN)
+    wohnenimhaus = models.BooleanField(_('Ich möchte im Haus wohnen'), default=False)
+    unterbringung = models.CharField(_('Unterbringung'),max_length=20,choices=SLEEPCHOICES,default=SLEEPNONE, blank=True)
     uebersetzungen = models.CharField(_('Art der Übersetzung'), max_length=40, choices=TRANSCHOICES, default=TRANSNONE)
 
     def __str__(self):

@@ -21,7 +21,7 @@ class TeilnehmerInline(admin.StackedInline):
                     (None,                      {'fields': ['name', 'vorname']}),
                     ('Adress-Daten Privat',     {'fields': ['strasse', 'plz', 'ort'], 'classes': ['collapse']}),
                     ('Adress-Daten Business',   {'fields': ['businessaddress','bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
-                    ('sonstiges',               {'fields': ['email','telefon', 'anreisedatum','abreisedatum','uebersetzungen','verkehrsmittel','verpflegung','bemerkung'], 'classes': ['collapse']})
+                    ('sonstiges',               {'fields': ['email','telefon', 'anreisedatum','abreisedatum','uebersetzungen','verkehrsmittel','unterbringung','wohnenimhaus','verpflegung','bemerkung'], 'classes': ['collapse']})
               ]
     ordering = ['name']
     save_on_top = True
@@ -58,7 +58,8 @@ class EventAdmin(TranslationAdmin):
                              'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
                              'teilnehmer__businessaddress','teilnehmer__bustrasse', 'teilnehmer__buplz', 'teilnehmer__buort',
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
-                             'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung','teilnehmer__bemerkung')
+                             'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung',
+                             'teilnehmer__unterbringung','teilnehmer__wohnenimhaus','teilnehmer__bemerkung')
 
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
@@ -68,7 +69,8 @@ class EventAdmin(TranslationAdmin):
                              'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
                              'teilnehmer__businessaddress','teilnehmer__bustrasse', 'teilnehmer__buplz', 'teilnehmer__buort',
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
-                             'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung','teilnehmer__bemerkung'
+                             'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung',
+                             'teilnehmer__unterbringung','teilnehmer__wohnenimhaus','teilnehmer__bemerkung'
                      ]
 
         writer = csv.DictWriter(response,fieldnames=fieldnames, delimiter=';', dialect='excel')
@@ -100,6 +102,8 @@ class texteAdmin(TranslationAdmin):
     ]
 
     list_display = ('headertext', 'bereich', 'hoehe', 'datepublishedstart', 'datepublishedend')
+    save_on_top = True
+    save_as = True
 
 
 class usersettingsAdmin(admin.ModelAdmin):
