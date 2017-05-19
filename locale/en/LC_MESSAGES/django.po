@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-16 12:00+0200\n"
+"POT-Creation-Date: 2017-05-18 14:54+0200\n"
 "PO-Revision-Date: 2017-05-16 12:04+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -18,134 +18,177 @@ msgstr ""
 "X-Generator: Poedit 1.8.1\n"
 
 #: .\Anmeldung\forms.py:18
-msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
+#, fuzzy
+#| msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
+msgid "Bitte geben Sie ggfs. Ihre Rechnungsadresse ein"
 msgstr "In this case please enter your business address"
 
 #: .\Anmeldung\forms.py:19
+#, fuzzy
+#| msgid ""
+#| "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
+#| "Android und IOS bieten entsprechende Apps an."
 msgid ""
 "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
-"Android und IOS bieten entsprechende Apps an."
+"Android und IOS bieten entsprechende Apps dazu an."
 msgstr ""
 "Please bring an FM radio as the receiver for the translation. Android and "
 "IOS offer appropriate apps."
 
-#: .\Anmeldung\forms.py:43 .\Anmeldung\models.py:41
+#: .\Anmeldung\forms.py:20
+msgid ""
+"Unsere knappen Schlafplaetze stehen nur Ordinierten, Mithelfern beim Kurs "
+"sowie Menschen mit sehr begrenztem finanziellem Hintergrund zur Verfügung. "
+"Bitte nennen Sie ihre Gründe in der Bemerkung."
+msgstr ""
+
+#: .\Anmeldung\forms.py:44 .\Anmeldung\models.py:42
 msgid "Ich nehme an der Verpflegung teil"
 msgstr "I'll take part in the catering"
 
-#: .\Anmeldung\forms.py:52 .\Anmeldung\models.py:42
+#: .\Anmeldung\forms.py:53 .\Anmeldung\models.py:43
 msgid "Alles belegt. Ich möchte auf die Warteliste"
 msgstr "No rooms left. Put me on the list"
 
-#: .\Anmeldung\models.py:40
+#: .\Anmeldung\models.py:41
 msgid "Ich verpflege mich selbst"
 msgstr "I care for myself"
 
-#: .\Anmeldung\models.py:49
+#: .\Anmeldung\models.py:61
 msgid "Frau"
 msgstr "Mrs"
 
-#: .\Anmeldung\models.py:50
+#: .\Anmeldung\models.py:62
 msgid "Herr"
 msgstr "Mr"
 
-#: .\Anmeldung\models.py:59
+#: .\Anmeldung\models.py:71
 msgid "Keine"
 msgstr ""
 
-#: .\Anmeldung\models.py:60
+#: .\Anmeldung\models.py:72
 msgid "Ich brauche eine englische Übersetzung"
 msgstr "I need an English translation"
 
-#: .\Anmeldung\models.py:61
+#: .\Anmeldung\models.py:73
 msgid "Ich brauche eine französische Übersetzung"
 msgstr "I need a French translation"
 
-#: .\Anmeldung\models.py:68
+#: .\Anmeldung\models.py:80
 msgid "Ich fahre Bahn"
 msgstr "I'm on the train"
 
-#: .\Anmeldung\models.py:69
+#: .\Anmeldung\models.py:81
 msgid "Ich fahre Bahn und möchte am Bahnhof abgeholt werden."
 msgstr "I am on train and want to be picked up at the train station."
 
-#: .\Anmeldung\models.py:70
+#: .\Anmeldung\models.py:82
 msgid "Ich komme mit dem Auto"
 msgstr "I'm coming by car"
 
-#: .\Anmeldung\models.py:71
+#: .\Anmeldung\models.py:83
 msgid "Ich bin Mitfahrer"
 msgstr "I'm rider"
 
-#: .\Anmeldung\models.py:76
+#: .\Anmeldung\models.py:88
 msgid "Anrede"
 msgstr "Form of address"
 
-#: .\Anmeldung\models.py:77
+#: .\Anmeldung\models.py:89
 msgid "Titel"
 msgstr "Title"
 
-#: .\Anmeldung\models.py:78
+#: .\Anmeldung\models.py:90
 msgid "Familienname"
 msgstr "Name"
 
-#: .\Anmeldung\models.py:79
+#: .\Anmeldung\models.py:91
 msgid "Vorname"
 msgstr "Given name"
 
-#: .\Anmeldung\models.py:80
+#: .\Anmeldung\models.py:92
 msgid "Straße und Hausnummer"
 msgstr "Street address"
 
-#: .\Anmeldung\models.py:81
+#: .\Anmeldung\models.py:93
 msgid "Postleitzahl"
 msgstr "ZIP"
 
-#: .\Anmeldung\models.py:82
+#: .\Anmeldung\models.py:94
 msgid "Ort"
 msgstr "Town"
 
-#: .\Anmeldung\models.py:83
+#: .\Anmeldung\models.py:95
 msgid "Land"
 msgstr "Country"
 
-#: .\Anmeldung\models.py:85
+#: .\Anmeldung\models.py:97
 msgid "Telefon"
 msgstr "Phone"
 
-#: .\Anmeldung\models.py:86
+#: .\Anmeldung\models.py:98
 msgid "Bemerkung"
 msgstr "Notes"
 
-#: .\Anmeldung\models.py:87
+#: .\Anmeldung\models.py:99
 msgid "Anreisedatum"
 msgstr "Date of arrival"
 
-#: .\Anmeldung\models.py:88
+#: .\Anmeldung\models.py:100
 msgid "Abreisedatum"
 msgstr "Date of departure"
 
-#: .\Anmeldung\models.py:89
+#: .\Anmeldung\models.py:101
 msgid "Ich reise an mit"
 msgstr "I'm coming by.."
 
-#: .\Anmeldung\models.py:90
-msgid "Geschäftsadresse"
+#: .\Anmeldung\models.py:102
+#, fuzzy
+#| msgid "Geschäftsadresse"
+msgid "Rechnungsadresse"
 msgstr "Business address"
 
-#: .\Anmeldung\models.py:91
+#: .\Anmeldung\models.py:103
+#, fuzzy
+#| msgid "Straße und Hausnummer"
+msgid "Rechnung Straße und Hausnummer"
+msgstr "Street address"
+
+#: .\Anmeldung\models.py:104
+#, fuzzy
+#| msgid "Postleitzahl"
+msgid "Rechnung Postleitzahl"
+msgstr "ZIP"
+
+#: .\Anmeldung\models.py:105
+msgid "Rechnung Ort"
+msgstr ""
+
+#: .\Anmeldung\models.py:106
+msgid "Rechnung Land"
+msgstr ""
+
+#: .\Anmeldung\models.py:107
 msgid "Verpflegung"
 msgstr "Catering"
 
-#: .\Anmeldung\models.py:92
+#: .\Anmeldung\models.py:108
+msgid "Ich möchte im Haus wohnen"
+msgstr ""
+
+#: .\Anmeldung\models.py:109
+msgid "Unterbringung"
+msgstr "accommodation"
+
+#: .\Anmeldung\models.py:110
 msgid "Art der Übersetzung"
 msgstr "Type of translation"
 
-#: .\Anmeldung\models.py:120
+#: .\Anmeldung\models.py:138
 msgid "Veröffentlichung am"
 msgstr "Published"
 
-#: .\Anmeldung\models.py:121
+#: .\Anmeldung\models.py:139
 msgid "Veröffentlichung bis"
 msgstr "Visible until"
 
@@ -160,11 +203,6 @@ msgstr ""
 #: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:26
 msgid "submit"
 msgstr ""
-
-#: .\Anmeldung\templates\Anmeldung\base.html:5
-#: .\Anmeldung\templates\Anmeldung\base.html:14
-msgid "Ekayana-Institut - Veranstaltungen"
-msgstr "Ekayana Institut - Events"
 
 #: .\Anmeldung\templates\Anmeldung\base2.html:7
 msgid "Ekayana-Programm"
@@ -199,45 +237,48 @@ msgstr "Donations Fond"
 msgid "Norbu-Verlag"
 msgstr "Norbu Book Publishing"
 
-#: .\Anmeldung\templates\Anmeldung\event_detail.html:35
+#: .\Anmeldung\templates\Anmeldung\event_detail.html:51
 msgid "Zur Anmeldung"
 msgstr "Subscribe"
 
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:5
-msgid "Anmeldung"
-msgstr "Subscription"
-
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:6
-msgid "bis"
-msgstr "until"
-
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:27
-msgid "Verbindlich anmelden"
-msgstr "subscribe bindingly"
-
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:33
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:17
 msgid "Zurück zur Programmübersicht"
 msgstr "Back to the Event List"
 
-#: .\Events\settings.py:118
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:18
+msgid "Anmeldung"
+msgstr "Subscription"
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:19
+msgid "bis"
+msgstr "until"
+
+#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:34
+msgid "Verbindlich anmelden"
+msgstr "subscribe bindingly"
+
+#: .\Events\settings.py:139
 msgid "Deutsch"
 msgstr "German"
 
-#: .\Events\settings.py:119
+#: .\Events\settings.py:140
 msgid "Englisch"
 msgstr "English"
 
-#: .\Events\settings.py:120
+#: .\Events\settings.py:141
 msgid "Französisch"
 msgstr "French"
 
-#: .\Events\settings.py:121
+#: .\Events\settings.py:142
 msgid "griechisch"
 msgstr "greek"
 
-#: .\Events\settings.py:122
+#: .\Events\settings.py:143
 msgid "portugiesisch"
 msgstr "portuguese"
+
+#~ msgid "Ekayana-Institut - Veranstaltungen"
+#~ msgstr "Ekayana Institut - Events"
 
 #, fuzzy
 #~| msgid "Ich brauche eine Übersetzung"
@@ -267,9 +308,6 @@ msgstr "portuguese"
 
 #~ msgid "Ich biete Mitfahrgelegenheiten für"
 #~ msgstr "I offer car rides(seats)."
-
-#~ msgid "Unterbringung"
-#~ msgstr "accommodation"
 
 #~ msgid "Name"
 #~ msgstr "Name"
