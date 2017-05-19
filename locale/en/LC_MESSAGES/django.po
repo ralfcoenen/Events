@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 14:54+0200\n"
-"PO-Revision-Date: 2017-05-16 12:04+0100\n"
+"POT-Creation-Date: 2017-05-19 08:12+0200\n"
+"PO-Revision-Date: 2017-05-19 08:18+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: en\n"
@@ -18,13 +18,11 @@ msgstr ""
 "X-Generator: Poedit 1.8.1\n"
 
 #: .\Anmeldung\forms.py:18
-#, fuzzy
 #| msgid "Bitte geben Sie dazu im folgenden Ihre Geschäftsadresse ein"
 msgid "Bitte geben Sie ggfs. Ihre Rechnungsadresse ein"
-msgstr "In this case please enter your business address"
+msgstr "Bitte geben Sie ggfs. Ihre Rechnungsadresse ein"
 
 #: .\Anmeldung\forms.py:19
-#, fuzzy
 #| msgid ""
 #| "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
 #| "Android und IOS bieten entsprechende Apps an."
@@ -32,8 +30,8 @@ msgid ""
 "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
 "Android und IOS bieten entsprechende Apps dazu an."
 msgstr ""
-"Please bring an FM radio as the receiver for the translation. Android and "
-"IOS offer appropriate apps."
+"Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
+"Android und IOS bieten entsprechende Apps dazu an."
 
 #: .\Anmeldung\forms.py:20
 msgid ""
@@ -41,6 +39,8 @@ msgid ""
 "sowie Menschen mit sehr begrenztem finanziellem Hintergrund zur Verfügung. "
 "Bitte nennen Sie ihre Gründe in der Bemerkung."
 msgstr ""
+"Our rooms are very limited, so we can offer them only to those who are "
+"ordinated, to the staff and to those with very low budget."
 
 #: .\Anmeldung\forms.py:44 .\Anmeldung\models.py:42
 msgid "Ich nehme an der Verpflegung teil"
@@ -64,7 +64,7 @@ msgstr "Mr"
 
 #: .\Anmeldung\models.py:71
 msgid "Keine"
-msgstr ""
+msgstr "No"
 
 #: .\Anmeldung\models.py:72
 msgid "Ich brauche eine englische Übersetzung"
@@ -143,30 +143,26 @@ msgid "Ich reise an mit"
 msgstr "I'm coming by.."
 
 #: .\Anmeldung\models.py:102
-#, fuzzy
 #| msgid "Geschäftsadresse"
 msgid "Rechnungsadresse"
-msgstr "Business address"
+msgstr "Rechnungsadresse"
 
 #: .\Anmeldung\models.py:103
-#, fuzzy
-#| msgid "Straße und Hausnummer"
 msgid "Rechnung Straße und Hausnummer"
-msgstr "Street address"
+msgstr "Business Street address"
 
 #: .\Anmeldung\models.py:104
-#, fuzzy
 #| msgid "Postleitzahl"
 msgid "Rechnung Postleitzahl"
-msgstr "ZIP"
+msgstr "Rechnung Postleitzahl"
 
 #: .\Anmeldung\models.py:105
 msgid "Rechnung Ort"
-msgstr ""
+msgstr "Business Town"
 
 #: .\Anmeldung\models.py:106
 msgid "Rechnung Land"
-msgstr ""
+msgstr "Business Country"
 
 #: .\Anmeldung\models.py:107
 msgid "Verpflegung"
@@ -174,7 +170,7 @@ msgstr "Catering"
 
 #: .\Anmeldung\models.py:108
 msgid "Ich möchte im Haus wohnen"
-msgstr ""
+msgstr "I want to stay in the house"
 
 #: .\Anmeldung\models.py:109
 msgid "Unterbringung"
@@ -194,11 +190,11 @@ msgstr "Visible until"
 
 #: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:23
 msgid "first step"
-msgstr ""
+msgstr "Erster Schritt"
 
 #: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:24
 msgid "prev step"
-msgstr ""
+msgstr "vorheriger Schritt"
 
 #: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:26
 msgid "submit"
@@ -209,7 +205,7 @@ msgid "Ekayana-Programm"
 msgstr "Ekayana Program"
 
 #: .\Anmeldung\templates\Anmeldung\base2.html:48
-#: .\Anmeldung\templates\Anmeldung\base2.html:83
+#: .\Anmeldung\templates\Anmeldung\base2.html:82
 msgid "Ekayana-Institut"
 msgstr "Ekayana Institute"
 
@@ -221,21 +217,26 @@ msgstr "Event List and Subscription"
 msgid "Unser Retreatzentrum"
 msgstr "Our Retreat Center"
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:84
-msgid "Institut für zeitgemäßen Buddhismus!"
-msgstr "Institute For Contemporary Buddhism"
+#: .\Anmeldung\templates\Anmeldung\base2.html:83
+#| msgid "Institut für zeitgemäßen Buddhismus!"
+msgid "Institut für zeitgemäßen Buddhismus"
+msgstr "Institut für zeitgemäßen Buddhismus"
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:92
+#: .\Anmeldung\templates\Anmeldung\base2.html:91
 msgid "Retreathaus"
 msgstr "Retreat House"
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:95
+#: .\Anmeldung\templates\Anmeldung\base2.html:94
 msgid "Stiftungsfond"
 msgstr "Donations Fond"
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:98
+#: .\Anmeldung\templates\Anmeldung\base2.html:97
 msgid "Norbu-Verlag"
 msgstr "Norbu Book Publishing"
+
+#: .\Anmeldung\templates\Anmeldung\base2.html:100
+msgid "Impressum"
+msgstr "Disclaimer"
 
 #: .\Anmeldung\templates\Anmeldung\event_detail.html:51
 msgid "Zur Anmeldung"
