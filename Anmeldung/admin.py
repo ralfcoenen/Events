@@ -73,7 +73,7 @@ class EventAdmin(TranslationAdmin):
                              'teilnehmer__unterbringung','teilnehmer__wohnenimhaus','teilnehmer__bemerkung'
                      ]
 
-        writer = csv.DictWriter(response,fieldnames=fieldnames, delimiter=';', dialect='excel')
+        writer = csv.DictWriter(response,fieldnames=fieldnames, delimiter=";", dialect="excel")
         writer.writeheader()
 
         for e in rs:

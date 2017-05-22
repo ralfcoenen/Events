@@ -11,7 +11,7 @@ class TeilnehmerForm(forms.ModelForm):
         # fields = '__all__'
         # exclude = ['event']
         fields = ('anrede','titel','vorname','name','strasse',
-              'plz','ort','land','businessaddress','bustrasse','buplz','buort','buland','telefon','email', 'uebersetzungen', 'verkehrsmittel', 'verpflegung','wohnenimhaus','unterbringung',
+              'plz','ort','land','businessaddress','bustrasse','buplz','buort','buland','telefon','email', 'anreisedatum','abreisedatum','uebersetzungen', 'verkehrsmittel', 'verpflegung','wohnenimhaus','unterbringung',
               'bemerkung')
 
         help_texts = {

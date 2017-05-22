@@ -97,6 +97,11 @@ def teilnehmer_neu(request, pk):
                     settsDict['email'] = form.cleaned_data['email']
                     settsDict['bemerkung'] = form.cleaned_data['bemerkung']
                     settsDict['verpflegung'] = form.cleaned_data['verpflegung']
+                    settsDict['uebersetzungen'] = form.cleaned_data['uebersetzungen']
+                    settsDict['unterbringung'] = form.cleaned_data['unterbringung']
+                    settsDict['wohnenimhaus'] = form.cleaned_data['wohnenimhaus']
+                    settsDict['anreisedatum'] = form.cleaned_data['anreisedatum']
+                    settsDict['abreisedatum'] = form.cleaned_data['abreisedatum']
                     # Aus Dict wird Context
                     ctx = Context(settsDict)
                     # Bau die Engine und generiere template
