@@ -77,6 +77,7 @@ class EventAdmin(TranslationAdmin):
         writer.writeheader()
 
         for e in rs:
+            e['teilnehmer__bemerkung'] = e['teilnehmer__bemerkung'].replace('\r',' ').replace('\n','')
             writer.writerow(e)
 
         return response
