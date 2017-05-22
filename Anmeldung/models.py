@@ -44,9 +44,9 @@ class Teilnehmer(models.Model):
     )
     #
     SLEEPNONE = ''
-    SLEEPEXTERN = 'EXTERN'
-    SLEEPZELT = 'ZELT'
-    SLEEPWOHNWAGEN = 'WOHNWAGEN u.ä.'
+    SLEEPEXTERN = 'Extern'
+    SLEEPZELT = 'Zelt'
+    SLEEPWOHNWAGEN = 'Wohnwagen u.ä.'
 
     SLEEPCHOICES = (
         (SLEEPNONE, ''),
@@ -64,18 +64,18 @@ class Teilnehmer(models.Model):
     #
     #
 
-    TRANSNONE = 'NONE'
-    TRANSENGLISH = 'ENGLISH'
-    TRANSFRENCH = 'FRENCH'
+    TRANSNONE = 'Keine'
+    TRANSENGLISH = 'Englisch'
+    TRANSFRENCH = 'Französisch'
     TRANSCHOICES = (
         (TRANSNONE, _("Keine")),
         (TRANSENGLISH, _("Ich brauche eine englische Übersetzung")),
         (TRANSFRENCH, _("Ich brauche eine französische Übersetzung")),
     )
-    TRAVELBAHN = 'BAHN'
-    TRAVELBAHNPICKUP = 'BAHNPICKUP'
-    TRAVELAUTO = 'AUTO'
-    TRAVELBYPICKUP = 'MITFAHRER'
+    TRAVELBAHN = 'Bahn'
+    TRAVELBAHNPICKUP = 'Bahn mit Abholung'
+    TRAVELAUTO = 'Auto'
+    TRAVELBYPICKUP = 'Mitfahrer'
     TRAVELCHOICES = (
         (TRAVELBAHN, _('Ich fahre Bahn')),
         (TRAVELBAHNPICKUP, _('Ich fahre Bahn und möchte am Bahnhof abgeholt werden.')),
