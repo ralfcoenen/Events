@@ -51,11 +51,11 @@ class EventAdmin(TranslationAdmin):
     save_as = True
 
     def Anzahl_Teilnehmer(self, instance):
-        v = self.model.objects.Teilnehmer_counts()
+        v = self.model.Teilnehmer_counts(self)
         return v
 
     def Anzahl_Essen(self, instance):
-        v = self.model.objects.Teilnehmer_Essen()
+        v = self.model.Teilnehmer_Essen(self)
         return v
 
     def exportliste(self, request, queryset):

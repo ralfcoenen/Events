@@ -2,7 +2,6 @@ from django.db import models
 import datetime
 from django.utils.translation import ugettext_lazy as _
 
-
 from Anmeldung.singleton import SingletonModel
 
 from tinymce import HTMLField
@@ -11,7 +10,25 @@ from django.db import connection
 from django.db import models
 
 
-class EventManager(models.Manager):
+class Event(models.Model):
+    bezeichnung = models.CharField(max_length=200)
+    registrationdeadline = models.DateField('Sichtbar bis einschl.',default=datetime.date.today)
+    beginn = models.DateField(default=datetime.date.today)
+    ende = models.DateField(default=datetime.date.today)
+    kurzbeschreibung = HTMLField('Kurze Beschreibung', blank=True)
+    beschreibung = HTMLField('Beschreibung', blank=True)
+    oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
+    sichtbar = models.BooleanField('wird angezeigt',default=True)
+    eventplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer", default=0)
+    essensplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer an der Verpflegung", default=0)
+
+    class Meta:
+        verbose_name = 'Veranstaltung'
+        verbose_name_plural = 'Veranstaltungen'
+
+    def __str__(self):
+        return self.bezeichnung
+
     def Teilnehmer_counts(self):
         with connection.cursor() as cursor:
             cursor.execute("""
@@ -41,30 +58,6 @@ class EventManager(models.Manager):
                 e.anzahlteilnehmer = row[4]
                 result_list.append(e)
         return row[4]
-
-
-class Event(models.Model):
-    bezeichnung = models.CharField(max_length=200)
-    registrationdeadline = models.DateField('Sichtbar bis einschl.',default=datetime.date.today)
-    beginn = models.DateField(default=datetime.date.today)
-    ende = models.DateField(default=datetime.date.today)
-    kurzbeschreibung = HTMLField('Kurze Beschreibung', blank=True)
-    beschreibung = HTMLField('Beschreibung', blank=True)
-    oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)
-    sichtbar = models.BooleanField('wird angezeigt',default=True)
-    eventplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer", default=0)
-    essensplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer an der Verpflegung", default=0)
-    #
-    #  Versuch eines CustomManagers
-    #
-    objects = EventManager()
-
-    class Meta:
-        verbose_name = 'Veranstaltung'
-        verbose_name_plural = 'Veranstaltungen'
-
-    def __str__(self):
-        return self.bezeichnung
 
     ordering = ['+beginn']
 
