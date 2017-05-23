@@ -27,17 +27,15 @@
              <div data-pg-collapsed class="col-md-8">
 
                 <form class="form-horizontal" method="POST">
-                {% csrf_token %}
-                </br>
-                <div class="g-recaptcha" data-sitekey="6Lc4pxcUAAAAADY5cp3r7co6zok1X9rkjWI7DFzH"></div>
-                </br>
-                <table class="table">
-                    {{ form.as_table }}
-                </table>
-                </br>
-                    <button type="submit" class="save btn btn-default">{% trans 'Verbindlich anmelden' %}</button>
-                    <p></p>
+                    {% csrf_token %}
+                    </br>
 
+                    <table class="table">
+                        {{ form.as_table }}
+                    </table>
+                    <div class="g-recaptcha" data-sitekey="6Lc4pxcUAAAAADY5cp3r7co6zok1X9rkjWI7DFzH"></div>
+                    </br>
+                    <button type="submit" class="save btn btn-default">{% trans 'Verbindlich anmelden' %}</button>
                 </form>
             </div>
 
