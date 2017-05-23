@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Events.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+'''
 #Local Development-Server
 DATABASES = {
     'default': {
@@ -101,8 +101,8 @@ DATABASES = {
         # },
     }
 }
-
 '''
+
 # Production-Server
 DATABASES = {
     'default': {
@@ -119,7 +119,7 @@ DATABASES = {
         },
     }
 }
-'''
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
