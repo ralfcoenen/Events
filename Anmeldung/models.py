@@ -42,7 +42,7 @@ class Event(models.Model):
                 e = self.model(id=row[0], bezeichnung=row[1], beginn=row[2], ende=row[3])
                 e.anzahlteilnehmer = row[4]
                 result_list.append(e)
-        return row[4]
+        return result_list
 
     def Teilnehmer_Essen(self):
         with connection.cursor() as cursor:
@@ -57,7 +57,7 @@ class Event(models.Model):
                 e = self.model(id=row[0], bezeichnung=row[1], beginn=row[2], ende=row[3])
                 e.anzahlteilnehmer = row[4]
                 result_list.append(e)
-        return row[4]
+        return result_list
 
     ordering = ['+beginn']
 
