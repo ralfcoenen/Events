@@ -1,8 +1,8 @@
-{% extends 'Anmeldung/base2.html' %}
+{% extends 'Anmeldung/base2.html'%}
 {% load i18n %}
 
 {% block content %}
-<div class="col-md-7">
+<div class="col-md-8">
   <!-- /.accordion -->
 
 
@@ -70,7 +70,7 @@
 
   </div>
 </div>
-<div class="col-md-5">
+<div class="col-md-4">
   {% for h in rechts %}
             <h3>{{ h.headertext }}</h3>
             <p> {{ h.langtext|safe }}</p>
