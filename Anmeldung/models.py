@@ -6,6 +6,41 @@ from django.utils.translation import ugettext_lazy as _
 from Anmeldung.singleton import SingletonModel
 
 from tinymce import HTMLField
+from django.db import connection
+
+from django.db import models
+
+
+class EventManager(models.Manager):
+    def Teilnehmer_counts(self):
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT e.id, e.bezeichnung, e.beginn, e.ende, COUNT(*)
+                FROM Anmeldung_event e, Anmeldung_teilnehmer t
+                WHERE e.id = t.event_id
+                GROUP BY e.id, e.bezeichnung, e.beginn, e.ende
+                ORDER BY e.beginn DESC""")
+            result_list = []
+            for row in cursor.fetchall():
+                e = self.model(id=row[0], bezeichnung=row[1], beginn=row[2], ende=row[3])
+                e.anzahlteilnehmer = row[4]
+                result_list.append(e)
+        return row[4]
+
+    def Teilnehmer_Essen(self):
+        with connection.cursor() as cursor:
+            cursor.execute("""
+                SELECT e.id, e.bezeichnung, e.beginn, e.ende, COUNT(*)
+                FROM Anmeldung_event e, Anmeldung_teilnehmer t
+                WHERE e.id = t.event_id AND t.verpflegung = 'Ich nehme an der Verpflegung teil'
+                GROUP BY e.id, e.bezeichnung, e.beginn, e.ende
+                ORDER BY e.beginn DESC""")
+            result_list = []
+            for row in cursor.fetchall():
+                e = self.model(id=row[0], bezeichnung=row[1], beginn=row[2], ende=row[3])
+                e.anzahlteilnehmer = row[4]
+                result_list.append(e)
+        return row[4]
 
 
 class Event(models.Model):
@@ -19,6 +54,10 @@ class Event(models.Model):
     sichtbar = models.BooleanField('wird angezeigt',default=True)
     eventplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer", default=0)
     essensplaetze = models.PositiveSmallIntegerField("Plätze für Teilnehmer an der Verpflegung", default=0)
+    #
+    #  Versuch eines CustomManagers
+    #
+    objects = EventManager()
 
     class Meta:
         verbose_name = 'Veranstaltung'

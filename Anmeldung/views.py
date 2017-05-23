@@ -80,20 +80,20 @@ def teilnehmer_neu(request, pk):
                 '''
                 from django.db import models
 
-                class PollManager(models.Manager):
+                class EventManager(models.Manager):
                     def with_counts(self):
                         from django.db import connection
                         with connection.cursor() as cursor:
                             cursor.execute("""
-                                SELECT p.id, p.question, p.poll_date, COUNT(*)
-                                FROM polls_opinionpoll p, polls_response r
-                                WHERE p.id = r.poll_id
-                                GROUP BY p.id, p.question, p.poll_date
-                                ORDER BY p.poll_date DESC""")
+                                SELECT e.id, e.bezeichnung, e.beginn, e.ende, COUNT(*)
+                                FROM Anmeldung_event e, Anmeldung_teilnehmer t
+                                WHERE e.id = t.event_id
+                                GROUP BY e.id, e.bezeichnung, e.beginn, e.ende
+                                ORDER BY e.beginn DESC""")
                             result_list = []
                             for row in cursor.fetchall():
-                                p = self.model(id=row[0], question=row[1], poll_date=row[2])
-                                p.num_responses = row[3]
+                                e = self.model(id=row[0], event_bezeichnung=row[1], event_beginn=row[2], ecvent_ende=row[3])
+                                e.anzahlteilnehmer = row[4]
                                 result_list.append(p)
                         return result_list
 

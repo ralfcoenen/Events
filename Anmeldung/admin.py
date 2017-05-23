@@ -38,7 +38,7 @@ class EventAdmin(TranslationAdmin):
         css = {
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
-
+    readonly_fields = ('Anzahl_Teilnehmer','Anzahl_Essen',)
     fieldsets = [
         (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
@@ -46,10 +46,17 @@ class EventAdmin(TranslationAdmin):
     ]
     inlines = [TeilnehmerInline]
     actions = ['exportliste']
-    list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline')
+    list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline', 'Anzahl_Teilnehmer','Anzahl_Essen')
     save_on_top = True
     save_as = True
 
+    def Anzahl_Teilnehmer(self, instance):
+        v = self.model.objects.Teilnehmer_counts()
+        return v
+
+    def Anzahl_Essen(self, instance):
+        v = self.model.objects.Teilnehmer_Essen()
+        return v
 
     def exportliste(self, request, queryset):
 
