@@ -8,6 +8,6 @@ __pycache__
 .idea/modules.xml
 .idea/workspace.xml
 Anmeldung/migrations/
-Events/settings.py
+settings.py
 
 
