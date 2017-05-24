@@ -38,28 +38,30 @@ class EventAdmin(TranslationAdmin):
         css = {
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
-    readonly_fields = ('Anzahl_Teilnehmer','Anzahl_Essen',)
+
+
+    readonly_fields = ('AnzahlTeilnehmer','AnzahlEssen','AnzahlWarteliste')
     fieldsets = [
-        (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
-        ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
-        ('Beschreibung',        {'fields': ['beschreibung'], 'classes': ['collapse']}),
-    ]
+            (None,    {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
+            ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
+            ('Beschreibung',        {'fields': ['beschreibung'], 'classes': ['collapse']}),
+        ]
     inlines = [TeilnehmerInline]
     actions = ['exportliste']
-    list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline', 'Anzahl_Teilnehmer','Anzahl_Essen')
+    list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline', 'AnzahlTeilnehmer','AnzahlEssen','AnzahlWarteliste',)
     save_on_top = True
     save_as = True
 
-    def Anzahl_Teilnehmer(self, instance):
-        v = self.model.Teilnehmer_counts(self)
-        return v
+    def AnzahlTeilnehmer(self, obj):
+        return obj.teilnehmer_set.count()
 
-    def Anzahl_Essen(self, instance):
-        v = self.model.Teilnehmer_Essen(self)
-        return v
+    def AnzahlEssen(self, obj):
+        return Event.objects.filter(id=obj.id).filter(teilnehmer__verpflegung='Ich nehme an der Verpflegung teil').count()
+
+    def AnzahlWarteliste(self, obj):
+        return Event.objects.filter(id=obj.id).filter(teilnehmer__verpflegung='Alles belegt. Ich möchte auf die Warteliste').count()
 
     def exportliste(self, request, queryset):
-
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
                              'teilnehmer__name', 'teilnehmer__vorname',
                              'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
@@ -79,7 +81,6 @@ class EventAdmin(TranslationAdmin):
                              'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen','teilnehmer__verpflegung',
                              'teilnehmer__unterbringung','teilnehmer__wohnenimhaus','teilnehmer__bemerkung'
                      ]
-
         writer = csv.DictWriter(response,fieldnames=fieldnames, delimiter=";", dialect="excel")
         writer.writeheader()
 

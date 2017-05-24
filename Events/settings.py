@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Events.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+'''
 #Local Development-Server
 DATABASES = {
     'default': {
@@ -119,7 +119,7 @@ DATABASES = {
         },
     }
 }
-'''
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -168,7 +168,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
 EMAIL_HOST_PASSWORD = 'Paaf.3010'
-'''
+
 #
 # Production
 # ###################
@@ -184,7 +184,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
+'''
 #
 #   django-filebrowser
 #
