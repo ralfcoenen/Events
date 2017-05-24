@@ -1,0 +1,5 @@
+1. Anmeldeformular auf mehrere Seiten mit Logik verteilen.
+
+2. Anzahl Anmeldungen im Admin  Inline bereich einbleneden
+
+3. Algemeiner Hinweistext links neben dem Anmeldeformular
