@@ -124,7 +124,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'de-de'
+LANGUAGE_CODE = 'en-en'
 
 TIME_ZONE = 'Europe/Berlin'
 
@@ -136,11 +136,9 @@ USE_TZ = True
 
 gettext = lambda s: s
 LANGUAGES = [
-    ('de', _('Deutsch')),
     ('en', _('Englisch')),
+    ('de', _('Deutsch')),
     ('fr', _('Französisch')),
-    ('el', _('griechisch')),
-    ('pt',_('portugiesisch'))
 ]
 
 LOCALE_PATHS = [
