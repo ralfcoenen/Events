@@ -50,16 +50,20 @@ class EventAdmin(TranslationAdmin):
     save_on_top = True
     save_as = True
 
-    def Anzahl_Teilnehmer(self, instance):
-        v = self.model.Teilnehmer_counts(self)
-        return v
 
-    def Anzahl_Essen(self, instance):
-        v = self.model.Teilnehmer_Essen(self)
-        return v
+    def AnzahlTeilnehmer(self, obj):
+        return obj.teilnehmer_set.count()
+            
+
+    def AnzahlEssen(self, obj):
+        return Event.objects.filter(id=obj.id).filter(teilnehmer__verpflegung='Ich nehme an der Verpflegung teil').count()
+                        
+
+    def AnzahlWarteliste(self, obj):
+        return Event.objects.filter(id=obj.id).filter(teilnehmer__verpflegung='Alles belegt. Ich möchte auf die Warteliste').count()
+
 
     def exportliste(self, request, queryset):
-
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
                              'teilnehmer__name', 'teilnehmer__vorname',
                              'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',

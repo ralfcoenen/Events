@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Events.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-
+'''
 #Local Development-Server
 DATABASES = {
     'default': {
@@ -119,12 +119,12 @@ DATABASES = {
         },
     }
 }
-'''
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
 
-LANGUAGE_CODE = 'en-en'
+LANGUAGE_CODE = 'de-de'
 
 TIME_ZONE = 'Europe/Berlin'
 
@@ -136,8 +136,8 @@ USE_TZ = True
 
 gettext = lambda s: s
 LANGUAGES = [
-    ('en', _('Englisch')),
     ('de', _('Deutsch')),
+    ('en', _('Englisch')),
     ('fr', _('Französisch')),
 ]
 
@@ -166,7 +166,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
 EMAIL_HOST_PASSWORD = 'Paaf.3010'
-'''
+
 #
 # Production
 # ###################
@@ -186,7 +186,7 @@ MEDIA_URL = '/media/'
 #
 #   django-filebrowser
 #
-
+'''
 FILEBROWSER_DIRECTORY = ''
 DIRECTORY = ''
 

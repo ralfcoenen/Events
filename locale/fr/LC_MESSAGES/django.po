@@ -7,22 +7,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-19 08:12+0200\n"
+"POT-Creation-Date: 2017-05-24 14:57+0200\n"
 "PO-Revision-Date: 2017-05-19 09:24+0100\n"
-"Language: fr\n"
+"Last-Translator: \n"
+"Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: fr\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"Last-Translator: \n"
-"Language-Team: \n"
 "X-Generator: Poedit 1.8.1\n"
 
-#: .\Anmeldung\forms.py:18
+#: Anmeldung/forms.py:18
 msgid "Bitte geben Sie ggfs. Ihre Rechnungsadresse ein"
 msgstr "S'il vous plaît entrer si nécessaire votre adresse de facturation."
 
-#: .\Anmeldung\forms.py:19
+#: Anmeldung/forms.py:19
 msgid ""
 "Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. "
 "Android und IOS bieten entsprechende Apps dazu an."
@@ -30,7 +30,7 @@ msgstr ""
 "S'il vous plaît apporter une radio FM pour la traduction. Les applications "
 "Android et iOS offrent approprié de le faire."
 
-#: .\Anmeldung\forms.py:20
+#: Anmeldung/forms.py:20
 msgid ""
 "Unsere knappen Schlafplaetze stehen nur Ordinierten, Mithelfern beim Kurs "
 "sowie Menschen mit sehr begrenztem finanziellem Hintergrund zur Verfügung. "
@@ -39,237 +39,220 @@ msgstr ""
 "Nos quelques places de couchage ne sont disponibles que si vous êtes un "
 "moine ordonné, une aides pour l'événement ou très peu d'argent"
 
-#: .\Anmeldung\forms.py:44 .\Anmeldung\models.py:42
+#: Anmeldung/forms.py:44 Anmeldung/models.py:74
 msgid "Ich nehme an der Verpflegung teil"
 msgstr ""
 
-#: .\Anmeldung\forms.py:53 .\Anmeldung\models.py:43
+#: Anmeldung/forms.py:53 Anmeldung/models.py:75
 msgid "Alles belegt. Ich möchte auf die Warteliste"
 msgstr "Tous occupés. Je veux sur la liste d'attente"
 
-#: .\Anmeldung\models.py:41
+#: Anmeldung/models.py:73
 msgid "Ich verpflege mich selbst"
 msgstr ""
 
-#: .\Anmeldung\models.py:61
+#: Anmeldung/models.py:93
 msgid "Frau"
 msgstr ""
 
-#: .\Anmeldung\models.py:62
+#: Anmeldung/models.py:94
 msgid "Herr"
 msgstr ""
 
-#: .\Anmeldung\models.py:71
+#: Anmeldung/models.py:103
 msgid "Keine"
 msgstr ""
 
-#: .\Anmeldung\models.py:72
+#: Anmeldung/models.py:104
 msgid "Ich brauche eine englische Übersetzung"
 msgstr ""
 
-#: .\Anmeldung\models.py:73
+#: Anmeldung/models.py:105
 msgid "Ich brauche eine französische Übersetzung"
 msgstr ""
 
-#: .\Anmeldung\models.py:80
+#: Anmeldung/models.py:112
 msgid "Ich fahre Bahn"
 msgstr ""
 
-#: .\Anmeldung\models.py:81
+#: Anmeldung/models.py:113
 msgid "Ich fahre Bahn und möchte am Bahnhof abgeholt werden."
 msgstr ""
 
-#: .\Anmeldung\models.py:82
+#: Anmeldung/models.py:114
 msgid "Ich komme mit dem Auto"
 msgstr ""
 
-#: .\Anmeldung\models.py:83
+#: Anmeldung/models.py:115
 msgid "Ich bin Mitfahrer"
 msgstr ""
 
-#: .\Anmeldung\models.py:88
+#: Anmeldung/models.py:120
 msgid "Anrede"
 msgstr "Salutation"
 
-#: .\Anmeldung\models.py:89
+#: Anmeldung/models.py:121
 msgid "Titel"
 msgstr "Titre"
 
-#: .\Anmeldung\models.py:90
+#: Anmeldung/models.py:122
 msgid "Familienname"
 msgstr ""
 
-#: .\Anmeldung\models.py:91
+#: Anmeldung/models.py:123
 msgid "Vorname"
 msgstr "Prénom"
 
-#: .\Anmeldung\models.py:92
+#: Anmeldung/models.py:124
 msgid "Straße und Hausnummer"
 msgstr "Rue et numéro"
 
-#: .\Anmeldung\models.py:93
+#: Anmeldung/models.py:125
 msgid "Postleitzahl"
 msgstr ""
 
-#: .\Anmeldung\models.py:94
+#: Anmeldung/models.py:126
 msgid "Ort"
 msgstr ""
 
-#: .\Anmeldung\models.py:95
+#: Anmeldung/models.py:127
 msgid "Land"
 msgstr ""
 
-#: .\Anmeldung\models.py:97
+#: Anmeldung/models.py:129
 msgid "Telefon"
 msgstr "Téléphone"
 
-#: .\Anmeldung\models.py:98
+#: Anmeldung/models.py:130
 msgid "Bemerkung"
 msgstr "Remarque"
 
-#: .\Anmeldung\models.py:99
+#: Anmeldung/models.py:131
 msgid "Anreisedatum"
 msgstr "Date d'arrivée"
 
-#: .\Anmeldung\models.py:100
+#: Anmeldung/models.py:132
 msgid "Abreisedatum"
 msgstr "Date de départ"
 
-#: .\Anmeldung\models.py:101
+#: Anmeldung/models.py:133
 msgid "Ich reise an mit"
 msgstr ""
 
-#: .\Anmeldung\models.py:102
+#: Anmeldung/models.py:134
 msgid "Rechnungsadresse"
 msgstr "adresse de facturation"
 
-#: .\Anmeldung\models.py:103
+#: Anmeldung/models.py:135
 msgid "Rechnung Straße und Hausnummer"
 msgstr ""
 "Rue et numéro de\n"
 " facturation"
 
-#: .\Anmeldung\models.py:104
+#: Anmeldung/models.py:136
 msgid "Rechnung Postleitzahl"
 msgstr ""
 
-#: .\Anmeldung\models.py:105
+#: Anmeldung/models.py:137
 msgid "Rechnung Ort"
 msgstr ""
 
-#: .\Anmeldung\models.py:106
+#: Anmeldung/models.py:138
 msgid "Rechnung Land"
 msgstr ""
 
-#: .\Anmeldung\models.py:107
+#: Anmeldung/models.py:139
 msgid "Verpflegung"
 msgstr "Nourriture"
 
-#: .\Anmeldung\models.py:108
+#: Anmeldung/models.py:140
 msgid "Ich möchte im Haus wohnen"
 msgstr ""
 
-#: .\Anmeldung\models.py:109
+#: Anmeldung/models.py:141
 msgid "Unterbringung"
 msgstr "Hébergement"
 
-#: .\Anmeldung\models.py:110
+#: Anmeldung/models.py:142
 msgid "Art der Übersetzung"
 msgstr "Type de traduction"
 
-#: .\Anmeldung\models.py:138
+#: Anmeldung/models.py:170
 msgid "Veröffentlichung am"
 msgstr "publication sur"
 
-#: .\Anmeldung\models.py:139
+#: Anmeldung/models.py:171
 msgid "Veröffentlichung bis"
 msgstr "publication"
 
-#: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:23
-msgid "first step"
-msgstr ""
-
-#: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:24
-msgid "prev step"
-msgstr ""
-
-#: .\Anmeldung\templates\Anmeldung\anmeldungsform_oc.html:26
-msgid "submit"
-msgstr "Soumettre"
-
-#: .\Anmeldung\templates\Anmeldung\base2.html:7
+#: Anmeldung/templates/Anmeldung/base2.html:7
 msgid "Ekayana-Programm"
 msgstr ""
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:48
-#: .\Anmeldung\templates\Anmeldung\base2.html:82
+#: Anmeldung/templates/Anmeldung/base2.html:48
+#: Anmeldung/templates/Anmeldung/base2.html:82
 msgid "Ekayana-Institut"
 msgstr ""
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:51
+#: Anmeldung/templates/Anmeldung/base2.html:51
 msgid "Programmübersicht und Anmeldung"
 msgstr ""
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:56
+#: Anmeldung/templates/Anmeldung/base2.html:56
 msgid "Unser Retreatzentrum"
 msgstr "Notre maison de retraite"
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:83
+#: Anmeldung/templates/Anmeldung/base2.html:83
 msgid "Institut für zeitgemäßen Buddhismus"
 msgstr ""
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:91
+#: Anmeldung/templates/Anmeldung/base2.html:91
 msgid "Retreathaus"
 msgstr "Maison de retraite"
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:94
+#: Anmeldung/templates/Anmeldung/base2.html:94
 msgid "Stiftungsfond"
 msgstr "Fonds de dotation"
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:97
+#: Anmeldung/templates/Anmeldung/base2.html:97
 msgid "Norbu-Verlag"
 msgstr ""
 
-#: .\Anmeldung\templates\Anmeldung\base2.html:100
+#: Anmeldung/templates/Anmeldung/base2.html:100
 msgid "Impressum"
 msgstr ""
 
-#: .\Anmeldung\templates\Anmeldung\event_detail.html:51
+#: Anmeldung/templates/Anmeldung/event_detail.html:52
 msgid "Zur Anmeldung"
 msgstr "Inscription"
 
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:17
+#: Anmeldung/templates/Anmeldung/teilnehmer_neu.html:21
 msgid "Zurück zur Programmübersicht"
 msgstr "Retour à la série"
 
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:18
+#: Anmeldung/templates/Anmeldung/teilnehmer_neu.html:22
 msgid "Anmeldung"
 msgstr "Inscription"
 
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:19
+#: Anmeldung/templates/Anmeldung/teilnehmer_neu.html:23
 msgid "bis"
 msgstr "à"
 
-#: .\Anmeldung\templates\Anmeldung\teilnehmer_neu.html:34
+#: Anmeldung/templates/Anmeldung/teilnehmer_neu.html:38
 msgid "Verbindlich anmelden"
 msgstr "Inscrit contraignant"
 
-#: .\Events\settings.py:139
-msgid "Deutsch"
-msgstr "Allemand"
-
-#: .\Events\settings.py:140
+#: Events/settings.py:139
 msgid "Englisch"
 msgstr ""
 
-#: .\Events\settings.py:141
+#: Events/settings.py:140
+msgid "Deutsch"
+msgstr "Allemand"
+
+#: Events/settings.py:141
 msgid "Französisch"
 msgstr ""
 
-#: .\Events\settings.py:142
-msgid "griechisch"
-msgstr ""
-
-#: .\Events\settings.py:143
-msgid "portugiesisch"
-msgstr ""
+#~ msgid "submit"
+#~ msgstr "Soumettre"
