@@ -46,7 +46,7 @@ class EventAdmin(TranslationAdmin):
     ]
     inlines = [TeilnehmerInline]
     actions = ['exportliste']
-    list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline', 'Anzahl_Teilnehmer','Anzahl_Essen')
+    list_display = ('bezeichnung', 'beginn', 'ende', 'registrationdeadline', 'AnzahlTeilnehmer','AnzahlEssen','AnzahlWarteliste',)
     save_on_top = True
     save_as = True
 
