@@ -70,45 +70,6 @@ def teilnehmer_neu(request, pk):
                 teilnehmer.event = event
                 teilnehmer.save()
                 messages.success(request, 'Neue Anmeldung erfolgreich durchgeführt!')
-                #
-                # Hier wäre jetzt eine Zählung der Teilnehmer für das Event und Speicherung im Event schön
-                # Besser wäre ein Custom Manager, der einfach bei
-                #  'Event.objects.with_counts() die Anzahl der Objekte zurück gäbe
-                #
-                #  Beispiel:
-                # ------- models.py ---------------
-                '''
-                from django.db import models
-
-                class EventManager(models.Manager):
-                    def with_counts(self):
-                        from django.db import connection
-                        with connection.cursor() as cursor:
-                            cursor.execute("""
-                                SELECT e.id, e.bezeichnung, e.beginn, e.ende, COUNT(*)
-                                FROM Anmeldung_event e, Anmeldung_teilnehmer t
-                                WHERE e.id = t.event_id
-                                GROUP BY e.id, e.bezeichnung, e.beginn, e.ende
-                                ORDER BY e.beginn DESC""")
-                            result_list = []
-                            for row in cursor.fetchall():
-                                e = self.model(id=row[0], event_bezeichnung=row[1], event_beginn=row[2], ecvent_ende=row[3])
-                                e.anzahlteilnehmer = row[4]
-                                result_list.append(p)
-                        return result_list
-
-                class OpinionPoll(models.Model):
-                    question = models.CharField(max_length=200)
-                    poll_date = models.DateField()
-                    objects = PollManager()
-
-                class Response(models.Model):
-                    poll = models.ForeignKey(OpinionPoll, on_delete=models.CASCADE)
-                    person_name = models.CharField(max_length=50)
-                    response = models.TextField()
-                '''
-                # ---------------------------------------------
-
 
                 if setts.senden:
                     """
@@ -144,29 +105,39 @@ def teilnehmer_neu(request, pk):
                     settsDict['abreisedatum'] = form.cleaned_data['abreisedatum']
                     # Aus Dict wird Context
                     ctx = Context(settsDict)
-                    # Bau die Engine und generiere template
-                    engine = engines['django']
-                    template = engine.from_string(settsDict['email_antworttext_teilnehmer'])
-                    nachricht = template.render(ctx)
+
+                    # Bau die Engine und generiere templates
+                    # engine = engines['django']
+                    # template = engine.from_string(settsDict['email_antworttext_teilnehmer'])
+                    # nachricht = template.render(ctx)
+                    nachricht = 'Bitte Schalten Sie in die HTML-Ansicht für diese eMail'
+                    nachricht_html=engines['django'].from_string(settsDict['htmltext_teilnehmer']).render(ctx)
+
+                    nachricht2 = 'Bitte Schalten Sie in die HTML-Ansicht für diese eMail'
+                    nachricht2_html = engines['django'].from_string(settsDict['htmltext_organisation']).render(ctx)
+
                     #
                     # mesage 1
                     #
                     betreff = 'Ihre Anmeldung für ' + event.bezeichnung
                     von = setts.emails_to
                     an = [form.cleaned_data['email']]
-                    message1 = (betreff, nachricht, von, an)
+                    # message1 = (betreff, nachricht, von, an)
+                    send_mail(betreff, nachricht, von, an, html_message=nachricht_html, fail_silently=False)
                     #
                     # mesage 2
                     #
                     betreff = 'Neue Anmeldung für ' + event.bezeichnung
-                    nachricht = 'Es gibt eine neue Anmeldung: \n-----------------------------\n\n' + nachricht
                     von = setts.emails_to
                     an = [setts.emails_to]
-                    message2 = (betreff, nachricht, von, an)
+                    # message2 = (betreff, nachricht, von, an)
+                    send_mail(betreff, nachricht2, von, an, html_message=nachricht2_html, fail_silently=False)
                     #
                     #  Sende Alle eMails auf einmal
                     #
-                    send_mass_mail((message1, message2), fail_silently=False)
+                    # send_mass_mail((message1, message2), fail_silently=False)
+
+
 
                 return redirect('teilnehmer_neu', pk=pk)
 

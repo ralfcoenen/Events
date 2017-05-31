@@ -116,14 +116,22 @@ class texteAdmin(TranslationAdmin):
 
 
 class usersettingsAdmin(admin.ModelAdmin):
+    class Media:
+        # js = ('js/admin/my_own_admin.js',)
+        css = {
+            'all': ('Anmeldung/css/admin/my_own_admin.css',)
+        }
+
+
     fieldsets = [
-            (None,              {'fields': ['senden', 'emails_to', 'email_antworttext_teilnehmer',
-                                            'email_antworttext_organisation']})
+            (None,              {'fields': ['senden', 'emails_to',
+                                            #'email_antworttext_teilnehmer','email_antworttext_organisation',
+                                            'htmltext_teilnehmer','htmltext_organisation']})
     ]
 
-    #   def has_add_permission(self, request):
-    #       # Add Button muss weg, weil sonst versehntlich überschrieben wird
-    #       return False
+    def has_add_permission(self, request):
+        # Add Button muss weg, weil sonst versehntlich überschrieben wird
+        return False
 
 
 admin.site.register(Event, EventAdmin)

@@ -184,8 +184,10 @@ class texte(models.Model):
 class UserSettings(SingletonModel):
     senden = models.BooleanField('E-Mails senden',default=True)
     emails_to = models.CharField(max_length=60,blank=True,null=True)
-    email_antworttext_teilnehmer = models.TextField('Text für aut. eMail-Antwort an Teilnehmer',blank=True, default='')
-    email_antworttext_organisation = models.TextField('Text für aut. eMail an Organisation bei neuer Anmeldung',blank=True, default='')
+    # email_antworttext_teilnehmer = models.TextField('Text für aut. eMail-Antwort an Teilnehmer',blank=True, default='')
+    # email_antworttext_organisation = models.TextField('Text für aut. eMail an Organisation bei neuer Anmeldung',blank=True, default='')
+    htmltext_teilnehmer = HTMLField('Teilnehmeremail', blank=True)
+    htmltext_organisation = HTMLField('Organisationsemail', blank=True)
 
     def __str__(self):
         return 'Einstellung'

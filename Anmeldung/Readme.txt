@@ -14,7 +14,7 @@ Ort:                                {{ ort }}
 Geschäftsadresse:                   {{ businessaddress }}
 Gesch. Strasse:                     {{ bustrasse }}
 Gesch. Ort:                         {{ buort }}
-Gesch. PLZ:                         {{buplz }}
+Gesch. PLZ:                         {{ buplz }}
 Telefon:                            {{ telefon }}
 eMail:                              {{ email }}
 Unterbringung:                      {{ unterbringung }}

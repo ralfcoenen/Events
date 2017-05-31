@@ -1,0 +1,7 @@
+html body.app-Anmeldung.model-usersettings.change-form div#container div#content.colM div#content-main form#usersettings_form div fieldset.module.aligned div.form-row.field-email_antworttext_organisation div textarea#id_email_antworttext_organisation.vLargeTextField {
+    font-family: Courier;
+}
+
+html body.app-Anmeldung.model-usersettings.change-form div#container div#content.colM div#content-main form#usersettings_form div fieldset.module.aligned div.form-row.field-email_antworttext_teilnehmer div textarea#id_email_antworttext_teilnehmer.vLargeTextField {
+    font-family: Courier;
+}
