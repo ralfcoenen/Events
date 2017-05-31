@@ -186,7 +186,7 @@ MEDIA_URL = '/media/'
 #
 #   django-filebrowser
 #
-
+'''
 FILEBROWSER_DIRECTORY = ''
 DIRECTORY = ''
 
