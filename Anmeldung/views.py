@@ -142,31 +142,44 @@ def teilnehmer_neu(request, pk):
                     settsDict['wohnenimhaus'] = form.cleaned_data['wohnenimhaus']
                     settsDict['anreisedatum'] = form.cleaned_data['anreisedatum']
                     settsDict['abreisedatum'] = form.cleaned_data['abreisedatum']
+
+
+
                     # Aus Dict wird Context
                     ctx = Context(settsDict)
-                    # Bau die Engine und generiere template
-                    engine = engines['django']
-                    template = engine.from_string(settsDict['email_antworttext_teilnehmer'])
-                    nachricht = template.render(ctx)
+                    
+                    # Bau die Engine und generiere templates
+                    # engine = engines['django']
+                    # template = engine.from_string(settsDict['email_antworttext_teilnehmer'])
+                    # nachricht = template.render(ctx)
+                    nachricht = 'Bitte Schalten Sie in die HTML-Ansicht für diese eMail'
+                    nachricht_html=engines['django'].from_string(settsDict['htmltext_teilnehmer']).render(ctx)
+                                                                                                                                        
+                    nachricht2 = 'Bitte Schalten Sie in die HTML-Ansicht für diese eMail'
+                    nachricht2_html = engines['django'].from_string(settsDict['htmltext_organisation']).render(ctx)
+                                                                
                     #
                     # mesage 1
                     #
                     betreff = 'Ihre Anmeldung für ' + event.bezeichnung
                     von = setts.emails_to
                     an = [form.cleaned_data['email']]
-                    message1 = (betreff, nachricht, von, an)
+                    # message1 = (betreff, nachricht, von, an)
+                    send_mail(betreff, nachricht, von, an, html_message=nachricht_html, fail_silently=False)
                     #
                     # mesage 2
                     #
                     betreff = 'Neue Anmeldung für ' + event.bezeichnung
-                    nachricht = 'Es gibt eine neue Anmeldung: \n-----------------------------\n\n' + nachricht
                     von = setts.emails_to
                     an = [setts.emails_to]
-                    message2 = (betreff, nachricht, von, an)
+                    # message2 = (betreff, nachricht, von, an)
+                    send_mail(betreff, nachricht2, von, an, html_message=nachricht2_html, fail_silently=False)
                     #
                     #  Sende Alle eMails auf einmal
                     #
-                    send_mass_mail((message1, message2), fail_silently=False)
+                    # send_mass_mail((message1, message2), fail_silently=False)
+                                                                                                                                                                                                                                                                                                                                                                        
+
 
                 return redirect('teilnehmer_neu', pk=pk)
 

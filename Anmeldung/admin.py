@@ -38,7 +38,7 @@ class EventAdmin(TranslationAdmin):
         css = {
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
-    readonly_fields = ('Anzahl_Teilnehmer','Anzahl_Essen',)
+    readonly_fields = ('AnzahlTeilnehmer','AnzahlEssen','AnzahlWarteliste',)
     fieldsets = [
         (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
@@ -120,13 +120,14 @@ class texteAdmin(TranslationAdmin):
 
 class usersettingsAdmin(admin.ModelAdmin):
     fieldsets = [
-            (None,              {'fields': ['senden', 'emails_to', 'email_antworttext_teilnehmer',
-                                            'email_antworttext_organisation']})
+            (None,              {'fields': ['senden', 'emails_to', 
+                                            # 'email_antworttext_teilnehmer','email_antworttext_organisation',
+                                            'htmltext_teilnehmer','htmltext_organisation']})
     ]
 
-    #   def has_add_permission(self, request):
-    #       # Add Button muss weg, weil sonst versehntlich überschrieben wird
-    #       return False
+    def has_add_permission(self, request):
+    # Add Button muss weg, weil sonst versehntlich überschrieben wird
+        return False
 
 
 admin.site.register(Event, EventAdmin)
