@@ -146,17 +146,17 @@ def teilnehmer_neu(request, pk):
 
 
                     # Aus Dict wird Context
-                    ctx = Context(settsDict)
+                    # ctx = Context(settsDict)
                     
                     # Bau die Engine und generiere templates
                     # engine = engines['django']
                     # template = engine.from_string(settsDict['email_antworttext_teilnehmer'])
                     # nachricht = template.render(ctx)
                     nachricht = 'Bitte Schalten Sie in die HTML-Ansicht für diese eMail'
-                    nachricht_html=engines['django'].from_string(settsDict['htmltext_teilnehmer']).render(ctx)
+                    nachricht_html=engines['django'].from_string(settsDict['htmltext_teilnehmer']).render(settsDict)
                                                                                                                                         
                     nachricht2 = 'Bitte Schalten Sie in die HTML-Ansicht für diese eMail'
-                    nachricht2_html = engines['django'].from_string(settsDict['htmltext_organisation']).render(ctx)
+                    nachricht2_html = engines['django'].from_string(settsDict['htmltext_organisation']).render(settsDict)
                                                                 
                     #
                     # mesage 1
