@@ -32,13 +32,13 @@ class EventAdmin(TranslationAdmin):
     class Media:
         js = (
             'modeltranslation/js/force_jquery.js',
-            'http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
+            '//ajax.googleapis.com/ajax/libs/jqueryui/1.8.24/jquery-ui.min.js',
             'modeltranslation/js/tabbed_translation_fields.js',
         )
         css = {
             'screen': ('modeltranslation/css/tabbed_translation_fields.css',),
         }
-    readonly_fields = ('Anzahl_Teilnehmer','Anzahl_Essen',)
+    readonly_fields = ('AnzahlTeilnehmer','AnzahlEssen','AnzahlWarteliste',)
     fieldsets = [
         (None,                  {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline','eventplaetze', 'essensplaetze']}),
         ('kurze Beschreibung',  {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
@@ -119,21 +119,14 @@ class texteAdmin(TranslationAdmin):
 
 
 class usersettingsAdmin(admin.ModelAdmin):
-    class Media:
-        # js = ('js/admin/my_own_admin.js',)
-        css = {
-            'all': ('Anmeldung/css/admin/my_own_admin.css',)
-        }
-
-
     fieldsets = [
-            (None,              {'fields': ['senden', 'emails_to',
-                                            #'email_antworttext_teilnehmer','email_antworttext_organisation',
+            (None,              {'fields': ['senden', 'emails_to', 
+                                            # 'email_antworttext_teilnehmer','email_antworttext_organisation',
                                             'htmltext_teilnehmer','htmltext_organisation']})
     ]
 
     def has_add_permission(self, request):
-        # Add Button muss weg, weil sonst versehntlich überschrieben wird
+    # Add Button muss weg, weil sonst versehntlich überschrieben wird
         return False
 
 
