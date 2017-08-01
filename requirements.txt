@@ -7,4 +7,5 @@ django-tinymce4-lite
 django-filebrowser-no-grappelli
 django-formtools
 django-modeltranslation
+reportlab
 

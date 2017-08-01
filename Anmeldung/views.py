@@ -187,6 +187,6 @@ def teilnehmer_neu(request, pk):
                 messages.error(request, 'Falsches reCAPTCHA! Bitte nochmal versuchen!')
                 return redirect('teilnehmer_neu', pk=pk)
     else:
-        form = TeilnehmerForm(initial = {'pk': pk})
+        form = TeilnehmerForm(initial = {'pk': pk, 'anreisedatum': event.beginn, 'abreisedatum': event.ende})
 
     return render(request, 'Anmeldung/teilnehmer_neu.html', {'form': form, 'event': event, 'setts': setts})
