@@ -249,7 +249,7 @@ class EventAdmin(TranslationAdmin):
                 # Übersetzungen
                 #
                 z2 = Teilnehmer.objects.filter(event=e.pk).filter(
-                    Q(uebersetzungen="Englsich") | Q(uebersetzungen="Französisch"))
+                    Q(uebersetzungen="Englisch") | Q(uebersetzungen="Französisch"))
                 data = []
                 for t in z2:
                     data.append([t.name + ', ' + t.vorname, t.email, t.anreisedatum.strftime("%d.%m.%Y"),
