@@ -31,8 +31,6 @@ class TeilnehmerInline(admin.StackedInline):
     fieldsets = [
         (None, {'fields': ['anrede','name', 'vorname']}),
         ('Adress-Daten Privat', {'fields': ['strasse', 'plz', 'ort'], 'classes': ['collapse']}),
-        ('Adress-Daten Business',
-         {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
         ('sonstiges', {
             'fields': ['email', 'telefon', 'anreisedatum', 'abreisedatum', 'uebersetzungen', 'verkehrsmittel',
                        'unterbringung', 'wohnenimhaus', 'verpflegung', 'bemerkung'], 'classes': ['collapse']})
@@ -274,8 +272,8 @@ class TeilnehmerAdmin(admin.ModelAdmin):
     fieldsets = [
         (None, {'fields': ['name', 'vorname']}),
         ('Adress-Daten Privat', {'fields': ['strasse', 'plz', 'ort', 'land'], 'classes': ['collapse']}),
-        ('Adress-Daten Business',
-         {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
+#        ('Adress-Daten Business',
+#         {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
         ('sonstiges', {
             'fields': ['email', 'telefon', 'anreisedatum', 'abreisedatum', 'uebersetzungen', 'verkehrsmittel',
                        'unterbringung', 'wohnenimhaus', 'verpflegung', 'bemerkung'], 'classes': ['collapse']})
