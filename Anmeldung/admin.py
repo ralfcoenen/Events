@@ -31,8 +31,8 @@ class TeilnehmerInline(admin.StackedInline):
     fieldsets = [
         (None, {'fields': ['anrede','name', 'vorname']}),
         ('Adress-Daten Privat', {'fields': ['strasse', 'plz', 'ort'], 'classes': ['collapse']}),
-        ('Adress-Daten Business',
-         {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
+        # ('Adress-Daten Business',
+        #  {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
         ('sonstiges', {
             'fields': ['email', 'telefon', 'anreisedatum', 'abreisedatum', 'uebersetzungen', 'verkehrsmittel',
                        'unterbringung', 'wohnenimhaus', 'verpflegung', 'bemerkung'], 'classes': ['collapse']})
@@ -61,7 +61,7 @@ class EventAdmin(TranslationAdmin):
         ('Beschreibung', {'fields': ['beschreibung'], 'classes': ['collapse']}),
     ]
     inlines = [TeilnehmerInline]
-    actions = ['exportliste', 'gesamtbericht']
+    actions = ['exportliste']
     list_display = (
         'bezeichnung', 'beginn', 'ende', 'registrationdeadline', 'AnzahlTeilnehmer', 'AnzahlEssen', 'AnzahlWarteliste',)
     save_on_top = True
@@ -89,8 +89,8 @@ class EventAdmin(TranslationAdmin):
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
                              'teilnehmer__name', 'teilnehmer__vorname',
                              'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
-                             'teilnehmer__businessaddress', 'teilnehmer__bustrasse', 'teilnehmer__buplz',
-                             'teilnehmer__buort',
+                             # 'teilnehmer__businessaddress', 'teilnehmer__bustrasse', 'teilnehmer__buplz',
+                             # 'teilnehmer__buort',
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
                              'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen', 'teilnehmer__verpflegung',
                              'teilnehmer__verkehrsmittel',
@@ -102,8 +102,8 @@ class EventAdmin(TranslationAdmin):
         fieldnames = ['bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
                       'teilnehmer__name', 'teilnehmer__vorname',
                       'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
-                      'teilnehmer__businessaddress', 'teilnehmer__bustrasse', 'teilnehmer__buplz', 'teilnehmer__buort',
-                      'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
+                      # 'teilnehmer__businessaddress', 'teilnehmer__bustrasse', 'teilnehmer__buplz', 'teilnehmer__buort',
+                      # 'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
                       'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen', 'teilnehmer__verpflegung',
                       'teilnehmer__verkehrsmittel',
                       'teilnehmer__unterbringung', 'teilnehmer__wohnenimhaus', 'teilnehmer__bemerkung'
@@ -270,12 +270,12 @@ class EventAdmin(TranslationAdmin):
 
 
 class TeilnehmerAdmin(admin.ModelAdmin):
-    actions = ['Rechnung']
+    # actions = ['Rechnung']
     fieldsets = [
         (None, {'fields': ['name', 'vorname']}),
         ('Adress-Daten Privat', {'fields': ['strasse', 'plz', 'ort', 'land'], 'classes': ['collapse']}),
-        ('Adress-Daten Business',
-         {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
+        # ('Adress-Daten Business',
+        #  {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
         ('sonstiges', {
             'fields': ['email', 'telefon', 'anreisedatum', 'abreisedatum', 'uebersetzungen', 'verkehrsmittel',
                        'unterbringung', 'wohnenimhaus', 'verpflegung', 'bemerkung'], 'classes': ['collapse']})
