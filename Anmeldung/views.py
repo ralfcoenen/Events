@@ -124,7 +124,7 @@ def teilnehmer_neu(request, pk):
                     settsDict['titel'] = form.cleaned_data['titel']
                     settsDict['vorname'] = form.cleaned_data['vorname']
                     settsDict['name'] = form.cleaned_data['name']
-                    settsDict['businessaddress'] = form.cleaned_data['businessaddress']
+                    #settsDict['businessaddress'] = form.cleaned_data['businessaddress']
                     settsDict['strasse'] = form.cleaned_data['strasse']
                     settsDict['land'] = form.cleaned_data['land']
                     settsDict['plz'] = form.cleaned_data['plz']

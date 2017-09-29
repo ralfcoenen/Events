@@ -286,6 +286,9 @@ class TeilnehmerAdmin(admin.ModelAdmin):
     search_fields = ('name', 'email')
     save_on_top = True
     save_as = True
+    
+    def has_add_permission(self, request):
+        return False
 
     def Eventbezeichnung(self, obj):
         return obj.event.bezeichnung
