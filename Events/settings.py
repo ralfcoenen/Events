@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*j=lr(u&o@alycr!gts!8n10vpo$0)6ebggg(3lpg-_vu1$7py'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
 #ALLOWED_HOSTS = ['127.0.0.1']

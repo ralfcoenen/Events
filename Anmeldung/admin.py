@@ -31,11 +31,8 @@ class TeilnehmerInline(admin.StackedInline):
     fieldsets = [
         (None, {'fields': ['anrede','name', 'vorname']}),
         ('Adress-Daten Privat', {'fields': ['strasse', 'plz', 'ort'], 'classes': ['collapse']}),
-<<<<<<< HEAD
         # ('Adress-Daten Business',
         #  {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
-=======
->>>>>>> 9827b0e64b5e9872f3caa5778de0186000909988
         ('sonstiges', {
             'fields': ['email', 'telefon', 'anreisedatum', 'abreisedatum', 'uebersetzungen', 'verkehrsmittel',
                        'unterbringung', 'wohnenimhaus', 'verpflegung', 'bemerkung'], 'classes': ['collapse']})
