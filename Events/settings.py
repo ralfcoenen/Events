@@ -25,7 +25,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*j=lr(u&o@alycr!gts!8n10vpo$0)6ebggg(3lpg-_vu1$7py'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
 #ALLOWED_HOSTS = ['127.0.0.1']
@@ -211,3 +211,5 @@ TINYMCE_DEFAULT_CONFIG = {
     # 'content_css': '/var/www/virtual/subuthi/django.subuthi.de/static/Anmeldung/bootstrap/css/bootstrap.css',
     'content_css': os.path.join(STATIC_ROOT,'bootstrap/css/bootstrap.css'),
 }
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
