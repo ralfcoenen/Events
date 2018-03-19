@@ -25,10 +25,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '*j=lr(u&o@alycr!gts!8n10vpo$0)6ebggg(3lpg-_vu1$7py'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
-#ALLOWED_HOSTS = ['127.0.0.1']
+#ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
+ALLOWED_HOSTS = ['127.0.0.1']
 USE_X_FORWARDED_HOST = True
 
 
@@ -84,7 +84,7 @@ WSGI_APPLICATION = 'Events.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
-'''
+
 #Local Development-Server
 DATABASES = {
     'default': {
@@ -119,7 +119,7 @@ DATABASES = {
         },
     }
 }
-
+'''
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
@@ -166,7 +166,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
 EMAIL_HOST_PASSWORD = 'Paaf.3010'
-
+'''
 #
 # Production
 # ###################
@@ -186,7 +186,7 @@ MEDIA_URL = '/media/'
 #
 #   django-filebrowser
 #
-'''
+
 FILEBROWSER_DIRECTORY = ''
 DIRECTORY = ''
 
@@ -209,7 +209,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
     'height': 460,
     # 'content_css': '/var/www/virtual/subuthi/django.subuthi.de/static/Anmeldung/bootstrap/css/bootstrap.css',
-    'content_css': os.path.join(STATIC_ROOT,'bootstrap/css/bootstrap.css'),
+    'content_css': os.path.join(STATIC_ROOT,'Anmeldung/bootstrap/css/bootstrap.css'),
 }
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS = None

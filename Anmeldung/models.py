@@ -15,6 +15,7 @@ class Event(models.Model):
     registrationdeadline = models.DateField('Sichtbar bis einschl.',default=datetime.date.today)
     beginn = models.DateField(default=datetime.date.today)
     ende = models.DateField(default=datetime.date.today)
+    orgaemails = models.CharField(_('Email OrgaTeam'),max_length=60,blank=True,null=True)
     kurzbeschreibung = HTMLField('Kurze Beschreibung', blank=True)
     beschreibung = HTMLField('Beschreibung', blank=True)
     oeffentlich = models.BooleanField('Öffentliche Veranstaltung bzw. noch Plätze frei',default=True)

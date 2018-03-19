@@ -161,7 +161,7 @@ def teilnehmer_neu(request, pk):
                     nachricht2_html = engines['django'].from_string(settsDict['htmltext_organisation']).render(settsDict)
                                                                 
                     #
-                    # mesage 1
+                    # mesage 1: An Teilnehmer
                     #
                     betreff = 'Ihre Anmeldung für ' + event.bezeichnung
                     von = setts.emails_to
@@ -169,7 +169,7 @@ def teilnehmer_neu(request, pk):
                     # message1 = (betreff, nachricht, von, an)
                     send_mail(betreff, nachricht, von, an, html_message=nachricht_html, fail_silently=False)
                     #
-                    # mesage 2
+                    # mesage 2: An Orga-Emails
                     #
                     betreff = 'Neue Anmeldung für ' + event.bezeichnung
                     von = setts.emails_to
