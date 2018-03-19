@@ -139,7 +139,9 @@ def teilnehmer_neu(request, pk):
                     settsDict['verpflegung'] = form.cleaned_data['verpflegung']
                     settsDict['uebersetzungen'] = form.cleaned_data['uebersetzungen']
                     settsDict['unterbringung'] = form.cleaned_data['unterbringung']
-                    settsDict['wohnenimhaus'] = form.cleaned_data['wohnenimhaus']
+                    if form.cleaned_data['wohnenimhaus']:
+                        settsDict['wohnenimhaus'] = 'Ich möchte gerne im Haus wohnen.'
+                    settsDict['verkehrsmittel']= form.cleaned_data['verkehrsmittel']
                     settsDict['anreisedatum'] = form.cleaned_data['anreisedatum']
                     settsDict['abreisedatum'] = form.cleaned_data['abreisedatum']
 
