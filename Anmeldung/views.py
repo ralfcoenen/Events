@@ -166,6 +166,7 @@ def teilnehmer_neu(request, pk):
                     betreff = 'Ihre Anmeldung für ' + event.bezeichnung
                     von = setts.emails_to
                     an = [form.cleaned_data['email']]
+
                     # message1 = (betreff, nachricht, von, an)
                     send_mail(betreff, nachricht, von, an, html_message=nachricht_html, fail_silently=False)
                     #
@@ -173,7 +174,11 @@ def teilnehmer_neu(request, pk):
                     #
                     betreff = 'Neue Anmeldung für ' + event.bezeichnung
                     von = setts.emails_to
-                    an = [setts.emails_to]
+                    if event.orgaemails != '':
+                        an = [event.orgaemails]
+                    else:
+                        an = [setts.emails_to]
+
                     # message2 = (betreff, nachricht, von, an)
                     send_mail(betreff, nachricht2, von, an, html_message=nachricht2_html, fail_silently=False)
                     #
