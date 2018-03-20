@@ -7,7 +7,5 @@ __pycache__
 .idea/misc.xml
 .idea/modules.xml
 .idea/workspace.xml
-Anmeldung/migrations/
-Events/settings.py
-
-
+/Events/settings.py
+/Anmeldung/migrations/
