@@ -55,7 +55,7 @@ class EventAdmin(TranslationAdmin):
 
     readonly_fields = ('AnzahlTeilnehmer', 'AnzahlEssen', 'AnzahlWarteliste',)
     fieldsets = [
-        (None, {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline',
+        (None, {'fields': ['bezeichnung', 'oeffentlich', 'sichtbar', 'beginn', 'ende', 'registrationdeadline','orgaemails',
                            'eventplaetze', 'essensplaetze']}),
         ('kurze Beschreibung', {'fields': ['kurzbeschreibung'], 'classes': ['collapse']}),
         ('Beschreibung', {'fields': ['beschreibung'], 'classes': ['collapse']}),
