@@ -17,7 +17,8 @@ class TeilnehmerForm(forms.ModelForm):
         help_texts = {
             # 'businessaddress': (_('Bitte geben Sie ggfs. Ihre Rechnungsadresse ein')),
             'uebersetzungen' : (_('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. Android und IOS bieten entsprechende Apps dazu an.')),
-            'wohnenimhaus'   : (_('Unsere knappen Schlafplaetze stehen nur Ordinierten, Mithelfern beim Kurs sowie Menschen mit sehr begrenztem finanziellem Hintergrund zur Verfügung. Bitte nennen Sie ihre Gründe in der Bemerkung.'))
+            'wohnenimhaus'   : (_('Unsere knappen Schlafplaetze stehen nur Ordinierten, Mithelfern beim Kurs sowie Menschen mit sehr begrenztem finanziellem Hintergrund zur Verfügung. Bitte nennen Sie ihre Gründe in der Bemerkung.')),
+            'bemerkung'      : (_('Bitte nur Text eintragen. Keine Emojis etc. Unsere Datenbank lässt das leider nicht zu.'))
         }
 
 
