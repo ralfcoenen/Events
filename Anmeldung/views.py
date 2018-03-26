@@ -55,6 +55,7 @@ def teilnehmer_neu(request, pk):
     if request.method == "POST":
         form = TeilnehmerForm(request.POST)
         if form.is_valid():
+
             recaptcha_response = request.POST.get('g-recaptcha-response')
             url = 'https://www.google.com/recaptcha/api/siteverify'
             values = {
@@ -66,6 +67,7 @@ def teilnehmer_neu(request, pk):
             response = urllib.request.urlopen(req)
             result = json.loads(response.read().decode())
             #End reCAPTCHA validation
+
 
             if result['success']:
                 teilnehmer = form.save(commit=False)
@@ -1134,7 +1136,7 @@ def remove_emoji(string):
     u'\U0001F54B'
     u'\U0001F511'
     u'\U00002328'
-    u'\U00000023\U0000FE0F\U000020E3',
+    u'\U00000023\U0000FE0F\U000020E3'
     u'\U0000002A\U0000FE0F\U000020E3'
     u'\U00000030\U0000FE0F\U000020E3'
     u'\U00000031\U0000FE0F\U000020E3'
