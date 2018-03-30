@@ -103,7 +103,7 @@ class EventAdmin(TranslationAdmin):
                       'teilnehmer__name', 'teilnehmer__vorname',
                       'teilnehmer__strasse', 'teilnehmer__plz', 'teilnehmer__ort',
                       # 'teilnehmer__businessaddress', 'teilnehmer__bustrasse', 'teilnehmer__buplz', 'teilnehmer__buort',
-                      # 'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
+                      'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
                       'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen', 'teilnehmer__verpflegung',
                       'teilnehmer__verkehrsmittel',
                       'teilnehmer__unterbringung', 'teilnehmer__wohnenimhaus', 'teilnehmer__bemerkung'
