@@ -61,7 +61,7 @@ class EventAdmin(TranslationAdmin):
         ('Beschreibung', {'fields': ['beschreibung'], 'classes': ['collapse']}),
     ]
     inlines = [TeilnehmerInline]
-    actions = ['exportliste']
+    actions = ['exportliste','gesamtbericht']
     list_display = (
         'bezeichnung', 'beginn', 'ende', 'registrationdeadline', 'AnzahlTeilnehmer', 'AnzahlEssen', 'AnzahlWarteliste',)
     save_on_top = True
@@ -281,7 +281,7 @@ class TeilnehmerAdmin(admin.ModelAdmin):
                        'unterbringung', 'wohnenimhaus', 'verpflegung', 'bemerkung'], 'classes': ['collapse']})
     ]
     ordering = ['name']
-    list_display = ('name', 'vorname', 'email', 'Eventbezeichnung')
+    list_display = ('name', 'vorname', 'email', 'Eventbezeichnung','anmeldedatum')
     list_filter = ('event__bezeichnung',)
     search_fields = ('name', 'email')
     save_on_top = True

@@ -141,6 +141,7 @@ class Teilnehmer(models.Model):
     wohnenimhaus = models.BooleanField(_('Ich möchte im Haus wohnen'), default=False)
     unterbringung = models.CharField(_('Unterbringung'),max_length=20,choices=SLEEPCHOICES,default=SLEEPNONE, blank=True)
     uebersetzungen = models.CharField(_('Art der Übersetzung'), max_length=40, choices=TRANSCHOICES, default=TRANSNONE)
+    anmeldedatum = models.DateField(_('Datum der Anmeldung'),default=datetime.date.today)
 
     def __str__(self):
         return self.name
