@@ -29,7 +29,7 @@ class TeilnehmerInline(admin.StackedInline):
     model = Teilnehmer
     extra = 0
     fieldsets = [
-        (None, {'fields': ['anrede','name', 'vorname']}),
+        (None, {'fields': ['anrede','name', 'vorname', ]}),
         ('Adress-Daten Privat', {'fields': ['strasse', 'plz', 'ort'], 'classes': ['collapse']}),
         # ('Adress-Daten Business',
         #  {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
@@ -272,7 +272,7 @@ class EventAdmin(TranslationAdmin):
 class TeilnehmerAdmin(admin.ModelAdmin):
     # actions = ['Rechnung']
     fieldsets = [
-        (None, {'fields': ['name', 'vorname']}),
+        (None, {'fields': ['name', 'vorname','anmeldedatum']}),
         ('Adress-Daten Privat', {'fields': ['strasse', 'plz', 'ort', 'land'], 'classes': ['collapse']}),
         # ('Adress-Daten Business',
         #  {'fields': ['businessaddress', 'bustrasse', 'buplz', 'buort'], 'classes': ['collapse']}),
