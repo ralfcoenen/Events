@@ -1,19 +1,18 @@
-from django.shortcuts import render, get_object_or_404, redirect
-from Anmeldung.models import Event, texte, UserSettings
-from .forms import TeilnehmerForm
-from datetime import date
-
+import json
+import re
 import urllib.request
+from datetime import date
 
 from django.conf import settings
 from django.contrib import messages
+from django.shortcuts import render, get_object_or_404, redirect
+from django.template import engines
 
-from django.core.mail import send_mail, send_mass_mail
-import json
-import string
+from Anmeldung.models import Event, texte, UserSettings
+from .forms import TeilnehmerForm
 
-from django.template import engines, Context, Template
-import re
+from django.core import mail
+from django.core.mail import EmailMultiAlternatives
 
 
 
@@ -163,34 +162,39 @@ def teilnehmer_neu(request, pk):
                                                                                                                                         
                     nachricht2 = 'Bitte Schalten Sie in die HTML-Ansicht für diese eMail'
                     nachricht2_html = engines['django'].from_string(settsDict['htmltext_organisation']).render(settsDict)
+
                                                                 
                     #
                     # mesage 1: An Teilnehmer
                     #
-                    betreff = 'Ihre Anmeldung für ' + event.bezeichnung
-                    von = setts.emails_to
-                    an = [form.cleaned_data['email']]
+                    subject = 'Ihre Anmeldung für ' + event.bezeichnung
+                    from_email = setts.emails_to
+                    to = form.cleaned_data['email']
+                    msg_teilnehmer = EmailMultiAlternatives(subject, nachricht, from_email, [to])
+                    msg_teilnehmer.attach_alternative(nachricht_html, "text/html")
+                    # msg_teilnehmer.send()
 
-                    # message1 = (betreff, nachricht, von, an)
-                    send_mail(betreff, nachricht, von, an, html_message=nachricht_html, fail_silently=False)
                     #
                     # mesage 2: An Orga-Emails
                     #
-                    betreff = 'Neue Anmeldung für ' + event.bezeichnung
-                    von = setts.emails_to
-                    if event.orgaemails != '':
-                        an = [event.orgaemails]
+                    subject = 'Neue Anmeldung für ' + event.bezeichnung
+                    from_email = setts.emails_to
+
+                    if event.orgaemails:
+                        to = event.orgaemails
                     else:
-                        an = [setts.emails_to]
+                        to = setts.emails_to
+                    msg_orga = EmailMultiAlternatives(subject, nachricht2, from_email, [to])
+                    msg_orga.attach_alternative(nachricht2_html, "text/html")
+                    # msg_orga.send()
 
-                    # message2 = (betreff, nachricht, von, an)
-                    send_mail(betreff, nachricht2, von, an, html_message=nachricht2_html, fail_silently=False)
                     #
-                    #  Sende Alle eMails auf einmal
+                    # Sende alle Mails
                     #
-                    # send_mass_mail((message1, message2), fail_silently=False)
-                                                                                                                                                                                                                                                                                                                                                                        
-
+                    connection = mail.get_connection()
+                    connection.open()
+                    connection.send_messages([msg_teilnehmer, msg_orga])
+                    connection.close
 
                 return redirect('teilnehmer_neu', pk=pk)
 
