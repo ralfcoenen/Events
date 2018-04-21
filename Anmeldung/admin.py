@@ -167,6 +167,7 @@ class EventAdmin(TranslationAdmin):
                     # header
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles,'Teilnehmerliste')
+                    elements.append(PageBreak())
                 #
                 # Essensplätze
                 #
@@ -194,6 +195,7 @@ class EventAdmin(TranslationAdmin):
                     t = Table(data)
                     elements.append(t)
                     elements.append(Spacer(10, 10 * mm))
+                    elements.append(PageBreak())
                 #
                 #  parkplätze
                 #
@@ -206,6 +208,7 @@ class EventAdmin(TranslationAdmin):
                     # header
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles,'Es kommen mit dem Auto')
+                    elements.append(PageBreak())
                 #
                 # Abholung am Bahnhof
                 #
@@ -219,6 +222,7 @@ class EventAdmin(TranslationAdmin):
                     # header
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum','Unterbringung'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles, 'Am Bahnhof abzuholen')
+                    elements.append(PageBreak())
                 #
                 # Zeltplätze
                 #
@@ -233,6 +237,7 @@ class EventAdmin(TranslationAdmin):
                     # header
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum', 'Unterbringung'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles, 'Übernachtung im Zelt oder Wohnwagen')
+                    elements.append(PageBreak())
                 #
                 # Hotels
                 #
@@ -245,6 +250,7 @@ class EventAdmin(TranslationAdmin):
                 if len(data) > 0:
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles, 'Übernachtung Extern')
+                    elements.append(PageBreak())
                 #
                 # Übersetzungen
                 #
@@ -261,7 +267,7 @@ class EventAdmin(TranslationAdmin):
 
 
                 # fertig mit dem Event
-                elements.append(PageBreak())
+            elements.append(PageBreak())
 
         menu_pdf.build(elements, onFirstPage=self.mytemplate, onLaterPages=self.mytemplate)
         response.write(buff.getvalue())
