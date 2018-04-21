@@ -170,7 +170,7 @@ class EventAdmin(TranslationAdmin):
                 #
                 # Essensplätze
                 #
-                essensplaetze = Teilnehmer.objects.filter(event=e.pk).filter(verpflegung = 'Ich nehme an der Verpflegung teil').values('name', 'vorname', 'email', 'anreisedatum', 'abreisedatum')
+                essensplaetze = Teilnehmer.objects.filter(event=e.pk).filter(verpflegung = 'Ich nehme an der Verpflegung teil').values('name', 'vorname', 'email', 'anreisedatum', 'abreisedatum').order_by('name')
                 data = []
                 for t in essensplaetze:
                     data.append([t['name'] + ', ' + t['vorname'], t['email'], t['anreisedatum'].strftime("%d.%m.%Y"), t['abreisedatum'].strftime("%d.%m.%Y")])
@@ -198,7 +198,7 @@ class EventAdmin(TranslationAdmin):
                 #  parkplätze
                 #
                 parkplaetze = Teilnehmer.objects.filter(event=e.pk).filter(verkehrsmittel='Auto').values(
-                    'name', 'vorname', 'email', 'anreisedatum', 'abreisedatum')
+                    'name', 'vorname', 'email', 'anreisedatum', 'abreisedatum').order_by('name')
                 data = []
                 for t in parkplaetze:
                     data.append([t['name'] + ', ' + t['vorname'], t['email'], t['anreisedatum'].strftime("%d.%m.%Y"), t['abreisedatum'].strftime("%d.%m.%Y")])
@@ -210,7 +210,7 @@ class EventAdmin(TranslationAdmin):
                 # Abholung am Bahnhof
                 #
                 z2 = Teilnehmer.objects.filter(event=e.pk).filter(
-                    Q(verkehrsmittel="Bahn mit Abholung"))
+                    Q(verkehrsmittel="Bahn mit Abholung")).order_by('name')
                 data = []
                 for t in z2:
                     data.append([t.name + ', ' + t.vorname, t.email, t.anreisedatum.strftime("%d.%m.%Y"),
@@ -224,7 +224,7 @@ class EventAdmin(TranslationAdmin):
                 #
 
                 # Mit Q-Objetcs lassen sich ODER Abfragen realisiern, wogegen sonst Filter-Chaining als UND abgebildet wird
-                z2 = Teilnehmer.objects.filter(event=e.pk).filter(Q(unterbringung="Zelt") | Q(unterbringung="Wohnwagen u.ä."))
+                z2 = Teilnehmer.objects.filter(event=e.pk).filter(Q(unterbringung="Zelt") | Q(unterbringung="Wohnwagen u.ä.")).order_by('name')
                 data = []
                 for t in z2:
                     data.append([t.name + ', ' + t.vorname, t.email, t.anreisedatum.strftime("%d.%m.%Y"),
@@ -237,7 +237,7 @@ class EventAdmin(TranslationAdmin):
                 # Hotels
                 #
                 z2 = Teilnehmer.objects.filter(event=e.pk).filter(
-                    Q(unterbringung="Extern"))
+                    Q(unterbringung="Extern")).order_by('name')
                 data = []
                 for t in z2:
                     data.append([t.name + ', ' + t.vorname, t.email, t.anreisedatum.strftime("%d.%m.%Y"),
@@ -249,7 +249,7 @@ class EventAdmin(TranslationAdmin):
                 # Übersetzungen
                 #
                 z2 = Teilnehmer.objects.filter(event=e.pk).filter(
-                    Q(uebersetzungen="Englisch") | Q(uebersetzungen="Französisch"))
+                    Q(uebersetzungen="Englisch") | Q(uebersetzungen="Französisch")).order_by('name')
                 data = []
                 for t in z2:
                     data.append([t.name + ', ' + t.vorname, t.email, t.anreisedatum.strftime("%d.%m.%Y"),
