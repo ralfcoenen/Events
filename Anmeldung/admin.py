@@ -268,7 +268,7 @@ class EventAdmin(TranslationAdmin):
 
 
                 # fertig mit dem Event
-            elements.append(PageBreak())
+            # elements.append(PageBreak())
 
         menu_pdf.build(elements, onFirstPage=self.mytemplate, onLaterPages=self.mytemplate)
         response.write(buff.getvalue())
