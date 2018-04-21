@@ -149,7 +149,6 @@ class EventAdmin(TranslationAdmin):
 
         # Für jedes ausgewählte Event
         for e in queryset:
-
             alle_teilnehmer = e.teilnehmer_set.values('name', 'vorname', 'email', 'anreisedatum', 'abreisedatum').order_by('name')
             if len(alle_teilnehmer) > 0:
                 #
@@ -168,6 +167,8 @@ class EventAdmin(TranslationAdmin):
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles,'Teilnehmerliste')
                     elements.append(PageBreak())
+            else:
+                continue
                 #
                 # Essensplätze
                 #
