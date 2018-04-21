@@ -167,8 +167,7 @@ class EventAdmin(TranslationAdmin):
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles,'Teilnehmerliste')
                     elements.append(PageBreak())
-            else:
-                continue
+
                 #
                 # Essensplätze
                 #
@@ -265,7 +264,8 @@ class EventAdmin(TranslationAdmin):
                     # header
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum', 'Übersetzung'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles, 'Gewünschte Übersetzungen')
-
+        else:
+            continue
 
                 # fertig mit dem Event
             # elements.append(PageBreak())
