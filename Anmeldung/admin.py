@@ -264,8 +264,8 @@ class EventAdmin(TranslationAdmin):
                     # header
                     data.insert(0, ['Name, Vorname', 'eMail', 'Anreisedatum', 'Abreisedatum', 'Übersetzung'])
                     self.berichtsteil(e, menu_pdf, elements, data, styles, 'Gewünschte Übersetzungen')
-        else:
-            continue
+            else:
+                continue
 
                 # fertig mit dem Event
             # elements.append(PageBreak())
