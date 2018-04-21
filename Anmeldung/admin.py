@@ -94,7 +94,7 @@ class EventAdmin(TranslationAdmin):
                              'teilnehmer__email', 'teilnehmer__telefon', 'teilnehmer__anreisedatum',
                              'teilnehmer__abreisedatum', 'teilnehmer__uebersetzungen', 'teilnehmer__verpflegung',
                              'teilnehmer__verkehrsmittel',
-                             'teilnehmer__unterbringung', 'teilnehmer__wohnenimhaus', 'teilnehmer__bemerkung')
+                             'teilnehmer__unterbringung', 'teilnehmer__wohnenimhaus', 'teilnehmer__bemerkung').order_by('teilnehmer__name')
 
         response = HttpResponse(content_type='text/csv')
         response['Content-Disposition'] = 'attachment; filename="somefilename.csv"'
@@ -150,7 +150,7 @@ class EventAdmin(TranslationAdmin):
         # Für jedes ausgewählte Event
         for e in queryset:
 
-            alle_teilnehmer = e.teilnehmer_set.values('name', 'vorname', 'email', 'anreisedatum', 'abreisedatum')
+            alle_teilnehmer = e.teilnehmer_set.values('name', 'vorname', 'email', 'anreisedatum', 'abreisedatum').order_by('name')
             if len(alle_teilnehmer) > 0:
                 #
                 # Teilnehmerliste
