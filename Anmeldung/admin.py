@@ -73,6 +73,7 @@ class EventAdmin(TranslationAdmin):
     PAGE_HEIGHT = A4[1]
     PAGE_WIDTH = A4[0]
     styles = getSampleStyleSheet()
+    kopf = ""
 
     def AnzahlTeilnehmer(self, obj):
         return obj.teilnehmer_set.count()
@@ -127,13 +128,21 @@ class EventAdmin(TranslationAdmin):
 
         return 1
 
-    def mytemplate(self, canvas, doc):
+    def firstpagetemplate(self, canvas, doc):
         canvas.saveState()
         canvas.setFont('Times-Roman', 9)
         canvas.drawString(10 * mm, 15 * mm, "Seite %d  - %s" % (doc.page, "Stand: " + date.today().strftime("%d.%m.%Y")))
         canvas.restoreState()
 
+    def nextpagetemplate(self, canvas, doc):
+        canvas.saveState()
+        canvas.drawCentredString(self.PAGE_WIDTH / 2.0, self.PAGE_HEIGHT - 20, self.kopf)
+        canvas.setFont('Times-Roman', 9)
+        canvas.drawString(10 * mm, 15 * mm, "Seite %d  - %s" % (doc.page, "Stand: " + date.today().strftime("%d.%m.%Y")))
+        canvas.restoreState()
+
     def gesamtbericht(self, request, queryset):
+        global title
         # response erstellen
         response = HttpResponse(content_type='application/pdf')
 
@@ -154,6 +163,7 @@ class EventAdmin(TranslationAdmin):
                 #
                 # Teilnehmerliste
                 #
+                self.kopf = e.bezeichnung
                 data = []
                 for t in alle_teilnehmer:
                     data.append([t['name'] + ', ' + t['vorname'], t['email'], t['anreisedatum'].strftime("%d.%m.%Y"), t['abreisedatum'].strftime("%d.%m.%Y")])
@@ -272,7 +282,7 @@ class EventAdmin(TranslationAdmin):
                 # fertig mit dem Event
             # elements.append(PageBreak())
 
-        menu_pdf.build(elements, onFirstPage=self.mytemplate, onLaterPages=self.mytemplate)
+        menu_pdf.build(elements, onFirstPage=self.firstpagetemplate, onLaterPages=self.nextpagetemplate)
         response.write(buff.getvalue())
         buff.close()
         return response
