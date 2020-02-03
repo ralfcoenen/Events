@@ -22,13 +22,13 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/1.8/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '*j=lr(u&o@alycr!gts!8n10vpo$0)6ebggg(3lpg-_vu1$7py'
+SECRET_KEY = 'THESECRETKEY'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
-#ALLOWED_HOSTS = ['127.0.0.1']
+#ALLOWED_HOSTS = ['anmeldung.ekayana-institut.de']
+ALLOWED_HOSTS = ['127.0.0.1']
 USE_X_FORWARDED_HOST = True
 
 
@@ -37,13 +37,13 @@ USE_X_FORWARDED_HOST = True
 INSTALLED_APPS = (
     'filebrowser',
     'modeltranslation',
-    'Anmeldung.apps.AnmeldungConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'Anmeldung.apps.AnmeldungConfig',
     'tinymce',
 )
 
@@ -90,15 +90,6 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        # 'ENGINE': 'django.db.backends.mysql',
-        # 'NAME': 'ekayana_django',
-        # 'USER': 'ekayana',
-        # 'PASSWORD': 'ooCohj9Weing4too',
-        # 'HOST': '127.0.0.1',
-        # 'PORT': '',
-        # 'OPTIONS': {
-        #   'init_command': "SET sql_mode='STRICT_ALL_TABLES'"
-        # },
     }
 }
 '''
@@ -106,12 +97,10 @@ DATABASES = {
 # Production-Server
 DATABASES = {
     'default': {
-        #'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'ekayana_django',
-        'USER': 'ekayana',
-        'PASSWORD': 'ooCohj9Weing4too',
+        'NAME': 'DBNAME',
+        'USER': 'DBUSER',
+        'PASSWORD': 'DBPASSWORT',
         'HOST': '127.0.0.1',
         'PORT': '',
         'OPTIONS': {
@@ -157,15 +146,15 @@ ADMINS = [('Ralf', 'ralf@subuthi.de')]
 #
 #
 #
-GOOGLE_RECAPTCHA_SECRET_KEY = '6Lc4pxcUAAAAAJYwrpNAR5y__tVLJpBa6DPs3eUm'
+GOOGLE_RECAPTCHA_SECRET_KEY = 'SECRETGOOGLECAPTCHAKEY'
 #
 #  Email
 #
-EMAIL_HOST = 'peacock.uberspace.de'
+EMAIL_HOST = 'EMAILHOST.COM'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'ralf@ekayana-institut.de'
-EMAIL_HOST_PASSWORD = 'Paaf.3010'
+EMAIL_HOST_USER = 'EMAILUSERNAME'
+EMAIL_HOST_PASSWORD = 'EMAILUSERPASSWORT'
 '''
 #
 # Production
@@ -186,7 +175,7 @@ MEDIA_URL = '/media/'
 #
 #   django-filebrowser
 #
-'''
+
 FILEBROWSER_DIRECTORY = ''
 DIRECTORY = ''
 
@@ -209,5 +198,7 @@ TINYMCE_DEFAULT_CONFIG = {
     'statusbar': True,
     'height': 460,
     # 'content_css': '/var/www/virtual/subuthi/django.subuthi.de/static/Anmeldung/bootstrap/css/bootstrap.css',
-    'content_css': os.path.join(STATIC_ROOT,'bootstrap/css/bootstrap.css'),
+    'content_css': os.path.join(STATIC_ROOT,'Anmeldung/bootstrap/css/bootstrap.css'),
 }
+
+DATA_UPLOAD_MAX_NUMBER_FIELDS = None
