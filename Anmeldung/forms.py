@@ -3,6 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from .models import Teilnehmer, Event
 
+
 class TeilnehmerForm(forms.ModelForm):
 
     class Meta:
@@ -10,16 +11,20 @@ class TeilnehmerForm(forms.ModelForm):
 
         # fields = '__all__'
         # exclude = ['event']
-        fields = ('anrede','titel','vorname','name','strasse',
-              'plz','ort','land','businessaddress','bustrasse','buplz','buort','buland','telefon','email', 'anreisedatum','abreisedatum','uebersetzungen', 'verkehrsmittel', 'verpflegung','wohnenimhaus','unterbringung',
-              'bemerkung')
+        fields = ('anrede', 'titel', 'vorname', 'name', 'strasse',
+                    'plz', 'ort', 'land', 'businessaddress', 'bustrasse', 'buplz', 'buort', 'buland', 'telefon', 'email',
+                    'anreisedatum', 'abreisedatum', 'uebersetzungen', 'verkehrsmittel', 'verpflegung', 'wohnenimhaus',
+                    'unterbringung',
+                    'bemerkung')
 
         help_texts = {
             'businessaddress': (_('Bitte geben Sie ggfs. Ihre Rechnungsadresse ein')),
-            'uebersetzungen' : (_('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. Android und IOS bieten entsprechende Apps dazu an.')),
-            'wohnenimhaus'   : (_('Unsere knappen Schlafplaetze stehen nur Ordinierten, Mithelfern beim Kurs sowie Menschen mit sehr begrenztem finanziellem Hintergrund zur Verfügung. Bitte nennen Sie ihre Gründe in der Bemerkung.'))
+            'uebersetzungen': (_('Bitte bringen Sie ein FM-Radio als Empfänger für die Übersetzung mit. '
+                                  'Android und IOS bieten entsprechende Apps dazu an.')),
+            'wohnenimhaus': (_('Unsere knappen Schlafplaetze stehen nur Ordinierten, Mithelfern beim '
+                                  'Kurs sowie Menschen mit sehr begrenztem finanziellem Hintergrund zur Verfügung. '
+                                  'Bitte nennen Sie ihre Gründe in der Bemerkung.'))
         }
-
 
     def __init__(self, *args, **kwargs):
         super(TeilnehmerForm, self).__init__(*args, **kwargs)

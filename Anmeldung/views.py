@@ -8,11 +8,11 @@ import urllib.request
 from django.conf import settings
 from django.contrib import messages
 
-from django.core.mail import send_mail, send_mass_mail
+from django.core.mail import send_mail
 import json
-import string
 
-from django.template import engines, Context, Template
+
+from django.template import engines
 
 
 # ------------------------------------------------------------

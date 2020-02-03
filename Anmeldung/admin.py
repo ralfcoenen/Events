@@ -1,12 +1,12 @@
 from django.contrib import admin
 from modeltranslation.admin import TranslationAdmin
-#from modeltranslation.admin import TranslationStackedInline
-#from django.utils.html import format_html
+# from modeltranslation.admin import TranslationStackedInline
+# from django.utils.html import format_html
 import csv
 from django.http import HttpResponse
 
 from .models import Event, Teilnehmer, texte, UserSettings
-#from djqscsv import render_to_csv_response
+# from djqscsv import render_to_csv_response
 
 
 from filebrowser.sites import site
@@ -50,18 +50,14 @@ class EventAdmin(TranslationAdmin):
     save_on_top = True
     save_as = True
 
-
     def AnzahlTeilnehmer(self, obj):
         return obj.teilnehmer_set.count()
-            
 
     def AnzahlEssen(self, obj):
         return Event.objects.filter(id=obj.id).filter(teilnehmer__verpflegung='Ich nehme an der Verpflegung teil').count()
-                        
 
     def AnzahlWarteliste(self, obj):
         return Event.objects.filter(id=obj.id).filter(teilnehmer__verpflegung='Alles belegt. Ich möchte auf die Warteliste').count()
-
 
     def exportliste(self, request, queryset):
         rs = queryset.values('bezeichnung', 'teilnehmer__anrede', 'teilnehmer__titel',
@@ -94,7 +90,6 @@ class EventAdmin(TranslationAdmin):
         return response
 
 
-
 class texteAdmin(TranslationAdmin):
 
     class Media:
@@ -117,7 +112,6 @@ class texteAdmin(TranslationAdmin):
     save_on_top = True
     save_as = True
 
-
 class usersettingsAdmin(admin.ModelAdmin):
     fieldsets = [
             (None,              {'fields': ['senden', 'emails_to', 
@@ -126,7 +120,7 @@ class usersettingsAdmin(admin.ModelAdmin):
     ]
 
     def has_add_permission(self, request):
-    # Add Button muss weg, weil sonst versehntlich überschrieben wird
+        # Add Button muss weg, weil sonst versehntlich überschrieben wird
         return False
 
 
