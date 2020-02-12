@@ -1,4 +1,4 @@
-django == 1.11.27
+django == 1.11.28
 pillow
 django-queryset-csv
 django-imagekit
